@@ -354,8 +354,8 @@
                               <constraint>
                                 <height>-1</height>
                                 <width>-1</width>
-                                <x>835</x>
-                                <y>111</y>
+                                <x>819</x>
+                                <y>107</y>
                               </constraint>
                               <sourceConnections/>
                               <targetConnections>
@@ -418,6 +418,69 @@
                                   <type>ArrayList&lt;Jokalaria&gt;</type>
                                   <isStatic>false</isStatic>
                                 </net.java.amateras.uml.classdiagram.model.AttributeModel>
+                                <net.java.amateras.uml.classdiagram.model.OperationModel>
+                                  <backgroundColor reference="../../../../../../../../../../../../../../../backgroundColor"/>
+                                  <foregroundColor reference="../../../../../../../../../../../../../../../foregroundColor"/>
+                                  <showIcon>true</showIcon>
+                                  <parent class="net.java.amateras.uml.classdiagram.model.ClassModel" reference="../../.."/>
+                                  <listeners serialization="custom">
+                                    <java.beans.PropertyChangeSupport>
+                                      <default>
+                                        <source class="net.java.amateras.uml.classdiagram.model.OperationModel" reference="../../../.."/>
+                                        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                                      </default>
+                                      <null/>
+                                    </java.beans.PropertyChangeSupport>
+                                  </listeners>
+                                  <visibility class="net.java.amateras.uml.classdiagram.model.Visibility$1"/>
+                                  <name>txandaPasatu</name>
+                                  <type>void</type>
+                                  <params/>
+                                  <isAbstract>false</isAbstract>
+                                  <isStatic>false</isStatic>
+                                </net.java.amateras.uml.classdiagram.model.OperationModel>
+                                <net.java.amateras.uml.classdiagram.model.OperationModel>
+                                  <backgroundColor reference="../../../../../../../../../../../../../../../backgroundColor"/>
+                                  <foregroundColor reference="../../../../../../../../../../../../../../../foregroundColor"/>
+                                  <showIcon>true</showIcon>
+                                  <parent class="net.java.amateras.uml.classdiagram.model.ClassModel" reference="../../.."/>
+                                  <listeners serialization="custom">
+                                    <java.beans.PropertyChangeSupport>
+                                      <default>
+                                        <source class="net.java.amateras.uml.classdiagram.model.OperationModel" reference="../../../.."/>
+                                        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                                      </default>
+                                      <null/>
+                                    </java.beans.PropertyChangeSupport>
+                                  </listeners>
+                                  <visibility class="net.java.amateras.uml.classdiagram.model.Visibility$1" reference="../../net.java.amateras.uml.classdiagram.model.OperationModel/visibility"/>
+                                  <name>eskuHandienaKalkulatu</name>
+                                  <type>Jokalaria</type>
+                                  <params/>
+                                  <isAbstract>false</isAbstract>
+                                  <isStatic>false</isStatic>
+                                </net.java.amateras.uml.classdiagram.model.OperationModel>
+                                <net.java.amateras.uml.classdiagram.model.OperationModel>
+                                  <backgroundColor reference="../../../../../../../../../../../../../../../backgroundColor"/>
+                                  <foregroundColor reference="../../../../../../../../../../../../../../../foregroundColor"/>
+                                  <showIcon>true</showIcon>
+                                  <parent class="net.java.amateras.uml.classdiagram.model.ClassModel" reference="../../.."/>
+                                  <listeners serialization="custom">
+                                    <java.beans.PropertyChangeSupport>
+                                      <default>
+                                        <source class="net.java.amateras.uml.classdiagram.model.OperationModel" reference="../../../.."/>
+                                        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                                      </default>
+                                      <null/>
+                                    </java.beans.PropertyChangeSupport>
+                                  </listeners>
+                                  <visibility class="net.java.amateras.uml.classdiagram.model.Visibility$1"/>
+                                  <name>guztiakErreseteatu</name>
+                                  <type>void</type>
+                                  <params/>
+                                  <isAbstract>false</isAbstract>
+                                  <isStatic>false</isStatic>
+                                </net.java.amateras.uml.classdiagram.model.OperationModel>
                               </children>
                               <filterProperty/>
                               <propertyDescriptors>
@@ -736,7 +799,7 @@
                         </java.beans.PropertyChangeSupport>
                       </listeners>
                       <visibility class="net.java.amateras.uml.classdiagram.model.Visibility$1" reference="../../../targetConnections/net.java.amateras.uml.classdiagram.model.AggregationModel/source/children/net.java.amateras.uml.classdiagram.model.OperationModel/visibility"/>
-                      <name>erreseteatu</name>
+                      <name>gehituKarta</name>
                       <type>void</type>
                       <params/>
                       <isAbstract>false</isAbstract>
@@ -757,7 +820,7 @@
                         </java.beans.PropertyChangeSupport>
                       </listeners>
                       <visibility class="net.java.amateras.uml.classdiagram.model.Visibility$1" reference="../../../targetConnections/net.java.amateras.uml.classdiagram.model.AggregationModel/source/children/net.java.amateras.uml.classdiagram.model.OperationModel/visibility"/>
-                      <name>gehituKarta</name>
+                      <name>erreseteatu</name>
                       <type>void</type>
                       <params/>
                       <isAbstract>false</isAbstract>
@@ -888,7 +951,7 @@
                   </java.beans.PropertyChangeSupport>
                 </listeners>
                 <visibility class="net.java.amateras.uml.classdiagram.model.Visibility$1" reference="../../../targetConnections/net.java.amateras.uml.classdiagram.model.AggregationModel/source/targetConnections/net.java.amateras.uml.classdiagram.model.AggregationModel/source/children/net.java.amateras.uml.classdiagram.model.OperationModel/visibility"/>
-                <name>hartuKarta</name>
+                <name>emanKarta</name>
                 <type>void</type>
                 <params/>
                 <isAbstract>false</isAbstract>
@@ -1221,6 +1284,214 @@
     <net.java.amateras.uml.classdiagram.model.ClassModel reference="../net.java.amateras.uml.classdiagram.model.ClassModel/parent/children/net.java.amateras.uml.classdiagram.model.ClassModel[2]/targetConnections/net.java.amateras.uml.classdiagram.model.AggregationModel/source/targetConnections/net.java.amateras.uml.classdiagram.model.AggregationModel/source"/>
     <net.java.amateras.uml.classdiagram.model.ClassModel reference="../net.java.amateras.uml.classdiagram.model.ClassModel/parent/children/net.java.amateras.uml.classdiagram.model.ClassModel[2]/targetConnections/net.java.amateras.uml.classdiagram.model.AggregationModel/source/targetConnections/net.java.amateras.uml.classdiagram.model.AggregationModel[2]/source/sourceConnections/net.java.amateras.uml.classdiagram.model.AggregationModel/target"/>
     <net.java.amateras.uml.model.NoteModel reference="../net.java.amateras.uml.classdiagram.model.ClassModel/parent/children/net.java.amateras.uml.model.NoteModel"/>
+    <net.java.amateras.uml.model.NoteModel>
+      <backgroundColor>
+        <red>255</red>
+        <green>255</green>
+        <blue>206</blue>
+      </backgroundColor>
+      <foregroundColor>
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+      </foregroundColor>
+      <showIcon>true</showIcon>
+      <parent class="net.java.amateras.uml.model.RootModel">
+        <backgroundColor reference="../../backgroundColor"/>
+        <foregroundColor reference="../../foregroundColor"/>
+        <showIcon>true</showIcon>
+        <listeners serialization="custom">
+          <java.beans.PropertyChangeSupport>
+            <default>
+              <source class="net.java.amateras.uml.model.RootModel" reference="../../../.."/>
+              <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+            </default>
+            <null/>
+          </java.beans.PropertyChangeSupport>
+        </listeners>
+        <sourceConnections/>
+        <targetConnections/>
+        <children>
+          <net.java.amateras.uml.classdiagram.model.ClassModel reference="../../../../net.java.amateras.uml.classdiagram.model.ClassModel"/>
+          <net.java.amateras.uml.classdiagram.model.ClassModel reference="../../../../net.java.amateras.uml.classdiagram.model.ClassModel/parent/children/net.java.amateras.uml.classdiagram.model.ClassModel[2]"/>
+          <net.java.amateras.uml.classdiagram.model.ClassModel reference="../../../../net.java.amateras.uml.classdiagram.model.ClassModel/parent/children/net.java.amateras.uml.classdiagram.model.ClassModel[2]/targetConnections/net.java.amateras.uml.classdiagram.model.AggregationModel/source"/>
+          <net.java.amateras.uml.classdiagram.model.ClassModel reference="../../../../net.java.amateras.uml.classdiagram.model.ClassModel/parent/children/net.java.amateras.uml.classdiagram.model.ClassModel[2]/targetConnections/net.java.amateras.uml.classdiagram.model.AggregationModel/source/targetConnections/net.java.amateras.uml.classdiagram.model.AggregationModel[2]/source"/>
+          <net.java.amateras.uml.classdiagram.model.ClassModel reference="../../../../net.java.amateras.uml.classdiagram.model.ClassModel/parent/children/net.java.amateras.uml.classdiagram.model.ClassModel[2]/targetConnections/net.java.amateras.uml.classdiagram.model.AggregationModel/source/targetConnections/net.java.amateras.uml.classdiagram.model.AggregationModel/source"/>
+          <net.java.amateras.uml.classdiagram.model.ClassModel reference="../../../../net.java.amateras.uml.classdiagram.model.ClassModel/parent/children/net.java.amateras.uml.classdiagram.model.ClassModel[2]/targetConnections/net.java.amateras.uml.classdiagram.model.AggregationModel/source/targetConnections/net.java.amateras.uml.classdiagram.model.AggregationModel[2]/source/sourceConnections/net.java.amateras.uml.classdiagram.model.AggregationModel/target"/>
+          <net.java.amateras.uml.model.NoteModel reference="../../../../net.java.amateras.uml.classdiagram.model.ClassModel/parent/children/net.java.amateras.uml.model.NoteModel"/>
+          <net.java.amateras.uml.model.NoteModel reference="../../.."/>
+          <net.java.amateras.uml.model.NoteModel>
+            <backgroundColor reference="../../../../backgroundColor"/>
+            <foregroundColor reference="../../../../foregroundColor"/>
+            <showIcon>true</showIcon>
+            <parent class="net.java.amateras.uml.model.RootModel" reference="../../.."/>
+            <listeners serialization="custom">
+              <java.beans.PropertyChangeSupport>
+                <default>
+                  <source class="net.java.amateras.uml.model.NoteModel" reference="../../../.."/>
+                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                </default>
+                <null/>
+              </java.beans.PropertyChangeSupport>
+            </listeners>
+            <constraint>
+              <height>72</height>
+              <width>205</width>
+              <x>205</x>
+              <y>59</y>
+            </constraint>
+            <sourceConnections/>
+            <targetConnections/>
+            <children/>
+            <filterProperty/>
+            <content>BlackJack:&#xd;
+Jokua abiaraziko duen EMA klase nagusia</content>
+            <old>BlackJack:&#xd;
+Jokua abiaraziko duen klasea da</old>
+          </net.java.amateras.uml.model.NoteModel>
+          <net.java.amateras.uml.model.NoteModel>
+            <backgroundColor reference="../../../../backgroundColor"/>
+            <foregroundColor reference="../../../../foregroundColor"/>
+            <showIcon>true</showIcon>
+            <parent class="net.java.amateras.uml.model.RootModel" reference="../../.."/>
+            <listeners serialization="custom">
+              <java.beans.PropertyChangeSupport>
+                <default>
+                  <source class="net.java.amateras.uml.model.NoteModel" reference="../../../.."/>
+                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                </default>
+                <null/>
+              </java.beans.PropertyChangeSupport>
+            </listeners>
+            <constraint>
+              <height>55</height>
+              <width>138</width>
+              <x>192</x>
+              <y>395</y>
+            </constraint>
+            <sourceConnections/>
+            <targetConnections/>
+            <children/>
+            <filterProperty/>
+            <content>Karta:&#xd;
+Karta bakoitza definituko duen klasea</content>
+            <old>Karta:&#xd;
+Karta bakoitzaren definituko duen klasea</old>
+          </net.java.amateras.uml.model.NoteModel>
+        </children>
+        <filterProperty/>
+      </parent>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <source class="net.java.amateras.uml.model.NoteModel" reference="../../../.."/>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+      <constraint>
+        <height>72</height>
+        <width>175</width>
+        <x>306</x>
+        <y>292</y>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections/>
+      <children/>
+      <filterProperty/>
+      <content>Baraja:&#xd;
+Hasierako 52 kartak dituen EMA klasea</content>
+      <old>Baraja:&#xd;
+Hasierako 52 kartak dituen EMA da</old>
+    </net.java.amateras.uml.model.NoteModel>
+    <net.java.amateras.uml.model.NoteModel reference="../net.java.amateras.uml.model.NoteModel[2]/parent/children/net.java.amateras.uml.model.NoteModel[3]"/>
+    <net.java.amateras.uml.model.NoteModel reference="../net.java.amateras.uml.model.NoteModel[2]/parent/children/net.java.amateras.uml.model.NoteModel[4]"/>
+    <net.java.amateras.uml.model.NoteModel>
+      <backgroundColor reference="../../../backgroundColor"/>
+      <foregroundColor reference="../../../foregroundColor"/>
+      <showIcon>true</showIcon>
+      <parent class="net.java.amateras.uml.model.RootModel" reference="../../.."/>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <source class="net.java.amateras.uml.model.NoteModel" reference="../../../.."/>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+      <constraint>
+        <height>62</height>
+        <width>241</width>
+        <x>455</x>
+        <y>587</y>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections/>
+      <children/>
+      <filterProperty/>
+      <content>ListaKartak:&#xd;
+Jokalari bakoitzaren eskua definituko duen klasea</content>
+      <old></old>
+    </net.java.amateras.uml.model.NoteModel>
+    <net.java.amateras.uml.model.NoteModel>
+      <backgroundColor reference="../../../backgroundColor"/>
+      <foregroundColor reference="../../../foregroundColor"/>
+      <showIcon>true</showIcon>
+      <parent class="net.java.amateras.uml.model.RootModel" reference="../../.."/>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <source class="net.java.amateras.uml.model.NoteModel" reference="../../../.."/>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+      <constraint>
+        <height>76</height>
+        <width>155</width>
+        <x>1005</x>
+        <y>425</y>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections/>
+      <children/>
+      <filterProperty/>
+      <content>Jokalaria:&#xd;
+Jokalari bakoitza definituko duen klasea</content>
+      <old></old>
+    </net.java.amateras.uml.model.NoteModel>
+    <net.java.amateras.uml.model.NoteModel>
+      <backgroundColor reference="../../../backgroundColor"/>
+      <foregroundColor reference="../../../foregroundColor"/>
+      <showIcon>true</showIcon>
+      <parent class="net.java.amateras.uml.model.RootModel" reference="../../.."/>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <source class="net.java.amateras.uml.model.NoteModel" reference="../../../.."/>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+      <constraint>
+        <height>72</height>
+        <width>235</width>
+        <x>806</x>
+        <y>16</y>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections/>
+      <children/>
+      <filterProperty/>
+      <content>ListaJokalariak:&#xd;
+Jokatuko duten jokalariak definituko duen EMA klasea</content>
+      <old>ListaJokalariak:&#xd;
+Jokatuko duten jokalariak definituko duen klasea</old>
+    </net.java.amateras.uml.model.NoteModel>
   </children>
   <filterProperty/>
 </net.java.amateras.uml.model.RootModel>
