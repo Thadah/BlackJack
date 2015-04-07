@@ -1,11 +1,13 @@
 package org.pmoo.blackjack;
 
 
+import java.util.*;
+
 
 public class Baraja {
 	//Atributuak
 	private static Baraja helbidea;
-	private ListaKartak listaKartak;
+	private ArrayList<Karta> listaKartak;
 	
 	//Eraikitzailea
 	private Baraja(){
@@ -21,6 +23,7 @@ public class Baraja {
 			}
 			i++;
 		}
+		this.barajatu();
 	}
 	
 	public static synchronized Baraja getBaraja(){
@@ -31,4 +34,13 @@ public class Baraja {
 	}
 	
 	//Beste Metodoak
+	public void erreseteatu(){
+		this.listaKartak.clear();
+		Baraja.helbidea = null;
+		Baraja.getBaraja();
+	}
+	
+	private void barajatu(){
+		Collections.shuffle(listaKartak);
+	}
 }
