@@ -12,11 +12,17 @@ public class Karta {
 		}
 		
 		public void idatziKarta(){
-			System.out.println("zure kartaren balioa hau da:"+this.zenbakia);
-			System.out.println("zure kartaren palua hau da:"+this.palua);
+			System.out.println("zure kartaren balioa hau da: "+this.zenbakia);
+			System.out.println("zure kartaren palua hau da: "+this.palua);
 		}
 		
 		public int getKartaBalioa(){
 			return this.zenbakia;
+		}
+		
+		public boolean batekoa(){
+			if (this.zenbakia == 1){
+				return true;
+			}else{return false;}
 		}
 }
