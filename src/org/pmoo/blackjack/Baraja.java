@@ -17,7 +17,7 @@ public class Baraja {
 		while (i < 53){
 			this.listaKartak.add(new Karta(j,k));
 			j++;
-			if (j > 12){
+			if (j > 13){
 				j = 1;
 				k++;
 			}
