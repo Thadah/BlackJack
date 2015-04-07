@@ -23,18 +23,21 @@ public class ListaKartak {
 		return this.kartak.iterator();
 	}
 	
-	public int kartenBalioaLortu(){//Gero agian metodo hau aldatu beharko da batekoa dela-eta
+	public int kartenBalioaLortu(){
 		Karta kartaBat;
 		int balioa = 0;
 		Iterator<Karta> itr=this.getIteradorea();
 		while(itr.hasNext()){
 			kartaBat = itr.next();
-			balioa = balioa + kartaBat.getKartaBalioa();//Zerbait aldatu behar da bateko bat dagoenean eta 21 baino gehiago denean
+			balioa = balioa + kartaBat.getKartaBalioa();
+		}
+		if( balioa>21  && this.batekorikDago() ){
+			balioa = balioa - (this.zenbatBatekoDago()*10);
 		}
 		return balioa;
 	}
 	
-	public boolean batekorikDago(){
+	private boolean batekorikDago(){
 		Karta kartaBat;
 		boolean badago = false;
 		Iterator<Karta> itr=this.getIteradorea();
@@ -43,6 +46,19 @@ public class ListaKartak {
 			badago = kartaBat.batekoa();
 		}
 		return badago;
+	}
+	
+	private int zenbatBatekoDago(){
+		Karta kartaBat;
+		int batekoKop = 0;
+		Iterator<Karta> itr=this.getIteradorea();
+		while(itr.hasNext()){
+			kartaBat = itr.next();
+			if(kartaBat.batekoa()){
+				batekoKop++;
+			}
+		}
+		return batekoKop;
 	}
 
 }
