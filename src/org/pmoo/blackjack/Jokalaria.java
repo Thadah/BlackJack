@@ -1,7 +1,5 @@
 package org.pmoo.blackjack;
 
-import java.util.*;
-
 public class Jokalaria {
 	
 	private ListaKartak eskua;

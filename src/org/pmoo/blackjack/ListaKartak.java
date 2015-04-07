@@ -28,9 +28,21 @@ public class ListaKartak {
 		int balioa = 0;
 		Iterator<Karta> itr=this.getIteradorea();
 		while(itr.hasNext()){
-			kartaBat = 
-			balioa = balioa + kartaBat.getKartaBalioa;
+			kartaBat = itr.next();
+			balioa = balioa + kartaBat.getKartaBalioa();//Zerbait aldatu behar da bateko bat dagoenean eta 21 baino gehiago denean
 		}
+		return balioa;
+	}
+	
+	public boolean batekorikDago(){
+		Karta kartaBat;
+		boolean badago = false;
+		Iterator<Karta> itr=this.getIteradorea();
+		while(itr.hasNext() && !badago){
+			kartaBat = itr.next();
+			badago = kartaBat.batekoa();
+		}
+		return badago;
 	}
 
 }
