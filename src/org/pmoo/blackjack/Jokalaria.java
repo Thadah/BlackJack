@@ -7,15 +7,21 @@ public class Jokalaria {
 	private int dirua;
 	private int apostua;
 	
-	public Jokalaria(String pIzena, int pDirua, int pApostua){
+	public Jokalaria(String pIzena){
 		this.eskua = new ListaKartak();
 		this.izena = pIzena;
-		this.dirua = pDirua;
-		this.apostua = pApostua;
+		this.dirua = 500;
 	}
-	
-	private void apostuaEgin(){
-		//TODO
+	public int apostuaEgin(){
+		System.out.println("Zenbat diru apostatu nahi duzu, " + this.izena + "?");
+		//int apostua = Teklatutik irakurri
+		while(apostua>this.dirua){
+			System.out.println("Apostua handiegia da, apostatu berriro");
+			//apostua = Teklatutik irakurri
+		}
+		this.dirua = this.dirua - apostua;
+		return apostua;
+		
 	}
 	
 	public int eskuaKalkulatu(){//Metodo honek bakarik deitu beharko lioke listaKartak klaseko kartenBalioaLortu() metodoari
@@ -23,7 +29,9 @@ public class Jokalaria {
 	}
 	
 	public void kartaEskatu(){
-		//TODO
+		Baraja nireBaraja = Baraja.getBaraja();
+		Karta kartaBat = nireBaraja.emanKarta();
+		this.eskua.gehituKarta(kartaBat);
 	}
 	
 	public void txanda(){
@@ -33,6 +41,16 @@ public class Jokalaria {
 	public int getApostua(){
 		return this.apostua;
 	}
+	public String getIzena() {
+		return this.izena;
+	}
+	public int getDirua() {
+		return this.dirua;
+	}
+	public void setDirua(int pDirua) {
+		this.dirua = pDirua;
+	}
+	
 	
 
 }

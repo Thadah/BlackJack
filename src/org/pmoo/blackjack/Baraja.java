@@ -43,4 +43,10 @@ public class Baraja {
 	private void barajatu(){
 		Collections.shuffle(listaKartak);
 	}
+	
+	public Karta emanKarta(){
+		Karta kartaBat = this.listaKartak.get(0);
+		this.listaKartak.remove(kartaBat);
+		return kartaBat;
+	}
 }

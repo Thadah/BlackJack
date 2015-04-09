@@ -17,7 +17,19 @@ public class BlackJack {
 	}
 	
 	public void partidaJolastu(){
-		//TODO
+		
+		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
+		jokalariak.jokalariakInskribatu();
+		
+		jokalariak.hasierakoBiKartak();
+		
+		apostuakEgin();
+		
+		if(!guztiekApostatuDute()){
+			
+		}
+		
+		
 	}
 	
 	private Jokalaria irabazleaKalkulatu(){
@@ -32,14 +44,29 @@ public class BlackJack {
 		this.helbidea = null;
 	}
 	
-	private void apostuaEgin(){
-		//TODO
+	private void apostuakEgin(){
+		ListaJokalariak.getNireListaJokalariak().apostuak();
 	}
 	
 	private void kartakJolastu(){
 		//TODO
 	}
-	
+
+	public int getApostuMax() {
+		return this.apostuMax;
+	}
+
+	public void setApostuMax(int pApostuMax) {
+		this.apostuMax = pApostuMax;
+	}
+
+	public int getBotea() {
+		return botea;
+	}
+
+	public void setBotea(int pBotea) {
+		this.botea = pBotea;
+	}
 	
 	//TODO
 }
