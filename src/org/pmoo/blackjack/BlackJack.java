@@ -25,7 +25,9 @@ public class BlackJack {
 	}
 	
 	private void partidaAmaitu(){
-		//TODO
+		Baraja.getBaraja().erreseteatu();
+		ListaJokalariak.getNireListaJokalariak().erreseteatu();
+		this.helbidea = null;
 	}
 	
 	private void apostuaEgin(){
