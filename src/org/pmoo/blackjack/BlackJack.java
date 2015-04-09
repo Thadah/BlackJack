@@ -20,8 +20,10 @@ public class BlackJack {
 		//TODO
 	}
 	
-	private void irabazleaKalkulatu(){
-		//TODO
+	private Jokalaria irabazleaKalkulatu(){
+		Jokalaria irabazle=null;
+		irabazle=ListaJokalariak.getNireListaJokalariak().eskuHandienaKalkulatu();
+		return irabazle;
 	}
 	
 	private void partidaAmaitu(){
