@@ -19,15 +19,20 @@ public class BlackJack {
 	public void partidaJolastu(){
 		
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
+		System.out.println("Ongi etorri Atutxa kasinora, ondo pasa dezazuen espero dugu :)");
+		//Jokalariak inskribatu
 		jokalariak.jokalariakInskribatu();
-		
+		//Kartak eskatu
 		jokalariak.hasierakoBiKartak();
-		
+		//Apostatu
 		apostuakEgin();
-		
-		if(!guztiekApostatuDute()){
-			
+		//Apostuak ikusi
+		if(!jokalariak.guztiekApostatuDute()){
+			jokalariak.apostuaIkusi();
 		}
+		//Kartak eskatu
+		kartakJolastu();
+		//Irabazlea kalkulatu
 		
 		
 	}

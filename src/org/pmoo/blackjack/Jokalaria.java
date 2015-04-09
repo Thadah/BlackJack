@@ -20,6 +20,7 @@ public class Jokalaria {
 			//apostua = Teklatutik irakurri
 		}
 		this.dirua = this.dirua - apostua;
+		this.apostua = apostua;
 		return apostua;
 		
 	}

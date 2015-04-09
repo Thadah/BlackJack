@@ -101,10 +101,11 @@ public class ListaJokalariak {
 					mahaia.setBotea( mahaia.getBotea() + apostua);
 				}
 				else{
-					while(apostua<mahaia.getApostuMax())
-					System.out.println("Diru gutxiegi apostatu duzu, apostatu ezazu berriro");
-					jokalariBat.setDirua(jokalariBat.getDirua()+apostua);
-					jokalariBat.apostuaEgin();
+					while(apostua<mahaia.getApostuMax()){
+						System.out.println("Diru gutxiegi apostatu duzu, apostatu ezazu berriro");
+						jokalariBat.setDirua(jokalariBat.getDirua()+apostua);
+						jokalariBat.apostuaEgin();
+					}
 				}
 			}
 			else if(jokalariBat.getDirua()==0){
@@ -124,6 +125,42 @@ public class ListaJokalariak {
 					System.out.println(jokalariBat.getIzena() + " jokalaria jokotik atera da.");
 				}
 				
+			}
+		}
+	}
+	
+	public boolean guztiekApostatuDute(){
+		Jokalaria jokalariBat;
+		boolean bai = true;
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		while(itr.hasNext() && bai){
+			jokalariBat = itr.next();
+			if(jokalariBat.getApostua()<BlackJack.getNireBlackJack().getApostuMax()){
+				bai = false;
+			}
+		}
+		return bai;
+	}
+	
+	public void apostuaIkusi(){
+		BlackJack mahaia = BlackJack.getNireBlackJack();
+		Jokalaria jokalariBat;
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		while(itr.hasNext()){
+			jokalariBat = itr.next();
+			if(jokalariBat.getApostua()<mahaia.getApostuMax()){
+				if( (jokalariBat.getDirua() + jokalariBat.getApostua()) >= mahaia.getApostuMax()){
+					System.out.println(jokalariBat.getIzena() + ", apostua ikusi nahi duzu?");
+					//boolean bai = Teklatutik irakurri;
+					if(bai){
+						jokalariBat.setDirua(jokalariBat.getDirua()+jokalariBat.getApostua());
+						int apostua = jokalariBat.apostuaEgin();
+						while(apostua<mahaia.getApostuMax()){
+							System.out.println("Diru gutxiegi apostatu duzu, apostatu ezazu berriro");
+							apostua = jokalariBat.apostuaEgin();
+						}
+					}
+				}		
 			}
 		}
 	}
