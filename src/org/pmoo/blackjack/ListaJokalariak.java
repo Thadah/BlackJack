@@ -29,7 +29,7 @@ public class ListaJokalariak {
 		int eskua=0;
 		while(itr.hasNext()){
 			jok=itr.next();
-			if(eskua<jok.eskuaKalkulatu()){
+			if(eskua<jok.eskuaKalkulatu()&&jok.eskuaKalkulatu()<=21){
 				eskua=jok.eskuaKalkulatu();
 				eskuHandienaDuenJOkalaria=jok;
 			}
@@ -165,4 +165,21 @@ public class ListaJokalariak {
 		}
 	}
 	
+	public void kartakBanatu(){
+		Iterator<Jokalaria> itr=this.getIteradorea();
+		Jokalaria jokalariBat=null;
+		while(itr.hasNext()){
+			jokalariBat=itr.next();
+			jokalariBat.txanda();	
+		}
+	}
+	
+	public void kenduKartak(){
+		Iterator<Jokalaria> itr=this.getIteradorea();
+		Jokalaria jokalariBat=null;
+		while(itr.hasNext()){
+			jokalariBat=itr.next();
+			jokalariBat.kartakItzuli();
+		}
+	}
 }

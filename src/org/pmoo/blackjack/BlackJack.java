@@ -17,24 +17,34 @@ public class BlackJack {
 	}
 	
 	public void partidaJolastu(){
-		
+		boolean jolastunahi=true;
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		System.out.println("Ongi etorri Atutxa kasinora, ondo pasa dezazuen espero dugu :)");
+		
 		//Jokalariak inskribatu
 		jokalariak.jokalariakInskribatu();
-		//Kartak eskatu
-		jokalariak.hasierakoBiKartak();
-		//Apostatu
-		apostuakEgin();
-		//Apostuak ikusi
-		if(!jokalariak.guztiekApostatuDute()){
-			jokalariak.apostuaIkusi();
+		
+		while(jolastunahi){
+			Baraja.getBaraja().erreseteatu();
+			//Kartak eskatu
+			jokalariak.hasierakoBiKartak();
+			//Apostatu
+			apostuakEgin();
+			//Apostuak ikusi
+			if(!jokalariak.guztiekApostatuDute()){
+				jokalariak.apostuaIkusi();
+			}
+			//Kartak eskatu
+			kartakJolastu();
+			//Irabazlea kalkulatu
+			System.out.println(irabazleaKalkulatu().getIzena() + " ZORIONAK irabazi duzu !!!");
+			irabazleaKalkulatu().setDirua(irabazleaKalkulatu().getDirua()+ this.botea);
+
+			
+			System.out.println("Jolastu nahi duzue berriro ??");
+			jolastunahi=//teklatutik irakurri;
 		}
-		//Kartak eskatu
-		kartakJolastu();
-		//Irabazlea kalkulatu
-		
-		
+		JokoaAmaitu();
 	}
 	
 	private Jokalaria irabazleaKalkulatu(){
@@ -43,7 +53,7 @@ public class BlackJack {
 		return irabazle;
 	}
 	
-	private void partidaAmaitu(){
+	private void JokoaAmaitu(){
 		Baraja.getBaraja().erreseteatu();
 		ListaJokalariak.getNireListaJokalariak().erreseteatu();
 		this.helbidea = null;
@@ -54,7 +64,7 @@ public class BlackJack {
 	}
 	
 	private void kartakJolastu(){
-		//TODO
+		ListaJokalariak.getNireListaJokalariak().kartakBanatu();
 	}
 
 	public int getApostuMax() {
@@ -73,6 +83,11 @@ public class BlackJack {
 		this.botea = pBotea;
 	}
 	
-	//TODO
+	private void partidaAmaitu(){
+		this.botea=0;
+		this.apostuMax=0;
+		ListaJokalariak.getNireListaJokalariak().kenduKartak();
+	}
+	
 }
 

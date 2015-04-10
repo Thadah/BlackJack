@@ -15,7 +15,7 @@ public class ListaKartak {
 	}
 	
 	public void erreseteatu(){
-		this.kartak = null;
+		this.kartak.clear();
 	}
 	
 	

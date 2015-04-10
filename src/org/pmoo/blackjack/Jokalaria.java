@@ -29,14 +29,28 @@ public class Jokalaria {
 		return this.eskua.kartenBalioaLortu();
 	}
 	
-	public void kartaEskatu(){
+	private void kartaEskatu(){
 		Baraja nireBaraja = Baraja.getBaraja();
 		Karta kartaBat = nireBaraja.emanKarta();
 		this.eskua.gehituKarta(kartaBat);
 	}
 	
 	public void txanda(){
-		//TODO
+		boolean pasatuda=false;
+		boolean plantatuta=false;
+		boolean eman = false;
+		while(!pasatuda&&!plantatuta){
+			System.out.println(this.izena + " karta bat nahi duzu?? ");
+			//teklatutik irakurri;
+			if (eman){
+				this.kartaEskatu();
+				if(this.eskuaKalkulatu()>21){
+					System.out.println("pasatu zara :,(");
+					pasatuda=true;
+				}
+			}
+			else{plantatuta=true;}
+		}
 	}
 	
 	public int getApostua(){
@@ -52,6 +66,9 @@ public class Jokalaria {
 		this.dirua = pDirua;
 	}
 	
+	public void kartakItzuli(){
+		this.eskua.erreseteatu();
+	}
 	
 
 }
