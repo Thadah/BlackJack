@@ -1,5 +1,5 @@
 package org.pmoo.blackjack;
-
+import java.util.Scanner;
 public class Jokalaria {
 	
 	private ListaKartak eskua;
@@ -13,15 +13,17 @@ public class Jokalaria {
 		this.dirua = 500;
 	}
 	public int apostuaEgin(){
+		Scanner sc=new Scanner(System.in);
 		System.out.println("Zenbat diru apostatu nahi duzu, " + this.izena + "?");
-		//int apostua = Teklatutik irakurri
-		while(apostua>this.dirua){
+		int apostua1;
+		apostua1= sc.nextInt();
+		while(apostua1>this.dirua){
 			System.out.println("Apostua handiegia da, apostatu berriro");
-			//apostua = Teklatutik irakurri
+			apostua1 = sc.nextInt();
 		}
 		this.dirua = this.dirua - apostua;
-		this.apostua = apostua;
-		return apostua;
+		this.apostua = apostua1;
+		return apostua1;
 		
 	}
 	
@@ -29,7 +31,7 @@ public class Jokalaria {
 		return this.eskua.kartenBalioaLortu();
 	}
 	
-	private void kartaEskatu(){
+	public void kartaEskatu(){
 		Baraja nireBaraja = Baraja.getBaraja();
 		Karta kartaBat = nireBaraja.emanKarta();
 		this.eskua.gehituKarta(kartaBat);

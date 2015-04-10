@@ -1,11 +1,10 @@
 package org.pmoo.blackjack;
-
+import java.util.*;
 public class BlackJack {
 	
 	private static BlackJack helbidea = null;
 	private int apostuMax;
 	private int botea;
-	private int txanda;
 
 	private BlackJack(){}
 	
@@ -17,14 +16,16 @@ public class BlackJack {
 	}
 	
 	public void partidaJolastu(){
-		boolean jolastunahi=true;
+		Scanner sc=new Scanner(System.in);
+		String jolastunahi="B";
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		System.out.println("Ongi etorri Atutxa kasinora, ondo pasa dezazuen espero dugu :)");
 		
 		//Jokalariak inskribatu
 		jokalariak.jokalariakInskribatu();
 		
-		while(jolastunahi){
+		while(jolastunahi=="B"){
+			jokalariak.jokalariakBueltatu();
 			Baraja.getBaraja().erreseteatu();
 			//Kartak eskatu
 			jokalariak.hasierakoBiKartak();
@@ -39,10 +40,10 @@ public class BlackJack {
 			//Irabazlea kalkulatu
 			System.out.println(irabazleaKalkulatu().getIzena() + " ZORIONAK irabazi duzu !!!");
 			irabazleaKalkulatu().setDirua(irabazleaKalkulatu().getDirua()+ this.botea);
-
+			partidaAmaitu();
 			
-			System.out.println("Jolastu nahi duzue berriro ??");
-			jolastunahi=//teklatutik irakurri;
+			System.out.println("Jolastu nahi duzue berriro ??    (B/E)");
+			jolastunahi=sc.nextLine();
 		}
 		JokoaAmaitu();
 	}
@@ -56,7 +57,7 @@ public class BlackJack {
 	private void JokoaAmaitu(){
 		Baraja.getBaraja().erreseteatu();
 		ListaJokalariak.getNireListaJokalariak().erreseteatu();
-		this.helbidea = null;
+		BlackJack.helbidea = null;
 	}
 	
 	private void apostuakEgin(){
