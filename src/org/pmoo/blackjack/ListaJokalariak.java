@@ -3,7 +3,7 @@ package org.pmoo.blackjack;
 import java.util.*;
 
 public class ListaJokalariak {
-	
+	Scanner sc=new Scanner(System.in);
 	private static ListaJokalariak helbidea=null;
 	private ArrayList<Jokalaria> lista,listaErretiratuak;
 	
@@ -61,10 +61,11 @@ public class ListaJokalariak {
 	}
 	
 	public void jokalariakInskribatu(){
-		Scanner sc=new Scanner(System.in);
+		int jokalariKop;
+
 		Jokalaria jokalariBat = null;
 		System.out.println("Zenbat jokalarik jolastuko dute?");
-		int jokalariKop = sc.nextInt();
+		jokalariKop = sc.nextInt();
 		while(jokalariKop>7||jokalariKop<2){
 			System.out.println("Jokalari koporua 2 eta 7 zenbakien artean egon behar da");
 			System.out.println("Zenbaki berria idatzi :");
@@ -74,7 +75,8 @@ public class ListaJokalariak {
 		String izen;
 		for(i=1;i<=jokalariKop;i++){
 			System.out.println("Zein da "+ i +". jokalariaren izena?");
-			izen = sc.nextLine();
+
+			izen = sc.next();
 			jokalariBat = new Jokalaria(izen);
 			this.gehituJok(jokalariBat);
 		}
@@ -91,7 +93,7 @@ public class ListaJokalariak {
 	}
 	
 	public void apostuak(){
-		Scanner sc=new Scanner(System.in);
+
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		Jokalaria jokalariBat = null;
 		int apostua = 0;
@@ -113,8 +115,10 @@ public class ListaJokalariak {
 					while(apostua<mahaia.getApostuMax()){
 						System.out.println("Diru gutxiegi apostatu duzu, apostatu ezazu berriro");
 						jokalariBat.setDirua(jokalariBat.getDirua()+apostua);
+						System.out.println("EOOEOOEOOEEO");
 						jokalariBat.apostuaEgin();
 					}
+					BlackJack.getNireBlackJack().setApostuMax(apostua);
 				}
 			}
 			else if(jokalariBat.getDirua()==0){
@@ -124,7 +128,7 @@ public class ListaJokalariak {
 			}
 			else{
 				System.out.println("All-in egin nahi duzu?   (B/E)");
-				String allIn = sc.nextLine();
+				String allIn = sc.next();
 				if(allIn=="B"){
 					mahaia.setBotea( mahaia.getBotea() + jokalariBat.getDirua() );
 					jokalariBat.setDirua(0);
@@ -153,7 +157,7 @@ public class ListaJokalariak {
 	}
 	
 	public void apostuaIkusi(){
-		Scanner sc=new Scanner(System.in);
+
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		Jokalaria jokalariBat;
 		Iterator<Jokalaria> itr = this.getIteradorea();
@@ -162,13 +166,14 @@ public class ListaJokalariak {
 			if(jokalariBat.getApostua()<mahaia.getApostuMax()){
 				if( (jokalariBat.getDirua() + jokalariBat.getApostua()) >= mahaia.getApostuMax()){
 					System.out.println(jokalariBat.getIzena() + ", apostua ikusi nahi duzu?   (B/E)");
-					String bai = sc.nextLine();
+					String bai = sc.next();
 					if(bai=="B"){
 						jokalariBat.setDirua(jokalariBat.getDirua()+jokalariBat.getApostua());
 						int apostua = jokalariBat.apostuaEgin();
 						while(apostua<mahaia.getApostuMax()){
 							System.out.println("Diru gutxiegi apostatu duzu, apostatu ezazu berriro");
 							apostua = jokalariBat.apostuaEgin();
+							System.out.println(jokalariBat.getDirua());
 						}
 					}
 					else{

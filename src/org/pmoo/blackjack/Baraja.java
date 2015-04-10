@@ -11,6 +11,7 @@ public class Baraja {
 	
 	//Eraikitzailea
 	private Baraja(){
+		this.listaKartak=new ArrayList<Karta>();
 		int i = 1;
 		int j = 1;
 		int k = 1;

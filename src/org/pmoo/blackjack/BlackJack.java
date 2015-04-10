@@ -1,12 +1,15 @@
 package org.pmoo.blackjack;
 import java.util.*;
 public class BlackJack {
-	
+	Scanner sc=new Scanner(System.in);
 	private static BlackJack helbidea = null;
 	private int apostuMax;
 	private int botea;
 
-	private BlackJack(){}
+	private BlackJack(){
+		this.botea=0;
+		this.apostuMax=0;
+	}
 	
 	public static synchronized BlackJack getNireBlackJack(){
 		if(helbidea == null){
@@ -15,12 +18,13 @@ public class BlackJack {
 		return helbidea;
 	}
 	
-	public void partidaJolastu(){
-		Scanner sc=new Scanner(System.in);
+	public void partidaJolastu() throws InterruptedException{
+
+
 		String jolastunahi="B";
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		System.out.println("Ongi etorri Atutxa kasinora, ondo pasa dezazuen espero dugu :)");
-		
+		Thread.sleep(1000);
 		//Jokalariak inskribatu
 		jokalariak.jokalariakInskribatu();
 		
@@ -43,7 +47,7 @@ public class BlackJack {
 			partidaAmaitu();
 			
 			System.out.println("Jolastu nahi duzue berriro ??    (B/E)");
-			jolastunahi=sc.nextLine();
+			jolastunahi=sc.next();
 		}
 		JokoaAmaitu();
 	}
