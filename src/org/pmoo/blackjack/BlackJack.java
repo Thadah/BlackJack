@@ -115,3 +115,4 @@ public class BlackJack {
 //Kontsola ezabatu
 //Pertsona bat joaten deneko kasua konpondu
 //Kartak eskatzeko momentuan azkenean jokalari bat bakarrik geratzen bada partida jarraian amaitzea
+//Klase- eta sekuentzia-diagrama
