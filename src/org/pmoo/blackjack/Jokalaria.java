@@ -13,15 +13,14 @@ public class Jokalaria {
 		this.dirua = 500;
 	}
 	public int apostuaEgin(){
-
-		System.out.println("Zenbat diru apostatu nahi duzu, " + this.izena + "?");
 		int apostua1=0;
+		System.out.println("Zenbat diru apostatu nahi duzu, " + this.izena + "?");
 		apostua1= sc.nextInt();
 		while(apostua1>this.dirua){
 			System.out.println("Apostua handiegia da, apostatu berriro");
 			apostua1 = sc.nextInt();
 		}
-		this.dirua = this.dirua - apostua;
+		this.dirua = this.dirua - apostua1;
 		this.apostua = apostua1;
 		return apostua1;
 		
