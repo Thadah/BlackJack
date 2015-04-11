@@ -12,19 +12,29 @@ public class Baraja {
 	//Eraikitzailea
 	private Baraja(){
 		this.listaKartak = new ArrayList<Karta>();
-		int i = 1;
-		int j = 1;
-		int k = 1;
-		while (i < 53){
-			this.listaKartak.add(new Karta(j,k));
-			j++;
-			if (j > 13){
-				j = 1;
-				k++;
+		int zenbakia = 1;
+		int palua = 1;
+		while (palua < 5){
+			this.listaKartak.add(new Karta(zenbakia, palua));
+			zenbakia++;
+			if (zenbakia > 13){
+				zenbakia = 1;
+				palua++;
 			}
-			i++;
 		}
 		this.barajatu();
+	}
+	
+	public void barajaInprimatu(){
+		Iterator<Karta> itr = this.getIteradorea();
+		while(itr.hasNext()){
+			Karta kartaBat = itr.next();
+			System.out.println(kartaBat.getKartaBalioa() + " " + kartaBat.idatziPalua());
+		}
+	}
+	
+	public Iterator<Karta> getIteradorea(){
+		return this.listaKartak.iterator();
 	}
 	
 	public static synchronized Baraja getBaraja(){

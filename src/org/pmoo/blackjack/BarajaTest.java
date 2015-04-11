@@ -18,7 +18,7 @@ public class BarajaTest {
 	public void tearDown() throws Exception {
 		b1 = null;
 	}
-
+/*
 	@Test
 	public void testEmanKarta(){
 		assertSame(b1.tamaina(),52);
@@ -33,5 +33,10 @@ public class BarajaTest {
 		assertSame(b1.tamaina(),51);
 		b1.erreseteatu();
 		assertSame(b1.tamaina(),52);
+	}
+	*/
+	@Test
+	public void testBarajaInprimatu(){
+		b1.barajaInprimatu();
 	}
 }

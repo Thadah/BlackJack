@@ -14,15 +14,19 @@ public class Karta {
 
 		public String idatziPalua(){
 			String paluIzena = null;
-			switch(palua){
+			switch(this.palua){
 				case 1:
 					paluIzena = "Pika";
+					break;
 				case 2:
 					paluIzena = "Hirusta";
+					break;
 				case 3:
 					paluIzena = "Erronbo";
+					break;
 				case 4:
 					paluIzena = "Bihotz";
+					break;
 			}
 			return paluIzena;
 			

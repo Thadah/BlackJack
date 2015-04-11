@@ -36,34 +36,34 @@ public class Jokalaria {
 		this.eskua.gehituKarta(kartaBat);
 		switch(kartaBat.getKartaBalioa()){
 			case 1: 
-				System.out.println("Bateko " + kartaBat.idatziPalua() + " bat hartu duzu");
+				System.out.println(this.izena + ", bateko " + kartaBat.idatziPalua() + " bat hartu duzu");
 				int totala = this.eskuaKalkulatu();
 				Thread.sleep(1000);
-				System.out.println("Zure karten totala" + totala + " da.");
+				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 			case 11:
-				System.out.println("Txanka" + kartaBat.idatziPalua() + " bat hartu duzu");
+				System.out.println(this.izena + ", txanka" + kartaBat.idatziPalua() + " bat hartu duzu");
 				totala = this.eskuaKalkulatu();
 				Thread.sleep(1000);
-				System.out.println("Zure karten totala" + totala + " da.");
+				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 			case 12:
-				System.out.println("Erregina " + kartaBat.idatziPalua() + " bat hartu duzu.");
+				System.out.println(this.izena + ", erregina " + kartaBat.idatziPalua() + " bat hartu duzu.");
 				totala = this.eskuaKalkulatu();
 				Thread.sleep(1000);
-				System.out.println("Zure karten totala" + totala + " da.");
+				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 			case 13:
-				System.out.println("Errege " + kartaBat.idatziPalua() + " bat hartu duzu.");
+				System.out.println(this.izena + ", errege " + kartaBat.idatziPalua() + " bat hartu duzu.");
 				totala = this.eskuaKalkulatu();
 				Thread.sleep(1000);
-				System.out.println("Zure karten totala" + totala + " da.");
+				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 			default:
 				System.out.println(kartaBat.getKartaBalioa() + "-ko " + kartaBat.idatziPalua() + " bat hartu duzu");
 				totala = this.eskuaKalkulatu();
 				Thread.sleep(1000);
-				System.out.println("Zure karten totala" + totala + " da.");
+				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 		}
 	}
