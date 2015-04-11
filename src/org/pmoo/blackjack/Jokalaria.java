@@ -98,6 +98,9 @@ public class Jokalaria {
 	public void setDirua(int pDirua) {
 		this.dirua = pDirua;
 	}
+	public void setApostua(int pApostua){
+		this.apostua = pApostua;
+	}
 	
 	public void kartakItzuli(){
 		this.eskua.erreseteatu();
