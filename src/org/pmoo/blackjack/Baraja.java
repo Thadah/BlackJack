@@ -11,7 +11,7 @@ public class Baraja {
 	
 	//Eraikitzailea
 	private Baraja(){
-		this.listaKartak=new ArrayList<Karta>();
+		this.listaKartak = new ArrayList<Karta>();
 		int i = 1;
 		int j = 1;
 		int k = 1;
@@ -49,5 +49,9 @@ public class Baraja {
 		Karta kartaBat = this.listaKartak.get(0);
 		this.listaKartak.remove(kartaBat);
 		return kartaBat;
+	}
+	
+	public int tamaina(){ //JUnitentzako 
+		return this.listaKartak.size();
 	}
 }
