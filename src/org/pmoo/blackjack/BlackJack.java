@@ -1,6 +1,9 @@
 package org.pmoo.blackjack;
+
 import java.util.*;
+
 public class BlackJack {
+	
 	Scanner sc=new Scanner(System.in);
 	private static BlackJack helbidea = null;
 	private int apostuMax;
@@ -27,9 +30,11 @@ public class BlackJack {
 		Thread.sleep(1000);
 		//Jokalariak inskribatu
 		jokalariak.jokalariakInskribatu();
+		System.out.println("(Jokalari bakoitzak predeterminatuki 500€ ditu)\n");
 		
-		while(jolastunahi=="B"){
-			jokalariak.jokalariakBueltatu();
+		while(jolastunahi.equals("B")){
+			
+			
 			Baraja.getBaraja().erreseteatu();
 			//Kartak eskatu
 			jokalariak.hasierakoBiKartak();
@@ -40,14 +45,28 @@ public class BlackJack {
 				jokalariak.apostuaIkusi();
 			}
 			//Kartak eskatu
-			kartakJolastu();
-			//Irabazlea kalkulatu
-			System.out.println(irabazleaKalkulatu().getIzena() + " ZORIONAK irabazi duzu !!!");
-			irabazleaKalkulatu().setDirua(irabazleaKalkulatu().getDirua()+ this.botea);
-			partidaAmaitu();
+			jokalariak.kartakBanatu();
 			
-			System.out.println("Jolastu nahi duzue berriro ??    (B/E)");
-			jolastunahi=sc.next();
+			Thread.sleep(2500);
+			
+			//Irabazlea kalkulatu
+			if(!jokalariak.batBainoGehiagoIrabazi()){
+				System.out.println(irabazleaKalkulatu().getIzena() + " ZORIONAK irabazi duzu !!!");
+				System.out.println(irabazleaKalkulatu().getIzena() + " " + this.botea + "€-ko botea irabazi duzu :D");
+				irabazleaKalkulatu().setDirua(irabazleaKalkulatu().getDirua()+ this.botea);
+				this.botea = 0;
+			}
+			else{
+				System.out.println("2 jokalarik edo gehiagok berdindu dutenez, botea ez da emango :/");
+			}
+			
+			partidaAmaitu();
+			jokalariak.guztienDiruaInprimatu();
+			System.out.println();
+			
+			//Galdetu ea norbai partidatik joan nahi den
+			jokalariak.galdetuJoan();
+			
 		}
 		JokoaAmaitu();
 	}
@@ -67,10 +86,6 @@ public class BlackJack {
 	private void apostuakEgin(){
 		ListaJokalariak.getNireListaJokalariak().apostuak();
 	}
-	
-	private void kartakJolastu() throws InterruptedException{
-		ListaJokalariak.getNireListaJokalariak().kartakBanatu();
-	}
 
 	public int getApostuMax() {
 		return this.apostuMax;
@@ -89,10 +104,14 @@ public class BlackJack {
 	}
 	
 	private void partidaAmaitu(){
-		this.botea=0;
+		
 		this.apostuMax=0;
+		ListaJokalariak.getNireListaJokalariak().jokalariakBueltatu();
 		ListaJokalariak.getNireListaJokalariak().kenduKartak();
 	}
 	
 }
 
+//Kontsola ezabatu
+//Pertsona bat joaten deneko kasua konpondu
+//Kartak eskatzeko momentuan azkenean jokalari bat bakarrik geratzen bada partida jarraian amaitzea

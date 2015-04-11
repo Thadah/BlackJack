@@ -38,31 +38,31 @@ public class Jokalaria {
 			case 1: 
 				System.out.println(this.izena + ", bateko " + kartaBat.idatziPalua() + " bat hartu duzu");
 				int totala = this.eskuaKalkulatu();
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 			case 11:
-				System.out.println(this.izena + ", txanka" + kartaBat.idatziPalua() + " bat hartu duzu");
+				System.out.println(this.izena + ", txankako " + kartaBat.idatziPalua() + " bat hartu duzu");
 				totala = this.eskuaKalkulatu();
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 			case 12:
-				System.out.println(this.izena + ", erregina " + kartaBat.idatziPalua() + " bat hartu duzu.");
+				System.out.println(this.izena + ", erreginako " + kartaBat.idatziPalua() + " bat hartu duzu.");
 				totala = this.eskuaKalkulatu();
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 			case 13:
-				System.out.println(this.izena + ", errege " + kartaBat.idatziPalua() + " bat hartu duzu.");
+				System.out.println(this.izena + ", erregeko " + kartaBat.idatziPalua() + " bat hartu duzu.");
 				totala = this.eskuaKalkulatu();
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 			default:
 				System.out.println(this.izena + ",  " + kartaBat.getKartaBalioa() + "-ko " + kartaBat.idatziPalua() + " bat hartu duzu");
 				totala = this.eskuaKalkulatu();
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 		}
@@ -71,18 +71,25 @@ public class Jokalaria {
 	public void txanda() throws InterruptedException{
 		boolean pasatuda=false;
 		boolean plantatuta=false;
-		boolean eman = false;
+		String eman = null;
 		while(!pasatuda&&!plantatuta){
-			System.out.println(this.izena + " karta bat nahi duzu?? ");
-			//teklatutik irakurri;
-			if (eman){
+			System.out.println(this.izena + " karta bat nahi duzu?? (B/E)");
+			eman = sc.next();
+			if (eman.equals("B")){
 				this.kartaEskatu();
 				if(this.eskuaKalkulatu()>21){
 					System.out.println("pasatu zara :,(");
 					pasatuda=true;
 				}
+				else if(this.eskuaKalkulatu()==21){
+					System.out.println(this.izena + ", 21era iritsi zara :P");
+					plantatuta=true;
+				}
 			}
-			else{plantatuta=true;}
+			else if(!eman.equals("B")){
+				System.out.println(this.izena + ", plantatu zara.");
+				plantatuta=true;
+			}
 		}
 	}
 	
