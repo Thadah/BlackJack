@@ -20,12 +20,6 @@ public class KartaTest {
 		k1 = null;
 		k2 = null;
 	}
-
-	@Test
-	public void testIdatziKarta() {
-		k1.idatziKarta();
-		k2.idatziKarta();
-	}
 	
 	@Test
 	public void testBatekoa() {

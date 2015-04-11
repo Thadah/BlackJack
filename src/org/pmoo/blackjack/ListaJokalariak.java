@@ -82,7 +82,7 @@ public class ListaJokalariak {
 		}
 	}
 	
-	public void hasierakoBiKartak(){
+	public void hasierakoBiKartak() throws InterruptedException{
 		Jokalaria jokalariBat;
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		while(itr.hasNext()){
@@ -185,7 +185,7 @@ public class ListaJokalariak {
 		}
 	}
 	
-	public void kartakBanatu(){
+	public void kartakBanatu() throws InterruptedException{
 		Iterator<Jokalaria> itr=this.getIteradorea();
 		Jokalaria jokalariBat=null;
 		while(itr.hasNext()){

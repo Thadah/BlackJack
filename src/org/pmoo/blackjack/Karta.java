@@ -11,14 +11,10 @@ public class Karta {
 			
 		}
 		
-<<<<<<< Updated upstream
-		public void idatziKarta(){
-			switch(this.palua){
-=======
+
 		public String idatziPalua(){
 			String paluIzena = null;
 			switch(palua){
->>>>>>> Stashed changes
 				case 1:
 					paluIzena = "Pika";
 				case 2:

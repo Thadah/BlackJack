@@ -68,7 +68,7 @@ public class BlackJack {
 		ListaJokalariak.getNireListaJokalariak().apostuak();
 	}
 	
-	private void kartakJolastu(){
+	private void kartakJolastu() throws InterruptedException{
 		ListaJokalariak.getNireListaJokalariak().kartakBanatu();
 	}
 
