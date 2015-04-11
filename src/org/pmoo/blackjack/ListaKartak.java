@@ -29,7 +29,15 @@ public class ListaKartak {
 		Iterator<Karta> itr=this.getIteradorea();
 		while(itr.hasNext()){
 			kartaBat = itr.next();
-			balioa = balioa + kartaBat.getKartaBalioa();
+			if(kartaBat.getKartaBalioa()==1){
+				balioa = balioa + 11;
+			}
+			else if(kartaBat.getKartaBalioa()==11 || kartaBat.getKartaBalioa()==12 || kartaBat.getKartaBalioa()==13){
+				balioa = balioa + 10;
+			}
+			else{
+				balioa = balioa + kartaBat.getKartaBalioa();
+			}
 		}
 		if( balioa>21  && this.batekorikDago() ){
 			balioa = balioa - (this.zenbatBatekoDago()*10);

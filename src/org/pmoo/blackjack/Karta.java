@@ -12,8 +12,16 @@ public class Karta {
 		}
 		
 		public void idatziKarta(){
-			System.out.println("zure kartaren balioa hau da: "+this.zenbakia);
-			System.out.println("zure kartaren palua hau da: "+this.palua);
+			switch(this.palua){
+				case 1:
+					System.out.println(this.zenbakia + "-ko Pika atera duzu.");
+				case 2:
+					System.out.println(this.zenbakia + "-ko Hirusta atera duzu.");
+				case 3:
+					System.out.println(this.zenbakia + "-ko Erronboa atera duzu.");
+				case 4:
+					System.out.println(this.zenbakia + "-ko Bihotza atera duzu.");
+			}
 		}
 		
 		public int getKartaBalioa(){
