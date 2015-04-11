@@ -11,25 +11,33 @@ public class Karta {
 			
 		}
 		
+<<<<<<< Updated upstream
 		public void idatziKarta(){
 			switch(this.palua){
+=======
+		public String idatziPalua(){
+			String paluIzena = null;
+			switch(palua){
+>>>>>>> Stashed changes
 				case 1:
-					System.out.println(this.zenbakia + "-ko Pika atera duzu.");
-					break;
+					paluIzena = "Pika";
 				case 2:
-					System.out.println(this.zenbakia + "-ko Hirusta atera duzu.");
-					break;
+					paluIzena = "Hirusta";
 				case 3:
-					System.out.println(this.zenbakia + "-ko Erronboa atera duzu.");
-					break;
+					paluIzena = "Erronbo";
 				case 4:
-					System.out.println(this.zenbakia + "-ko Bihotza atera duzu.");
-					break;
+					paluIzena = "Bihotz";
 			}
+			return paluIzena;
+			
 		}
 		
 		public int getKartaBalioa(){
 			return this.zenbakia;
+		}
+		
+		public int getKartaPalua(){
+			return this.palua;
 		}
 		
 		public boolean batekoa(){

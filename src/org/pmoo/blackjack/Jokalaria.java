@@ -30,10 +30,21 @@ public class Jokalaria {
 		return this.eskua.kartenBalioaLortu();
 	}
 	
-	public void kartaEskatu(){
+	public void kartaEskatu() throws InterruptedException{
 		Baraja nireBaraja = Baraja.getBaraja();
 		Karta kartaBat = nireBaraja.emanKarta();
 		this.eskua.gehituKarta(kartaBat);
+		switch(kartaBat.getKartaBalioa()){
+			case 1: 
+				System.out.println("Bateko " + kartaBat.idatziPalua() + "bat hartu duzu");
+				int totala = this.eskuaKalkulatu();
+				Thread.sleep(1000);
+				System.out.println("Zure karten totala" + totala + " da.");
+				break;
+			case 11:
+				System.out.println("Txanka bat hartu duzu");
+				
+		}
 	}
 	
 	public void txanda(){
