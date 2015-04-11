@@ -60,7 +60,7 @@ public class Jokalaria {
 				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 			default:
-				System.out.println(kartaBat.getKartaBalioa() + "-ko " + kartaBat.idatziPalua() + " bat hartu duzu");
+				System.out.println(this.izena + ",  " + kartaBat.getKartaBalioa() + "-ko " + kartaBat.idatziPalua() + " bat hartu duzu");
 				totala = this.eskuaKalkulatu();
 				Thread.sleep(1000);
 				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
