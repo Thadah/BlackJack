@@ -17,11 +17,14 @@ public class KartaTest {
 
 	@After
 	public void tearDown() throws Exception {
+		k1 = null;
+		k2 = null;
 	}
 
 	@Test
 	public void testIdatziKarta() {
 		k1.idatziKarta();
+		k2.idatziKarta();
 	}
 	
 	@Test

@@ -15,12 +15,16 @@ public class Karta {
 			switch(this.palua){
 				case 1:
 					System.out.println(this.zenbakia + "-ko Pika atera duzu.");
+					break;
 				case 2:
 					System.out.println(this.zenbakia + "-ko Hirusta atera duzu.");
+					break;
 				case 3:
 					System.out.println(this.zenbakia + "-ko Erronboa atera duzu.");
+					break;
 				case 4:
 					System.out.println(this.zenbakia + "-ko Bihotza atera duzu.");
+					break;
 			}
 		}
 		

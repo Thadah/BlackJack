@@ -21,15 +21,17 @@ public class BarajaTest {
 
 	@Test
 	public void testEmanKarta(){
-			assertSame(b1.tamaina(),52);
-			System.out.println(b1.tamaina());
-			Karta kartaBat = b1.emanKarta();
-			assertSame(b1.tamaina(),51);
-			System.out.println(b1.tamaina());
-		}
+		assertSame(b1.tamaina(),52);
+		Karta kartaBat = b1.emanKarta();
+		kartaBat.idatziKarta(); //Honekin konprobatzen dugu barajatu ondo dagoela, kartak desberdinak dira run bakoitzean.
+		assertSame(b1.tamaina(),51);
+	}
 	
-	@Test
-	public void testBarajatu(){
-		System.out.println(b1.);
+	public void erreseteatu(){
+		assertSame(b1.tamaina(),52);
+		b1.emanKarta();
+		assertSame(b1.tamaina(),51);
+		b1.erreseteatu();
+		assertSame(b1.tamaina(),52);
 	}
 }
