@@ -23,7 +23,7 @@ public class BarajaTest {
 	public void testEmanKarta(){
 		assertSame(b1.tamaina(),52);
 		Karta kartaBat = b1.emanKarta();
-		kartaBat.idatziKarta(); //Honekin konprobatzen dugu barajatu ondo dagoela, kartak desberdinak dira run bakoitzean.
+		kartaBat.idatziPalua(); //Honekin konprobatzen dugu barajatu ondo dagoela, kartak desberdinak dira run bakoitzean.
 		assertSame(b1.tamaina(),51);
 	}
 	
