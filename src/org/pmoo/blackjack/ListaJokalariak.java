@@ -20,7 +20,7 @@ public class ListaJokalariak {
 		
 	}
 	
-	public Iterator<Jokalaria> getIteradorea(){
+	private Iterator<Jokalaria> getIteradorea(){
 		return this.lista.iterator();
 	}
 	
@@ -67,7 +67,7 @@ public class ListaJokalariak {
 		System.out.println("Zenbat jokalarik jolastuko dute?");
 		jokalariKop = sc.nextInt();
 		while(jokalariKop>7||jokalariKop<2){
-			System.out.println("Jokalari koporua 2 eta 7 zenbakien artean egon behar da");
+			System.out.println("Jokalari kopurua 2 eta 7 zenbakien artean egon behar da");
 			System.out.println("Zenbaki berria idatzi :");
 			jokalariKop = sc.nextInt();
 		}

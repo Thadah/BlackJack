@@ -39,7 +39,7 @@ public class BlackJack {
 			//Kartak eskatu
 			jokalariak.hasierakoBiKartak();
 			//Apostatu
-			apostuakEgin();
+			jokalariak.apostuak();
 			//Apostuak ikusi
 			if(!jokalariak.guztiekApostatuDute()){
 				jokalariak.apostuaIkusi();
@@ -81,10 +81,6 @@ public class BlackJack {
 		Baraja.getBaraja().erreseteatu();
 		ListaJokalariak.getNireListaJokalariak().erreseteatu();
 		BlackJack.helbidea = null;
-	}
-	
-	private void apostuakEgin(){
-		ListaJokalariak.getNireListaJokalariak().apostuak();
 	}
 
 	public int getApostuMax() {
