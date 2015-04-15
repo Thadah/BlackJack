@@ -97,9 +97,11 @@ public class ListaJokalariak {
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			jokalariBat.kartaEskatu();
-			jokalariBat.kartaEskatu();
-			//Thread.sleep(2000);
+			if (!jokalariBat.getErretiratua()){
+				jokalariBat.kartaEskatu();
+				jokalariBat.kartaEskatu();
+				//Thread.sleep(2000);
+			}
 		}
 	}
 	
