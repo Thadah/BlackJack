@@ -104,44 +104,46 @@ public class ListaJokalariak {
 			}
 		}
 	}
-	
+	/*
 	public void apostuak(){
 
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		Jokalaria jokalariBat = null;
 		int apostua = 0;
-		Jokalaria jokAux = null;
-		boolean ezabatuBehar = false;
+		boolean apostuaEginda = false;
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			if(ezabatuBehar){
-				this.ezabatuJok(jokAux);
-				ezabatuBehar = false;
-			}
-			if(jokalariBat.getDirua()>=mahaia.getApostuMax()){
-				apostua = jokalariBat.apostuaEgin();
-				if(apostua==0){
-					jokalariBat.setErretiratua(true);
-					System.out.println(jokalariBat.getIzena() + " jokalaria jokotik atera da.");
-					ezabatuBehar = true;
-
-				}
-				else if(apostua>=mahaia.getApostuMax()){
-					BlackJack.getNireBlackJack().setApostuMax(apostua);
-					mahaia.setBotea( mahaia.getBotea() + apostua);
-				}
-				else{
-					while(apostua<mahaia.getApostuMax()){
-						System.out.println("Diru gutxiegi apostatu duzu, apostatu ezazu berriro");
-						jokalariBat.setDirua(jokalariBat.getDirua()+apostua);
-						
+				if(jokalariBat.getDirua()>=mahaia.getApostuMax()){
 					
-						apostua = jokalariBat.apostuaEgin();
+					apostua = jokalariBat.apostuaEgin();
+					
+					if(apostua==0){
+						jokalariBat.setErretiratua(true);
+						System.out.println(jokalariBat.getIzena() + " jokalaria jokotik atera da.");
 					}
-					mahaia.setBotea(mahaia.getBotea()+apostua);
-					mahaia.setApostuMax(apostua);
-				}
+					
+					else if(apostua>=mahaia.getApostuMax()){
+						BlackJack.getNireBlackJack().setApostuMax(apostua);
+						mahaia.setBotea( mahaia.getBotea() + apostua);
+					}
+					
+					else{
+						do{
+							if(apostua<mahaia.getApostuMax()){
+								try{
+								//jokalariBat.setDirua(jokalariBat.getDirua()+apostua);
+								apostua = jokalariBat.apostuaEgin();
+								apostuaEginda = true;
+								}
+								catch{
+									
+								}
+							}while(!apostuaEginda);
+						mahaia.setBotea(mahaia.getBotea()+apostua);
+						mahaia.setApostuMax(apostua);
+					}
+				}while(!apostuaEginda)
 			}
 			else if(jokalariBat.getDirua()==0){
 				System.out.println("Sentitzen dugu, baina Kasinotik joan behar zara ez duzulako dirurik.");
@@ -161,6 +163,43 @@ public class ListaJokalariak {
 				}
 				
 			}
+		}
+	}
+	*/
+	
+	public void apostuak(){
+		BlackJack mahaia = BlackJack.getNireBlackJack();
+		Jokalaria jokalariBat = null;
+		int apostua = 0;
+		boolean apostuaEginda = false;
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		while(itr.hasNext()){
+			jokalariBat = itr.next();
+			/*
+			if(jokalariBat.getDirua()==0){ //Hau jokoaren azken zatira mugitu
+				System.out.println("Sentitzen dugu, baina Kasinotik joan behar zara ez duzulako dirurik.");
+				ezabatuJok(jokalariBat);
+				System.out.println(jokalariBat.getIzena() + " jokalaria jokotik atera da.");
+			}
+			*/
+			if(jokalariBat.getDirua()>=mahaia.getApostuMax()){
+				do{
+					try{
+						apostua = jokalariBat.apostuaEgin();
+						apostuaEginda = true;
+					}
+					catch(ApostuException e){
+						System.out.println(e.getMessage());
+						System.out.println(jokalariBat.getIzena() + ", Apostatu Berriro");
+						apostuaEginda = false;
+					}
+				}while(!apostuaEginda);
+			}
+			else if (apostua > mahaia.getApostuMax()){
+				mahaia.setApostuMax(apostua);
+			}
+			mahaia.setBotea( mahaia.getBotea() + apostua);
+			jokalariBat.setDirua(jokalariBat.getDirua() - jokalariBat.getApostua());
 		}
 	}
 	
@@ -184,21 +223,23 @@ public class ListaJokalariak {
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			if(jokalariBat.getApostua()<mahaia.getApostuMax()){
-				if( (jokalariBat.getDirua() + jokalariBat.getApostua()) >= mahaia.getApostuMax()){
-					System.out.println(jokalariBat.getIzena() + ", apostua ikusi nahi duzu?   (B/E)");
-					String bai = sc.next();
-					if(bai.equals("B")){
-						mahaia.setBotea(mahaia.getBotea() + (mahaia.getApostuMax() - jokalariBat.getApostua()));
-						jokalariBat.setDirua(jokalariBat.getDirua() - (mahaia.getApostuMax() - jokalariBat.getApostua()));
-						jokalariBat.setApostua(mahaia.getApostuMax());
+			if (!jokalariBat.getErretiratua()){
+				if(jokalariBat.getApostua()<mahaia.getApostuMax()){
+					if( (jokalariBat.getDirua() + jokalariBat.getApostua()) >= mahaia.getApostuMax()){
+						System.out.println(jokalariBat.getIzena() + ", apostua ikusi nahi duzu?   (B/E)");
+						String bai = sc.next();
+						if(bai.equals("B")){
+							mahaia.setBotea(mahaia.getBotea() + (mahaia.getApostuMax() - jokalariBat.getApostua()));
+							jokalariBat.setDirua(jokalariBat.getDirua() - (mahaia.getApostuMax() - jokalariBat.getApostua()));
+							jokalariBat.setApostua(mahaia.getApostuMax());
+						}
+						else if(!bai.equals("B")){
+							jokalariBat.setErretiratua(true);
+						}
 					}
-					else if(!bai.equals("B")){
+					else {
 						jokalariBat.setErretiratua(true);
 					}
-				}
-				else {
-					jokalariBat.setErretiratua(true);
 				}
 			}
 		}
@@ -227,7 +268,7 @@ public class ListaJokalariak {
 		Jokalaria jokalariBat;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "�");
+			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "€");
 		}
 	}
 	
@@ -247,16 +288,15 @@ public class ListaJokalariak {
 	}
 	
 	public void galdetuJoan(){
-		Iterator<Jokalaria> itr=this.getIteradorea();
-		Jokalaria jokalariBat;
-		while(itr.hasNext()){
-			jokalariBat=itr.next();
+		int kont=0;
+		while(kont <= this.tamaina()){
+			Jokalaria jokalariBat = this.lista.get(kont);
 			System.out.println(jokalariBat.getIzena() + ", partida utzi nahi duzu? (B/E)");
 			String bai = sc.next();
 			if(bai.equals("B")){
 				System.out.println(jokalariBat.getIzena() + " mahaia utzi du ;_;");
 				this.ezabatuJok(jokalariBat);
-			}
+			}else{kont++;}
 		}
 	}
 }

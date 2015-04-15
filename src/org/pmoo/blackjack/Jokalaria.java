@@ -13,17 +13,38 @@ public class Jokalaria {
 		this.izena = pIzena;
 		this.dirua = 500;
 	}
-	public int apostuaEgin(){
-		int apostua1=0;
+	
+	public int apostuaEgin() throws ApostuException{
+		this.apostua = 0;
 		System.out.println("Zenbat diru apostatu nahi duzu, " + this.izena + "?");
-		apostua1= sc.nextInt();
-		while(apostua1>this.dirua){
-			System.out.println("Apostua handiegia da, apostatu berriro");
-			apostua1 = sc.nextInt();
+		this.apostua = sc.nextInt();
+		
+		if(this.apostua > this.dirua){
+			throw (new ApostuException("Apostatu duzun dirua daukazuna baino handiagoa da"));
 		}
-		this.dirua = this.dirua - apostua1;
-		this.apostua = apostua1;
-		return apostua1;
+		else if(this.apostua < 0){
+			throw(new ApostuException("Ezin dituzu zenbaki negatiboak sartu"));
+		}
+		else if(this.apostua < BlackJack.getNireBlackJack().getApostuMax() && this.apostua != 0){
+			throw(new ApostuException("Apostua txikiegia da, ikusi edo handitu zure apostua"));
+		}
+		else if(this.apostua == 0){
+			this.erretiratua = true;
+			System.out.println(this.izena + " jokalaria erretiratu da.");
+		}
+		else if(this.apostua == this.dirua){
+			String konfirm=null;
+			System.out.println("Ziur zaude All-in egin nahi duzula? (B/E)");
+			konfirm = sc.next();
+			if(konfirm == "B"){
+				System.out.println("All-in egin duzu.");
+			}
+			else{
+				throw(new ApostuException(""));
+			}
+			
+		}
+		return this.apostua;
 		
 	}
 	

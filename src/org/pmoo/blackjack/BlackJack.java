@@ -41,9 +41,9 @@ public class BlackJack {
 			//Apostatu
 			jokalariak.apostuak();
 			//Apostuak ikusi
-			if(!jokalariak.guztiekApostatuDute()){
+			//if(!jokalariak.guztiekApostatuDute()){
 				jokalariak.apostuaIkusi();
-			}
+			//}
 			//Kartak eskatu
 			jokalariak.kartakBanatu();
 			
