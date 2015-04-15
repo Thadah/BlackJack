@@ -24,17 +24,17 @@ public class ListaJokalariak {
 	}
 	
 	public Jokalaria eskuHandienaKalkulatu(){
-		Jokalaria jok,eskuHandienaDuenJOkalaria=null;
+		Jokalaria jok,eskuHandienaDuenJokalaria=null;
 		Iterator<Jokalaria> itr=this.getIteradorea();
 		int eskua=0;
 		while(itr.hasNext()){
 			jok=itr.next();
-			if(eskua<jok.eskuaKalkulatu()&&jok.eskuaKalkulatu()<=21){
+			if(eskua<jok.eskuaKalkulatu()&&jok.eskuaKalkulatu()<=21 && !jok.getErretiratua()){
 				eskua=jok.eskuaKalkulatu();
-				eskuHandienaDuenJOkalaria=jok;
+				eskuHandienaDuenJokalaria=jok;
 			}
 		}
-		return eskuHandienaDuenJOkalaria;
+		return eskuHandienaDuenJokalaria;
 	}
 	
 	public void jokalariakBueltatu(){
@@ -195,7 +195,7 @@ public class ListaJokalariak {
 					}
 				}while(!apostuaEginda);
 			}
-			else if (apostua > mahaia.getApostuMax()){
+			if (apostua > mahaia.getApostuMax()){
 				mahaia.setApostuMax(apostua);
 			}
 			mahaia.setBotea( mahaia.getBotea() + apostua);
@@ -238,6 +238,7 @@ public class ListaJokalariak {
 						}
 					}
 					else {
+						System.out.println(jokalariBat.getIzena() + " , ez du diru nahikorik apostua ikusteko, erretiratua izan da. T_T");
 						jokalariBat.setErretiratua(true);
 					}
 				}
@@ -268,7 +269,7 @@ public class ListaJokalariak {
 		Jokalaria jokalariBat;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "â‚¬");
+			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "€");
 		}
 	}
 	
@@ -280,7 +281,7 @@ public class ListaJokalariak {
 		int eskuIrabazlea = irabazlea.eskuaKalkulatu();
 		while(itr.hasNext() && !bai){
 			jokalariBat = itr.next();
-			if(jokalariBat!=irabazlea && eskuIrabazlea==jokalariBat.eskuaKalkulatu()){
+			if(jokalariBat!=irabazlea && eskuIrabazlea==jokalariBat.eskuaKalkulatu()&& !jokalariBat.getErretiratua()){
 				bai = true;
 			}
 		}
@@ -289,7 +290,7 @@ public class ListaJokalariak {
 	
 	public void galdetuJoan(){
 		int kont=0;
-		while(kont <= this.tamaina()){
+		while(kont <= this.tamaina()-1){
 			Jokalaria jokalariBat = this.lista.get(kont);
 			System.out.println(jokalariBat.getIzena() + ", partida utzi nahi duzu? (B/E)");
 			String bai = sc.next();

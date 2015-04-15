@@ -12,6 +12,7 @@ public class Jokalaria {
 		this.eskua = new ListaKartak();
 		this.izena = pIzena;
 		this.dirua = 500;
+		this.erretiratua=false;
 	}
 	
 	public int apostuaEgin() throws ApostuException{
@@ -103,6 +104,7 @@ public class Jokalaria {
 					if(this.eskuaKalkulatu()>21){
 						System.out.println("pasatu zara :,(");
 						pasatuda=true;
+						this.erretiratua=true;
 					}
 					else if(this.eskuaKalkulatu()==21){
 						System.out.println(this.izena + ", 21era iritsi zara :P");
