@@ -5,11 +5,10 @@ import java.util.*;
 public class ListaJokalariak {
 	Scanner sc=new Scanner(System.in);
 	private static ListaJokalariak helbidea=null;
-	private ArrayList<Jokalaria> lista,listaErretiratuak;
+	private ArrayList<Jokalaria> lista;
 	
 	private ListaJokalariak(){
 		this.lista=new ArrayList<Jokalaria>();
-		this.listaErretiratuak=new ArrayList<Jokalaria>();
 	}
 	
 	public static synchronized ListaJokalariak getNireListaJokalariak(){
@@ -36,6 +35,17 @@ public class ListaJokalariak {
 			}
 		}
 		return eskuHandienaDuenJOkalaria;
+	}
+	
+	public void jokalariakBueltatu(){
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		Jokalaria jokalariBat=null;
+		while(itr.hasNext()){
+			jokalariBat = itr.next();
+			if(jokalariBat.getErretiratua() == true){
+				jokalariBat.setErretiratua(false);
+			}
+		}
 	}
 	
 	public int tamaina(){
@@ -110,9 +120,7 @@ public class ListaJokalariak {
 			if(jokalariBat.getDirua()>=mahaia.getApostuMax()){
 				apostua = jokalariBat.apostuaEgin();
 				if(apostua==0){
-					this.listaErretiratuak.add(jokalariBat);
-					jokAux = jokalariBat;
-					//this.ezabatuJok(jokAux);
+					jokalariBat.setErretiratua(true);
 					System.out.println(jokalariBat.getIzena() + " jokalaria jokotik atera da.");
 					ezabatuBehar = true;
 
@@ -146,8 +154,7 @@ public class ListaJokalariak {
 					jokalariBat.setDirua(0);
 				}
 				else {
-					this.listaErretiratuak.add(jokalariBat);
-					this.ezabatuJok(jokalariBat);
+					jokalariBat.setErretiratua(true);
 					System.out.println(jokalariBat.getIzena() + " jokalaria jokotik atera da.");
 				}
 				
@@ -185,13 +192,11 @@ public class ListaJokalariak {
 						jokalariBat.setApostua(mahaia.getApostuMax());
 					}
 					else if(!bai.equals("B")){
-						this.listaErretiratuak.add(jokalariBat);
-						this.ezabatuJok(jokalariBat);
+						jokalariBat.setErretiratua(true);
 					}
 				}
 				else {
-					this.listaErretiratuak.add(jokalariBat);
-					this.ezabatuJok(jokalariBat);
+					jokalariBat.setErretiratua(true);
 				}
 			}
 		}
@@ -214,26 +219,13 @@ public class ListaJokalariak {
 			jokalariBat.kartakItzuli();
 		}
 	}
-	private Iterator<Jokalaria> getIteradorea2(){
-		return this.listaErretiratuak.iterator();
-	}
-	
-	public void jokalariakBueltatu(){
-		Iterator<Jokalaria> itr=this.getIteradorea2();
-		Jokalaria jokalariBat;
-		while(itr.hasNext()){
-			jokalariBat=itr.next();
-			this.lista.add(jokalariBat);
-			this.listaErretiratuak.remove(jokalariBat);
-		}
-	}
-	
+		
 	public void guztienDiruaInprimatu(){
 		Iterator<Jokalaria> itr=this.getIteradorea();
 		Jokalaria jokalariBat;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "€");
+			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "ï¿½");
 		}
 	}
 	
