@@ -24,51 +24,63 @@ public class BlackJack {
 	public void partidaJolastu() throws InterruptedException{
 
 
-		String jolastunahi="B";
+		String jolastuNahi="B";
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		System.out.println("Ongi etorri Atutxa kasinora, ondo pasa dezazuen espero dugu :)");
 		Thread.sleep(1000);
 		//Jokalariak inskribatu
 		jokalariak.jokalariakInskribatu();
 		System.out.println("(Jokalari bakoitzak predeterminatuki 500€ ditu)\n");
+		boolean partidaZuzena = false;
+		do{
 		
-		while(jolastunahi.equals("B")){
-			
-			
-			Baraja.getBaraja().erreseteatu();
-			//Kartak eskatu
-			jokalariak.hasierakoBiKartak();
-			//Apostatu
-			jokalariak.apostuak();
-			//Apostuak ikusi
-			//if(!jokalariak.guztiekApostatuDute()){
-				jokalariak.apostuaIkusi();
-			//}
-			//Kartak eskatu
-			jokalariak.kartakBanatu();
-			
-			Thread.sleep(2500);
-			
-			//Irabazlea kalkulatu
-			if(!jokalariak.batBainoGehiagoIrabazi()){
-				System.out.println(irabazleaKalkulatu().getIzena() + " ZORIONAK irabazi duzu !!! :3  ");
-				System.out.println(irabazleaKalkulatu().getIzena() + " " + this.botea + "€-ko botea irabazi duzu :D");
-				irabazleaKalkulatu().setDirua(irabazleaKalkulatu().getDirua()+ this.botea);
-				this.botea = 0;
+			if(jolastuNahi.equals("B")){
+				try{
+					Baraja.getBaraja().erreseteatu();
+					//Kartak eskatu
+					jokalariak.hasierakoBiKartak();
+					//Apostatu
+					jokalariak.apostuak();
+					//Apostuak ikusi
+					jokalariak.apostuaIkusi();
+					//Kartak eskatu
+					jokalariak.kartakBanatu();
+					
+					Thread.sleep(2500);
+					
+					//Irabazlea kalkulatu
+					if(!jokalariak.batBainoGehiagoIrabazi()){
+						System.out.println(irabazleaKalkulatu().getIzena() + " ZORIONAK irabazi duzu !!! :3  ");
+						System.out.println(irabazleaKalkulatu().getIzena() + " " + this.botea + "€-ko botea irabazi duzu :D");
+						irabazleaKalkulatu().setDirua(irabazleaKalkulatu().getDirua()+ this.botea);
+						this.botea = 0;
+					}
+					else{
+						System.out.println("2 jokalarik edo gehiagok berdindu dutenez, botea ez da emango :/");
+					}
+					
+					partidaAmaitu();
+					jokalariak.guztienDiruaInprimatu();
+					System.out.println();
+					
+					//Galdetu ea norbai partidatik joan nahi den
+					jokalariak.galdetuJoan();
+					if(jokalariak.tamaina()<2){
+						throw(new JokalariException("Jokalarien kopurua ez da nahikoa partida jarraitzeko D:<"));
+					}
+					partidaZuzena = true;
+				}
+				catch(JokalariException e){
+					System.out.println(e.getMessage());
+					System.out.println("Partida");
+					jolastuNahi = "E";
+				}
 			}
 			else{
-				System.out.println("2 jokalarik edo gehiagok berdindu dutenez, botea ez da emango :/");
+				JokoaAmaitu();
 			}
-			
-			partidaAmaitu();
-			jokalariak.guztienDiruaInprimatu();
-			System.out.println();
-			
-			//Galdetu ea norbai partidatik joan nahi den
-			jokalariak.galdetuJoan();
-			
-		}
-		JokoaAmaitu();
+		}while(!partidaZuzena);
+		
 	}
 	
 	private Jokalaria irabazleaKalkulatu(){

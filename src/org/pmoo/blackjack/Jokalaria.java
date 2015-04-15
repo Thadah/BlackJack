@@ -37,7 +37,7 @@ public class Jokalaria {
 			String konfirm=null;
 			System.out.println("Ziur zaude All-in egin nahi duzula? (B/E)");
 			konfirm = sc.next();
-			if(konfirm == "B"){
+			if(konfirm.equals("B") || konfirm.equals("b")){
 				System.out.println("All-in egin duzu.");
 			}
 			else{
@@ -61,31 +61,31 @@ public class Jokalaria {
 			case 1: 
 				System.out.println(this.izena + ", Bateko " + kartaBat.idatziPalua() + " bat hartu duzu");
 				int totala = this.eskuaKalkulatu();
-				//Thread.sleep(1000);
+				Thread.sleep(1000);
 				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 			case 11:
 				System.out.println(this.izena + ", Txankako " + kartaBat.idatziPalua() + " bat hartu duzu");
 				totala = this.eskuaKalkulatu();
-				//Thread.sleep(1000);
+				Thread.sleep(1000);
 				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 			case 12:
 				System.out.println(this.izena + ", Erreginako " + kartaBat.idatziPalua() + " bat hartu duzu.");
 				totala = this.eskuaKalkulatu();
-				//Thread.sleep(1000);
+				Thread.sleep(1000);
 				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 			case 13:
 				System.out.println(this.izena + ", Erregeko " + kartaBat.idatziPalua() + " bat hartu duzu.");
 				totala = this.eskuaKalkulatu();
-				//Thread.sleep(1000);
+				Thread.sleep(1000);
 				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 			default:
 				System.out.println(this.izena + ",  " + kartaBat.getKartaBalioa() + "-ko " + kartaBat.idatziPalua() + " bat hartu duzu");
 				totala = this.eskuaKalkulatu();
-				//Thread.sleep(1000);
+				Thread.sleep(1000);
 				System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
 				break;
 		}
@@ -99,7 +99,7 @@ public class Jokalaria {
 			while(!pasatuda&&!plantatuta){
 				System.out.println(this.izena + " karta bat nahi duzu?? (B/E)");
 				eman = sc.next();
-				if (eman.equals("B")){
+				if (eman.equals("B") || eman.equals("b")){
 					this.kartaEskatu();
 					if(this.eskuaKalkulatu()>21){
 						System.out.println("pasatu zara :,(");
@@ -111,7 +111,7 @@ public class Jokalaria {
 						plantatuta=true;
 					}
 				}
-				else if(!eman.equals("B")){
+				else if(!eman.equals("B") && !eman.equals("b")){
 					System.out.println(this.izena + ", plantatu zara.");
 					plantatuta=true;
 				}
