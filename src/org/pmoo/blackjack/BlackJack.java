@@ -59,11 +59,13 @@ public class BlackJack {
 						Jokalaria irabazlea = ListaJokalariak.getNireListaJokalariak().eskuHandienaKalkulatu();
 						if (irabazlea != null){
 							System.out.println(irabazlea.getIzena() + " ZORIONAK irabazi duzu !!! :3  ");
-							System.out.println(irabazlea.getIzena() + " " + this.botea + "€-ko botea irabazi duzu :D");
+							System.out.println(irabazlea.getIzena() + " " + this.botea + "ï¿½-ko botea irabazi duzu :D");
 							irabazlea.boteaHartu();
 							this.botea = 0;
-						} else {
+						} 
+						else {
 							System.out.println("Jokalari guztiek 21 baino gehiago daukate, ez dago irabazlerik :|");
+							//TODO: Boteko apostuak jokalariei berreskuratu
 						}
 					}
 					else{
