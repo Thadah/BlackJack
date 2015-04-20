@@ -166,7 +166,7 @@ public class ListaJokalariak {
 		Jokalaria jokalariBat;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "€");
+			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "Â€");
 		}
 	}
 	
