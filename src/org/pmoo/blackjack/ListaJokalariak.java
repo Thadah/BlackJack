@@ -27,7 +27,7 @@ public class ListaJokalariak {
 	}
 	
 	public Jokalaria eskuHandienaKalkulatu(){
-		Jokalaria jok, eskuHandienaDuenJokalaria=null;
+		Jokalaria jok, eskuHandienaDuenJokalaria = null;
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		int eskua = 0;
 		while(itr.hasNext()){
@@ -175,11 +175,13 @@ public class ListaJokalariak {
 		Jokalaria jokalariBat;
 		boolean bai = false;
 		Jokalaria irabazlea = this.eskuHandienaKalkulatu();
-		int eskuIrabazlea = irabazlea.eskuaKalkulatu();
-		while(itr.hasNext() && !bai){
-			jokalariBat = itr.next();
-			if(jokalariBat != irabazlea && eskuIrabazlea == jokalariBat.eskuaKalkulatu()){
-				bai = true;
+		if (irabazlea != null){
+			int eskuIrabazlea = irabazlea.eskuaKalkulatu();
+			while(itr.hasNext() && !bai){
+				jokalariBat = itr.next();
+				if(jokalariBat != irabazlea && eskuIrabazlea == jokalariBat.eskuaKalkulatu()){
+					bai = true;
+				}
 			}
 		}
 		return bai;
