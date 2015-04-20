@@ -30,7 +30,7 @@ public class BlackJack {
 		Thread.sleep(1000);
 		//Jokalariak inskribatu
 		jokalariak.jokalariakInskribatu();
-		System.out.println("(Jokalari bakoitzak predeterminatuki 500€ ditu)\n");
+		System.out.println("(Jokalari bakoitzak predeterminatuki 500ï¿½ ditu)\n");
 		boolean partidaZuzena = false;
 		do{
 		
@@ -42,7 +42,7 @@ public class BlackJack {
 					//Apostatu
 					jokalariak.apostuak();
 					//Apostuak ikusi
-					jokalariak.apostuaIkusi();
+					jokalariak.apostuGuztiakIkusi();
 					//Kartak eskatu
 					jokalariak.kartakBanatu();
 					
@@ -51,8 +51,8 @@ public class BlackJack {
 					//Irabazlea kalkulatu
 					if(!jokalariak.batBainoGehiagoIrabazi()){
 						System.out.println(irabazleaKalkulatu().getIzena() + " ZORIONAK irabazi duzu !!! :3  ");
-						System.out.println(irabazleaKalkulatu().getIzena() + " " + this.botea + "€-ko botea irabazi duzu :D");
-						irabazleaKalkulatu().setDirua(irabazleaKalkulatu().getDirua()+ this.botea);
+						System.out.println(irabazleaKalkulatu().getIzena() + " " + this.botea + "ï¿½-ko botea irabazi duzu :D");
+						irabazleaKalkulatu().boteaHartu();
 						this.botea = 0;
 					}
 					else{
