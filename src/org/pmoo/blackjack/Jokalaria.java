@@ -1,13 +1,18 @@
 package org.pmoo.blackjack;
+
 import java.util.Scanner;
+
 public class Jokalaria {
-	Scanner sc=new Scanner(System.in);
+	
+	//Atributuak
+	Scanner sc = new Scanner(System.in);
 	private ListaKartak eskua;
 	private String izena;
 	private int dirua;
 	private int apostua;
 	private boolean erretiratua;
 	
+	//Eraikitzailea
 	public Jokalaria(String pIzena){
 		this.eskua = new ListaKartak();
 		this.izena = pIzena;
@@ -15,6 +20,7 @@ public class Jokalaria {
 		this.erretiratua=false;
 	}
 	
+	//Beste Metodoak
 	public void apostuaEgin() throws ApostuException{
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		boolean denaOndo = false;
@@ -109,38 +115,7 @@ public class Jokalaria {
 		if(!this.erretiratua){
 			Karta kartaBat = nireBaraja.emanKarta();
 			this.eskua.gehituKarta(kartaBat);
-			switch(kartaBat.getKartaBalioa()){
-				case 1: 
-					System.out.println(this.izena + ", Bateko " + kartaBat.idatziPalua() + " bat hartu duzu");
-					int totala = this.eskuaKalkulatu();
-					Thread.sleep(1000);
-					System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
-					break;
-				case 11:
-					System.out.println(this.izena + ", Txankako " + kartaBat.idatziPalua() + " bat hartu duzu");
-					totala = this.eskuaKalkulatu();
-					Thread.sleep(1000);
-					System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
-					break;
-				case 12:
-					System.out.println(this.izena + ", Erreginako " + kartaBat.idatziPalua() + " bat hartu duzu.");
-					totala = this.eskuaKalkulatu();
-					Thread.sleep(1000);
-					System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
-					break;
-				case 13:
-					System.out.println(this.izena + ", Erregeko " + kartaBat.idatziPalua() + " bat hartu duzu.");
-					totala = this.eskuaKalkulatu();
-					Thread.sleep(1000);
-					System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
-					break;
-				default:
-					System.out.println(this.izena + ",  " + kartaBat.getKartaBalioa() + "-ko " + kartaBat.idatziPalua() + " bat hartu duzu");
-					totala = this.eskuaKalkulatu();
-					Thread.sleep(1000);
-					System.out.println(this.izena + ", zure karten totala " + totala + " da.\n");
-					break;
-			}
+			System.out.println(this.izena + ", " + kartaBat.kartaIdatzi() + " bat hartu duzu");
 		}
 	}
 	
@@ -151,8 +126,8 @@ public class Jokalaria {
 	
 	public void txanda() throws InterruptedException{
 		BlackJack mahaia = BlackJack.getNireBlackJack();
-		boolean pasatuda=false;
-		boolean plantatuta=false;
+		boolean pasatuda = false;
+		boolean plantatuta = false;
 		String eman = null;
 		if (!erretiratua){
 			System.out.println(this.izena + ", Doblatu nahi al duzu? (B/E)");
@@ -166,24 +141,24 @@ public class Jokalaria {
 				System.out.println(this.izena + ", plantatu zara eta zure apostua doblatu duzu. \n");
 			}
 			else{
-				while(!pasatuda&&!plantatuta){
+				while(!pasatuda && !plantatuta){
 					System.out.println(this.izena + ", karta bat nahi duzu?? (B/E)");
 					eman = sc.next();
 					if (eman.equals("B") || eman.equals("b")){
 						this.kartaEskatu();
-						if(this.eskuaKalkulatu()>21){
+						if(this.eskuaKalkulatu() > 21){
 							System.out.println("pasatu zara :,(");
-							pasatuda=true;
-							this.erretiratua=true;
+							pasatuda = true;
+							this.erretiratua = true;
 						}
-						else if(this.eskuaKalkulatu()==21){
+						else if(this.eskuaKalkulatu() == 21){
 							System.out.println(this.izena + ", 21era iritsi zara :P");
-							plantatuta=true;
+							plantatuta = true;
 						}
 					}
 					else if(!eman.equals("B") && !eman.equals("b")){
 						System.out.println(this.izena + ", plantatu zara.");
-						plantatuta=true;
+						plantatuta = true;
 					}
 				}
 			}
@@ -200,6 +175,14 @@ public class Jokalaria {
 	
 	public void kartakItzuli(){
 		this.eskua.erreseteatu();
+	}
+	
+	public void eskuaIdatzi() throws InterruptedException{
+		if (!this.erretiratua){
+			System.out.println("Zure karten totala " + this.eskuaKalkulatu() + " da.\n");
+			System.out.println("Sakatu enter txanda bukatzeko.");
+			BlackJack.getNireBlackJack().enterItxaron();
+		}
 	}
 	
 }

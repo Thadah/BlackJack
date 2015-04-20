@@ -3,35 +3,38 @@ package org.pmoo.blackjack;
 import java.util.*;
 
 public class ListaJokalariak {
-	Scanner sc=new Scanner(System.in);
-	private static ListaJokalariak helbidea=null;
+	
+	//Atributuak
+	Scanner sc = new Scanner(System.in);
+	private static ListaJokalariak helbidea = null;
 	private ArrayList<Jokalaria> lista;
 	
+	//Eraikitzailea
 	private ListaJokalariak(){
 		this.lista=new ArrayList<Jokalaria>();
 	}
 	
 	public static synchronized ListaJokalariak getNireListaJokalariak(){
-		if (ListaJokalariak.helbidea==null){
-			ListaJokalariak.helbidea=new ListaJokalariak();
+		if (ListaJokalariak.helbidea == null){
+			ListaJokalariak.helbidea = new ListaJokalariak();
 		}
 		return ListaJokalariak.helbidea;
-		
 	}
 	
+	//Beste Medotoak
 	private Iterator<Jokalaria> getIteradorea(){
 		return this.lista.iterator();
 	}
 	
 	public Jokalaria eskuHandienaKalkulatu(){
-		Jokalaria jok,eskuHandienaDuenJokalaria=null;
-		Iterator<Jokalaria> itr=this.getIteradorea();
-		int eskua=0;
+		Jokalaria jok, eskuHandienaDuenJokalaria=null;
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		int eskua = 0;
 		while(itr.hasNext()){
-			jok=itr.next();
+			jok = itr.next();
 			if(eskua < jok.eskuaKalkulatu() && jok.eskuaKalkulatu() <= 21){
-				eskua=jok.eskuaKalkulatu();
-				eskuHandienaDuenJokalaria=jok;
+				eskua = jok.eskuaKalkulatu();
+				eskuHandienaDuenJokalaria = jok;
 			}
 		}
 		return eskuHandienaDuenJokalaria;
@@ -39,7 +42,7 @@ public class ListaJokalariak {
 	
 	public void jokalariakBueltatu(){
 		Iterator<Jokalaria> itr = this.getIteradorea();
-		Jokalaria jokalariBat=null;
+		Jokalaria jokalariBat = null;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
 			jokalariBat.bueltatu();
@@ -52,7 +55,7 @@ public class ListaJokalariak {
 
 	public void erreseteatu(){
 		this.lista.clear();
-		ListaJokalariak.helbidea=null;
+		ListaJokalariak.helbidea = null;
 	}
 	
 	public void guztiakErreseteatu(){
@@ -76,7 +79,7 @@ public class ListaJokalariak {
 		}
 		if(intOngi){
 			try{
-				if(jokalariKop>7||jokalariKop<2){
+				if(jokalariKop>7 || jokalariKop<2){
 					throw(new JokalariException("Jokalari kopurua 2 eta 7 zenbakien artean egon behar da"));
 				}
 				denaOngi = true;
@@ -88,9 +91,8 @@ public class ListaJokalariak {
 			if(denaOngi){
 				int i = 1;
 				String izen;
-				for(i=1;i<=jokalariKop;i++){
+				for(i=1; i<=jokalariKop; i++){
 					System.out.println("Zein da "+ i +". jokalariaren izena?");
-			
 					izen = sc.next();
 					jokalariBat = new Jokalaria(izen);
 					this.lista.add(jokalariBat);
@@ -106,14 +108,13 @@ public class ListaJokalariak {
 			jokalariBat = itr.next();
 			jokalariBat.kartaEskatu();
 			jokalariBat.kartaEskatu();
-			Thread.sleep(2000);//TODO
+			jokalariBat.eskuaIdatzi();
 		}
 	}
 
 	
 	public void apostuak(){
 		Jokalaria jokalariBat = null;
-		int apostua = 0;
 		boolean apostuaEginda = false;
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		while(itr.hasNext()){
@@ -142,17 +143,18 @@ public class ListaJokalariak {
 	}
 	
 	public void kartakBanatu() throws InterruptedException{
-		Iterator<Jokalaria> itr=this.getIteradorea();
-		Jokalaria jokalariBat=null;
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		Jokalaria jokalariBat = null;
 		while(itr.hasNext()){
 			jokalariBat=itr.next();
-			jokalariBat.txanda();	
+			jokalariBat.txanda();
+			jokalariBat.eskuaIdatzi();
 		}
 	}
 	
 	public void kenduKartak(){
-		Iterator<Jokalaria> itr=this.getIteradorea();
-		Jokalaria jokalariBat=null;
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		Jokalaria jokalariBat = null;
 		while(itr.hasNext()){
 			jokalariBat=itr.next();
 			jokalariBat.kartakItzuli();
@@ -160,16 +162,16 @@ public class ListaJokalariak {
 	}
 		
 	public void guztienDiruaInprimatu(){
-		Iterator<Jokalaria> itr=this.getIteradorea();
+		Iterator<Jokalaria> itr = this.getIteradorea();
 		Jokalaria jokalariBat;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "ï¿½");
+			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "€");
 		}
 	}
 	
 	public boolean batBainoGehiagoIrabazi(){
-		Iterator<Jokalaria> itr=this.getIteradorea();
+		Iterator<Jokalaria> itr = this.getIteradorea();
 		Jokalaria jokalariBat;
 		boolean bai = false;
 		Jokalaria irabazlea = this.eskuHandienaKalkulatu();
@@ -184,16 +186,15 @@ public class ListaJokalariak {
 	}
 	
 	public void galdetuJoan(){
-		int kont=0;
+		int kont = 0;
 		while(kont <= this.tamaina()-1){
 			Jokalaria jokalariBat = this.lista.get(kont);
-			if(jokalariBat.getDirua()==0){
+			if(jokalariBat.getDirua() == 0){
 				System.out.println("Sentitzen dugu " + jokalariBat.getIzena() + ", baina Kasinotik joan behar zara ez duzulako dirurik. >:(");
 				this.lista.remove(jokalariBat);
 				System.out.println(jokalariBat.getIzena() + " jokalaria jokotik atera da.");
 			}
-			else{
-				
+			else{		
 				System.out.println(jokalariBat.getIzena() + ", partida utzi nahi duzu? (B/E)");
 				String bai = sc.next();
 				if(bai.equals("B") || bai.equals("b")){
@@ -204,4 +205,6 @@ public class ListaJokalariak {
 			}
 		}
 	}
+	
+
 }

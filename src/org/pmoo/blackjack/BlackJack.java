@@ -4,14 +4,16 @@ import java.util.*;
 
 public class BlackJack {
 	
-	Scanner sc=new Scanner(System.in);
+	//Atributuak
+	Scanner sc = new Scanner(System.in);
 	private static BlackJack helbidea = null;
 	private int apostuMax;
 	private int botea;
 
+	//Eraikitzailea
 	private BlackJack(){
-		this.botea=0;
-		this.apostuMax=0;
+		this.botea = 0;
+		this.apostuMax = 0;
 	}
 	
 	public static synchronized BlackJack getNireBlackJack(){
@@ -21,6 +23,7 @@ public class BlackJack {
 		return helbidea;
 	}
 	
+	//Beste Metodoak
 	public void partidaJolastu() throws InterruptedException{
 
 
@@ -41,18 +44,22 @@ public class BlackJack {
 					jokalariak.apostuak();
 					//Apostuak ikusi
 					jokalariak.apostuGuztiakIkusi();
-					//Kartak eskatu
-					jokalariak.hasierakoBiKartak();
-					//Kartak eskatu
-					jokalariak.kartakBanatu();
-					
-					Thread.sleep(2500);
+					if (jokalariak.tamaina() >= 2){
+						//Itxaron
+						System.out.println("\nSakatu enter jokoa hasteko.");
+						this.enterItxaron();
+						//Kartak eskatu
+						jokalariak.hasierakoBiKartak();
+						//Kartak eskatu
+						jokalariak.kartakBanatu();
+					}
 					
 					//Irabazlea kalkulatu
 					if(!jokalariak.batBainoGehiagoIrabazi()){
-						System.out.println(irabazleaKalkulatu().getIzena() + " ZORIONAK irabazi duzu !!! :3  ");
-						System.out.println(irabazleaKalkulatu().getIzena() + " " + this.botea + "ï¿½-ko botea irabazi duzu :D");
-						irabazleaKalkulatu().boteaHartu();
+						Jokalaria irabazlea = ListaJokalariak.getNireListaJokalariak().eskuHandienaKalkulatu();
+						System.out.println(irabazlea.getIzena() + " ZORIONAK irabazi duzu !!! :3  ");
+						System.out.println(irabazlea.getIzena() + " " + this.botea + "€-ko botea irabazi duzu :D");
+						irabazlea.boteaHartu();
 						this.botea = 0;
 					}
 					else{
@@ -65,7 +72,7 @@ public class BlackJack {
 					
 					//Galdetu ea norbai partidatik joan nahi den
 					jokalariak.galdetuJoan();
-					if(jokalariak.tamaina()<2){
+					if(jokalariak.tamaina() < 2){
 						throw(new JokalariException("Jokalarien kopurua ez da nahikoa partida jarraitzeko D:<"));
 					}
 					partidaZuzena = true;
@@ -81,12 +88,6 @@ public class BlackJack {
 			}
 		}while(!partidaZuzena);
 		
-	}
-	
-	private Jokalaria irabazleaKalkulatu(){
-		Jokalaria irabazle=null;
-		irabazle=ListaJokalariak.getNireListaJokalariak().eskuHandienaKalkulatu();
-		return irabazle;
 	}
 	
 	private void JokoaAmaitu(){
@@ -125,9 +126,10 @@ public class BlackJack {
 		}
 	}
 	
+	public void enterItxaron() throws InterruptedException{
+		sc.nextLine();
+		this.kontsolaGarbitu();
+		Thread.sleep(2000);
+	}
+	
 }
-
-//Kontsola ezabatu
-//Pertsona bat joaten deneko kasua konpondu
-//Kartak eskatzeko momentuan azkenean jokalari bat bakarrik geratzen bada partida jarraian amaitzea
-//Klase- eta sekuentzia-diagrama

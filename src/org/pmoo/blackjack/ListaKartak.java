@@ -4,12 +4,15 @@ import java.util.*;
 
 public class ListaKartak {
 	
+	//Atributuak
 	private ArrayList<Karta> kartak;
 	
+	//Eraikitzailea
 	public ListaKartak(){
 		this.kartak = new ArrayList<Karta>();
 	}
 	
+	//Beste Metodoak
 	public void gehituKarta(Karta pKarta){
 		this.kartak.add(pKarta);
 	}
@@ -17,8 +20,7 @@ public class ListaKartak {
 	public void erreseteatu(){
 		this.kartak.clear();
 	}
-	
-	
+		
 	private Iterator<Karta> getIteradorea(){
 		return this.kartak.iterator();
 	}
@@ -26,20 +28,20 @@ public class ListaKartak {
 	public int kartenBalioaLortu(){
 		Karta kartaBat;
 		int balioa = 0;
-		Iterator<Karta> itr=this.getIteradorea();
+		Iterator<Karta> itr = this.getIteradorea();
 		while(itr.hasNext()){
 			kartaBat = itr.next();
-			if(kartaBat.getKartaBalioa()==1){
+			if(kartaBat.getKartaBalioa() == 1){
 				balioa = balioa + 11;
 			}
-			else if(kartaBat.getKartaBalioa()==11 || kartaBat.getKartaBalioa()==12 || kartaBat.getKartaBalioa()==13){
+			else if(kartaBat.getKartaBalioa() == 11 || kartaBat.getKartaBalioa() == 12 || kartaBat.getKartaBalioa() == 13){
 				balioa = balioa + 10;
 			}
 			else{
 				balioa = balioa + kartaBat.getKartaBalioa();
 			}
 		}
-		if( balioa>21  && this.batekorikDago() ){
+		if( balioa > 21  && this.batekorikDago() ){
 			balioa = balioa - (this.zenbatBatekoDago()*10);
 		}
 		return balioa;
@@ -48,7 +50,7 @@ public class ListaKartak {
 	private boolean batekorikDago(){
 		Karta kartaBat;
 		boolean badago = false;
-		Iterator<Karta> itr=this.getIteradorea();
+		Iterator<Karta> itr = this.getIteradorea();
 		while(itr.hasNext() && !badago){
 			kartaBat = itr.next();
 			badago = kartaBat.batekoa();
@@ -59,7 +61,7 @@ public class ListaKartak {
 	private int zenbatBatekoDago(){
 		Karta kartaBat;
 		int batekoKop = 0;
-		Iterator<Karta> itr=this.getIteradorea();
+		Iterator<Karta> itr = this.getIteradorea();
 		while(itr.hasNext()){
 			kartaBat = itr.next();
 			if(kartaBat.batekoa()){
@@ -68,5 +70,5 @@ public class ListaKartak {
 		}
 		return batekoKop;
 	}
-
+	
 }

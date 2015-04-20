@@ -1,10 +1,9 @@
 package org.pmoo.blackjack;
 
-
 import java.util.*;
 
-
 public class Baraja {
+	
 	//Atributuak
 	private static Baraja helbidea;
 	private ArrayList<Karta> listaKartak;
@@ -25,18 +24,6 @@ public class Baraja {
 		this.barajatu();
 	}
 	
-	public void barajaInprimatu(){
-		Iterator<Karta> itr = this.getIteradorea();
-		while(itr.hasNext()){
-			Karta kartaBat = itr.next();
-			System.out.println(kartaBat.getKartaBalioa() + " " + kartaBat.idatziPalua());
-		}
-	}
-	
-	public Iterator<Karta> getIteradorea(){
-		return this.listaKartak.iterator();
-	}
-	
 	public static synchronized Baraja getBaraja(){
 		if (Baraja.helbidea == null){
 			Baraja.helbidea = new Baraja();
@@ -45,6 +32,10 @@ public class Baraja {
 	}
 	
 	//Beste Metodoak
+	private Iterator<Karta> getIteradorea(){
+		return this.listaKartak.iterator();
+	}
+	
 	public void erreseteatu(){
 		this.listaKartak.clear();
 		Baraja.helbidea = null;
@@ -61,7 +52,16 @@ public class Baraja {
 		return kartaBat;
 	}
 	
-	public int tamaina(){ //JUnitentzako 
+	//JUnitentzako	
+	public int tamaina(){ 
 		return this.listaKartak.size();
+	}
+	
+	public void barajaInprimatu(){
+		Iterator<Karta> itr = this.getIteradorea();
+		while(itr.hasNext()){
+			Karta kartaBat = itr.next();
+			System.out.println(kartaBat.getKartaBalioa() + " " + kartaBat.idatziPalua());
+		}
 	}
 }
