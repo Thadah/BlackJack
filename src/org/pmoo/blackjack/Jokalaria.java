@@ -86,10 +86,11 @@ public class Jokalaria {
 				this.apostua = mahaia.getApostuMax();
 			}
 			else if(!bai.equals("B") && !bai.equals("b")){
+				System.out.println(this.izena + ", ez duzu apostua ikusi, beraz, erretiratua izan zara.");
 				this.erretiratua = true;
 			}
 		}
-		else {
+		else if(this.apostua < mahaia.getApostuMax()){
 			System.out.println(this.izena + " , ez dituzu apostua ikusteko baldintzak betetzen, erretiratua izan zara. T_T");
 			this.erretiratua = true;
 		}	

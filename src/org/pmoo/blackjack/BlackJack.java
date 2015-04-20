@@ -72,7 +72,7 @@ public class BlackJack {
 				}
 				catch(JokalariException e){
 					System.out.println(e.getMessage());
-					System.out.println("Partida");
+					System.out.println("Partida Bukatuta");
 					jolastuNahi = "E";
 				}
 			}
