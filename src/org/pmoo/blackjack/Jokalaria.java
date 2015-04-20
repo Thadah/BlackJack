@@ -150,28 +150,41 @@ public class Jokalaria {
 	}
 	
 	public void txanda() throws InterruptedException{
+		BlackJack mahaia = BlackJack.getNireBlackJack();
 		boolean pasatuda=false;
 		boolean plantatuta=false;
 		String eman = null;
 		if (!erretiratua){
-			while(!pasatuda&&!plantatuta){
-				System.out.println(this.izena + " karta bat nahi duzu?? (B/E)");
-				eman = sc.next();
-				if (eman.equals("B") || eman.equals("b")){
-					this.kartaEskatu();
-					if(this.eskuaKalkulatu()>21){
-						System.out.println("pasatu zara :,(");
-						pasatuda=true;
-						this.erretiratua=true;
+			System.out.println(this.izena + ", Doblatu nahi al duzu? (B/E)");
+			eman = sc.next();
+			if(eman.equals("B") || eman.equals("b")){
+				this.kartaEskatu();
+				this.dirua = this.dirua - this.apostua;
+				mahaia.setBotea(mahaia.getBotea() + this.apostua);
+				this.apostua = this.apostua*2;
+				plantatuta = true;
+				System.out.println(this.izena + ", plantatu zara eta zure apostua doblatu duzu. \n");
+			}
+			else{
+				while(!pasatuda&&!plantatuta){
+					System.out.println(this.izena + ", karta bat nahi duzu?? (B/E)");
+					eman = sc.next();
+					if (eman.equals("B") || eman.equals("b")){
+						this.kartaEskatu();
+						if(this.eskuaKalkulatu()>21){
+							System.out.println("pasatu zara :,(");
+							pasatuda=true;
+							this.erretiratua=true;
+						}
+						else if(this.eskuaKalkulatu()==21){
+							System.out.println(this.izena + ", 21era iritsi zara :P");
+							plantatuta=true;
+						}
 					}
-					else if(this.eskuaKalkulatu()==21){
-						System.out.println(this.izena + ", 21era iritsi zara :P");
+					else if(!eman.equals("B") && !eman.equals("b")){
+						System.out.println(this.izena + ", plantatu zara.");
 						plantatuta=true;
 					}
-				}
-				else if(!eman.equals("B") && !eman.equals("b")){
-					System.out.println(this.izena + ", plantatu zara.");
-					plantatuta=true;
 				}
 			}
 		}

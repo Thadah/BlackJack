@@ -37,12 +37,12 @@ public class BlackJack {
 			if(jolastuNahi.equals("B")){
 				try{
 					Baraja.getBaraja().erreseteatu();
-					//Kartak eskatu
-					jokalariak.hasierakoBiKartak();
 					//Apostatu
 					jokalariak.apostuak();
 					//Apostuak ikusi
 					jokalariak.apostuGuztiakIkusi();
+					//Kartak eskatu
+					jokalariak.hasierakoBiKartak();
 					//Kartak eskatu
 					jokalariak.kartakBanatu();
 					
@@ -116,6 +116,13 @@ public class BlackJack {
 		this.apostuMax=0;
 		ListaJokalariak.getNireListaJokalariak().jokalariakBueltatu();
 		ListaJokalariak.getNireListaJokalariak().kenduKartak();
+	}
+	
+	public void kontsolaGarbitu(){
+		int i;
+		for(i=1; i < 20; i++){
+			System.out.println("\n");
+		}
 	}
 	
 }
