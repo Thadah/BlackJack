@@ -126,7 +126,6 @@ public class Jokalaria {
 	
 	public void txanda() throws InterruptedException{
 		BlackJack mahaia = BlackJack.getNireBlackJack();
-		boolean pasatuda = false;
 		boolean plantatuta = false;
 		String eman = null;
 		if (!erretiratua){
@@ -140,27 +139,23 @@ public class Jokalaria {
 				plantatuta = true;
 				System.out.println(this.izena + ", plantatu zara eta zure apostua doblatu duzu. \n");
 			}
-			else{
-				while(!pasatuda && !plantatuta){
-					System.out.println(this.izena + ", karta bat nahi duzu?? (B/E)");
-					eman = sc.next();
-					if (eman.equals("B") || eman.equals("b")){
-						this.kartaEskatu();
-						if(this.eskuaKalkulatu() > 21){
-							System.out.println("pasatu zara :,(");
-							pasatuda = true;
-							this.erretiratua = true;
-						}
-						else if(this.eskuaKalkulatu() == 21){
-							System.out.println(this.izena + ", 21era iritsi zara :P");
-							plantatuta = true;
-						}
-					}
-					else if(!eman.equals("B") && !eman.equals("b")){
-						System.out.println(this.izena + ", plantatu zara.");
-						plantatuta = true;
-					}
+			while(this.eskuaKalkulatu() <= 21 && !plantatuta){
+				System.out.println(this.izena + ", karta bat nahi duzu?? (B/E)");
+				eman = sc.next();
+				if (eman.equals("B") || eman.equals("b")){
+					this.kartaEskatu();
 				}
+				else if(!eman.equals("B") && !eman.equals("b")){
+					System.out.println(this.izena + ", plantatu zara.");
+					plantatuta=true;
+				}
+			}
+			if (this.eskuaKalkulatu() > 21){
+				System.out.println(this.izena + ", pasatu egin zara :( \n");
+			}
+			if(this.eskuaKalkulatu() == 21){
+				Thread.sleep(1000);
+				System.out.println(this.izena + ", 21-era iritsi zara :P \n");
 			}
 		}
 	}
