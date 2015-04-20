@@ -79,7 +79,7 @@ public class ListaJokalariak {
 		}
 		if(intOngi){
 			try{
-				if(jokalariKop>7 || jokalariKop<2){
+				if(jokalariKop > 7 || jokalariKop < 2){
 					throw(new JokalariException("Jokalari kopurua 2 eta 7 zenbakien artean egon behar da"));
 				}
 				denaOngi = true;
@@ -156,7 +156,7 @@ public class ListaJokalariak {
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		Jokalaria jokalariBat = null;
 		while(itr.hasNext()){
-			jokalariBat=itr.next();
+			jokalariBat = itr.next();
 			jokalariBat.kartakItzuli();
 		}
 	}
@@ -166,7 +166,7 @@ public class ListaJokalariak {
 		Jokalaria jokalariBat;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "Â€");
+			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "€");
 		}
 	}
 	

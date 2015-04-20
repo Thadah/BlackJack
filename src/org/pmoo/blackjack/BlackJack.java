@@ -25,18 +25,15 @@ public class BlackJack {
 	
 	//Beste Metodoak
 	public void partidaJolastu() throws InterruptedException{
-
-
-		String jolastuNahi="B";
+		String jolastuNahi = "B";
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		System.out.println("Ongi etorri Atutxa kasinora, ondo pasa dezazuen espero dugu :)");
 		Thread.sleep(1000);
 		//Jokalariak inskribatu
 		jokalariak.jokalariakInskribatu();
-		System.out.println("(Jokalari bakoitzak predeterminatuki 500ï¿½ ditu)\n");
+		System.out.println("(Jokalari bakoitzak predeterminatuki 500€ ditu)\n");
 		boolean partidaZuzena = false;
-		do{
-		
+		do{		
 			if(jolastuNahi.equals("B")){
 				try{
 					Baraja.getBaraja().erreseteatu();
@@ -59,7 +56,7 @@ public class BlackJack {
 						Jokalaria irabazlea = ListaJokalariak.getNireListaJokalariak().eskuHandienaKalkulatu();
 						if (irabazlea != null){
 							System.out.println(irabazlea.getIzena() + " ZORIONAK irabazi duzu !!! :3  ");
-							System.out.println(irabazlea.getIzena() + " " + this.botea + "ï¿½-ko botea irabazi duzu :D");
+							System.out.println(irabazlea.getIzena() + " " + this.botea + " €-ko botea irabazi duzu :D");
 							irabazlea.boteaHartu();
 							this.botea = 0;
 						} 
@@ -118,9 +115,8 @@ public class BlackJack {
 		this.botea = pBotea;
 	}
 	
-	private void partidaAmaitu(){
-		
-		this.apostuMax=0;
+	private void partidaAmaitu(){		
+		this.apostuMax = 0;
 		ListaJokalariak.getNireListaJokalariak().jokalariakBueltatu();
 		ListaJokalariak.getNireListaJokalariak().kenduKartak();
 	}

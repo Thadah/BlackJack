@@ -17,7 +17,7 @@ public class Jokalaria {
 		this.eskua = new ListaKartak();
 		this.izena = pIzena;
 		this.dirua = 500;
-		this.erretiratua=false;
+		this.erretiratua = false;
 	}
 	
 	//Beste Metodoak
@@ -50,7 +50,7 @@ public class Jokalaria {
 					System.out.println(this.izena + " jokalaria erretiratu da.");
 				}
 				else if(this.apostua == this.dirua){
-					String konfirm=null;
+					String konfirm = null;
 					System.out.println("Ziur zaude All-in egin nahi duzula? (B/E)");
 					konfirm = sc.next();
 					if(konfirm.equals("B") || konfirm.equals("b")){
