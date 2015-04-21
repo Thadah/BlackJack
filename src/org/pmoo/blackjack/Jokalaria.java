@@ -80,6 +80,11 @@ public class Jokalaria {
 		}
 	}
 	
+	public void apostuaBueltatu(){
+		this.dirua = this.dirua + this.apostua;
+		this.apostua = 0;
+	}
+	
 	public void apostuaIkusi(){
 		int totala = this.apostua + this.dirua;
 		BlackJack mahaia = BlackJack.getNireBlackJack();
@@ -144,6 +149,7 @@ public class Jokalaria {
 				eman = sc.next();
 				if (eman.equals("B") || eman.equals("b")){
 					this.kartaEskatu();
+					System.out.println(this.izena + ", zure karten totala " + this.eskuaKalkulatu() + " da." );
 				}
 				else if(!eman.equals("B") && !eman.equals("b")){
 					System.out.println(this.izena + ", plantatu zara.");

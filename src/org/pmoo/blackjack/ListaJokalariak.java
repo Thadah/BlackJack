@@ -166,7 +166,7 @@ public class ListaJokalariak {
 		Jokalaria jokalariBat;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "€");
+			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "ï¿½");
 		}
 	}
 	
@@ -185,6 +185,16 @@ public class ListaJokalariak {
 			}
 		}
 		return bai;
+	}
+	
+	public void apostuakBueltatu(){
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		Jokalaria jokalariBat;
+		while(itr.hasNext()){
+			jokalariBat = itr.next();
+			jokalariBat.apostuaBueltatu();
+		}
+		
 	}
 	
 	public void galdetuJoan(){

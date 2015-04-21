@@ -31,7 +31,7 @@ public class BlackJack {
 		Thread.sleep(1000);
 		//Jokalariak inskribatu
 		jokalariak.jokalariakInskribatu();
-		System.out.println("(Jokalari bakoitzak predeterminatuki 500€ ditu)\n");
+		System.out.println("(Jokalari bakoitzak predeterminatuki 500ï¿½ ditu)\n");
 		boolean partidaZuzena = false;
 		do{		
 			if(jolastuNahi.equals("B")){
@@ -56,18 +56,19 @@ public class BlackJack {
 						Jokalaria irabazlea = ListaJokalariak.getNireListaJokalariak().eskuHandienaKalkulatu();
 						if (irabazlea != null){
 							System.out.println(irabazlea.getIzena() + " ZORIONAK irabazi duzu !!! :3  ");
-							System.out.println(irabazlea.getIzena() + " " + this.botea + " €-ko botea irabazi duzu :D");
+							System.out.println(irabazlea.getIzena() + " " + this.botea + " ï¿½-ko botea irabazi duzu :D");
 							irabazlea.boteaHartu();
-							this.botea = 0;
 						} 
 						else {
-							System.out.println("Jokalari guztiek 21 baino gehiago daukate, ez dago irabazlerik :|");
-							//TODO: Boteko apostuak jokalariei berreskuratu
+							System.out.println("Jokalari guztiak pasatu dira, beraz, ez dago irabazlerik :|");
+							jokalariak.apostuakBueltatu();
 						}
 					}
 					else{
-						System.out.println("2 jokalarik edo gehiagok berdindu dutenez, botea ez da emango :/");
+						System.out.println("2 jokalarik edo gehiagok berdindu dutenez, apostuak itzuliko dira :/");
+						jokalariak.apostuakBueltatu();
 					}
+					this.botea = 0;
 					
 					partidaAmaitu();
 					jokalariak.guztienDiruaInprimatu();
@@ -83,6 +84,7 @@ public class BlackJack {
 				catch(JokalariException e){
 					System.out.println(e.getMessage());
 					System.out.println("Partida Bukatuta");
+					JokoaAmaitu();
 					jolastuNahi = "E";
 				}
 			}
