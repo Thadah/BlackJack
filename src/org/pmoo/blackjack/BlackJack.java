@@ -9,6 +9,7 @@ public class BlackJack {
 	private static BlackJack helbidea = null;
 	private int apostuMax;
 	private int botea;
+	public static boolean croupierrarekin = false;
 
 	//Eraikitzailea
 	private BlackJack(){
@@ -30,6 +31,10 @@ public class BlackJack {
 		System.out.println("Ongi etorri Atutxa kasinora, ondo pasa dezazuen espero dugu :)");
 		Thread.sleep(1000);
 		//Jokalariak inskribatu
+		if(this.croupierrarekin()){
+			jokalariak.croupierInskribatu();
+			BlackJack.croupierrarekin = true;
+		}
 		jokalariak.jokalariakInskribatu();
 		System.out.println("(Jokalari bakoitzak predeterminatuki 500� ditu)\n");
 		boolean partidaZuzena = false;
@@ -52,23 +57,7 @@ public class BlackJack {
 					}
 					
 					//Irabazlea kalkulatu
-					if(!jokalariak.batBainoGehiagoIrabazi()){
-						Jokalaria irabazlea = jokalariak.eskuHandienaKalkulatu();
-						if (irabazlea != null){
-							System.out.println(irabazlea.getIzena() + " ZORIONAK irabazi duzu !!! :3  ");
-							System.out.println(irabazlea.getIzena() + " " + this.botea + " �-ko botea irabazi duzu :D");
-							irabazlea.boteaHartu();
-						} 
-						else {
-							System.out.println("Jokalari guztiak pasatu dira, beraz, ez dago irabazlerik :|");
-							jokalariak.apostuakBueltatu();
-						}
-					}
-					else{
-						System.out.println("2 jokalarik edo gehiagok berdindu dutenez, apostuak itzuliko dira :/");
-						jokalariak.apostuakBueltatu();
-					}
-					this.botea = 0;
+					this.irabazleaKalkulatu();
 					
 					partidaAmaitu();
 					jokalariak.guztienDiruaInprimatu();
@@ -93,6 +82,54 @@ public class BlackJack {
 			}
 		}while(!partidaZuzena);
 		
+	}
+	
+	private boolean croupierrarekin(){
+		System.out.println("Croupier-arekin jolastu nahi al duzu(e)? (B/E)");
+		String bai = sc.next();
+		if(bai.equals("B") || bai.equals("b")){
+			return true;
+		}
+		else{
+			return false;
+		}
+		
+	}
+	
+	private void irabaziCroupierGabe(){
+		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
+		if(!jokalariak.batBainoGehiagoIrabazi()){
+			Jokalaria irabazlea = jokalariak.eskuHandienaKalkulatu();
+			if (irabazlea != null){
+				System.out.println(irabazlea.getIzena() + " ZORIONAK irabazi duzu !!! :3  ");
+				System.out.println(irabazlea.getIzena() + " " + this.botea + " �-ko botea irabazi duzu :D");
+				irabazlea.boteaHartu();
+			} 
+			else {
+				System.out.println("Jokalari guztiak pasatu dira, beraz, ez dago irabazlerik :|");
+				jokalariak.apostuakBueltatu();
+			}
+		}
+		else{
+			System.out.println("2 jokalarik edo gehiagok berdindu dutenez, apostuak itzuliko dira :/");
+			jokalariak.apostuakBueltatu();
+		}
+	}
+	
+	private void irabaziCroupierrarekin(){
+		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
+		jokalariak.croupierIrabazi();
+		//TODO
+	}
+	
+	private void irabazleaKalkulatu(){
+		if(!BlackJack.croupierrarekin){
+			this.irabaziCroupierGabe();
+		}
+		else{
+			this.irabaziCroupierrarekin();
+		}
+		this.botea = 0;
 	}
 	
 	private void JokoaAmaitu(){

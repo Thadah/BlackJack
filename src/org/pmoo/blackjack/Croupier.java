@@ -19,17 +19,24 @@ public class Croupier extends Jokalaria {
 	private boolean sartu(double pProb){
 		boolean bai = false;
 		int probabilitatea = (int)Math.floor(Math.random()*(100)+1);
-		if(probabilitatea < pProb*100){
+		if(probabilitatea <= pProb*100){
 			bai = true;
 		}
 		return bai;		
 	}
 	
-	public void txanda() throws InterruptedException{
+	public void apostuaEgin(){
 		BlackJack mahaia = BlackJack.getNireBlackJack();
+		this.apostua = mahaia.getApostuMax();
+	}
+	
+	public void apostuaIkusi(){
+		this.apostuaEgin();
+	}
+	
+	public void txanda() throws InterruptedException{
 		boolean plantatuta = false;
 		boolean pasatuta = false;
-		this.apostua = mahaia.getApostuMax();
 		while(!plantatuta && !pasatuta){
 			if (this.eskuaKalkulatu() < 17){
 				this.kartaEskatu();

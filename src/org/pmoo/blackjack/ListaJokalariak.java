@@ -192,6 +192,11 @@ public class ListaJokalariak {
 		return bai;
 	}
 	
+	public void croupierIrabazi(){
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		//TODO
+	}
+	
 	public void apostuakBueltatu(){
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		Jokalaria jokalariBat;
