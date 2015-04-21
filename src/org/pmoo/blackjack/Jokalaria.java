@@ -6,11 +6,11 @@ public class Jokalaria {
 	
 	//Atributuak
 	Scanner sc = new Scanner(System.in);
-	private ListaKartak eskua;
-	private String izena;
-	private int dirua;
-	private int apostua;
-	private boolean erretiratua;
+	protected ListaKartak eskua;
+	protected String izena;
+	protected int dirua;
+	protected int apostua;
+	protected boolean erretiratua;
 	
 	//Eraikitzailea
 	public Jokalaria(String pIzena){

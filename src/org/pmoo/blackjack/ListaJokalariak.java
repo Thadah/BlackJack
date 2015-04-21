@@ -101,6 +101,11 @@ public class ListaJokalariak {
 		}
 	}
 	
+	public void croupierInskribatu(){
+		Croupier cr = new Croupier("Croupier");
+		this.lista.add(cr);
+	}
+	
 	public void hasierakoBiKartak() throws InterruptedException{
 		Jokalaria jokalariBat;
 		Iterator<Jokalaria> itr = this.getIteradorea();
