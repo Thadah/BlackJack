@@ -1,5 +1,7 @@
 package org.pmoo.blackjack;
 
+import java.util.Iterator;
+
 public class Croupier extends Jokalaria {
 
 	public Croupier(String pIzena) {
@@ -8,6 +10,19 @@ public class Croupier extends Jokalaria {
 		this.eskua = new ListaKartak();
 		this.dirua = Integer.MAX_VALUE;
 		this.erretiratua = false;
+	}
+	
+	private Iterator<Karta> getIteradorea(){
+		return this.eskua.getIteradorea();
+	}
+	
+	private boolean sartu(double pProb){
+		boolean bai = false;
+		int probabilitatea = (int)Math.floor(Math.random()*(100)+1);
+		if(probabilitatea < pProb*100){
+			bai = true;
+		}
+		return bai;		
 	}
 	
 	public void txanda() throws InterruptedException{
@@ -20,24 +35,39 @@ public class Croupier extends Jokalaria {
 				this.kartaEskatu();
 			}
 			
-			if(this.eskuaKalkulatu() == 17){
+			else if(this.eskuaKalkulatu() == 17){
 				plantatuta = true;
 			}
 			
-			if(this.eskuaKalkulatu() > 17){
-				if(Math.random() > 0.5){
+			else if(this.eskuaKalkulatu() > 17 && this.eskuaKalkulatu() < 21){
+				double prob = 12/52;
+				switch (this.eskuaKalkulatu()){
+					case 19:
+						prob = 8/52;
+						break;
+					case 20:
+						prob = 4/52;
+						break;
+				}
+				Iterator<Karta> itr = this.getIteradorea();
+				Karta nireKarta = null;
+				while(itr.hasNext()){
+					nireKarta = itr.next();
+					if(this.eskuaKalkulatu() + nireKarta.getKartaBalioa() <= 21){
+						prob = prob - 1/52;
+					}
+				}
+				if(sartu(prob)){
 					this.kartaEskatu();
 				}
-				else{
-					plantatuta = true;
-				}
 			}
-			
-			if(this.eskuaKalkulatu() > 21){
+			else if (this.eskuaKalkulatu() == 21){
+				plantatuta = true;
+			}
+			else{
 				pasatuta = true;
 				this.erretiratua = true;
 			}
-			
 		}
 	}
 

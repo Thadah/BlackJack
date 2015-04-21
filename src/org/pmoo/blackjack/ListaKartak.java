@@ -21,7 +21,7 @@ public class ListaKartak {
 		this.kartak.clear();
 	}
 		
-	private Iterator<Karta> getIteradorea(){
+	public Iterator<Karta> getIteradorea(){
 		return this.kartak.iterator();
 	}
 	

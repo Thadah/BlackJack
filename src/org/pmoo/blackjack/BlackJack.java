@@ -53,7 +53,7 @@ public class BlackJack {
 					
 					//Irabazlea kalkulatu
 					if(!jokalariak.batBainoGehiagoIrabazi()){
-						Jokalaria irabazlea = ListaJokalariak.getNireListaJokalariak().eskuHandienaKalkulatu();
+						Jokalaria irabazlea = jokalariak.eskuHandienaKalkulatu();
 						if (irabazlea != null){
 							System.out.println(irabazlea.getIzena() + " ZORIONAK irabazi duzu !!! :3  ");
 							System.out.println(irabazlea.getIzena() + " " + this.botea + " �-ko botea irabazi duzu :D");
