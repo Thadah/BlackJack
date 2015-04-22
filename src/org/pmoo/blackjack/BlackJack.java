@@ -31,11 +31,11 @@ public class BlackJack {
 		System.out.println("Ongi etorri Atutxa kasinora, ondo pasa dezazuen espero dugu :)");
 		Thread.sleep(1000);
 		//Jokalariak inskribatu
-		if(this.croupierrarekin()){
-			jokalariak.croupierInskribatu();
-			BlackJack.croupierrarekin = true;
-		}
+		BlackJack.croupierrarekin = this.croupierrarekin();
 		jokalariak.jokalariakInskribatu();
+		if(BlackJack.croupierrarekin){
+			jokalariak.croupierInskribatu();
+		}
 		System.out.println("(Jokalari bakoitzak predeterminatuki 500� ditu)\n");
 		boolean partidaZuzena = false;
 		do{		

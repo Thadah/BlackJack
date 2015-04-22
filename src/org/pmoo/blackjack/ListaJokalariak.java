@@ -79,8 +79,8 @@ public class ListaJokalariak {
 		}
 		if(intOngi){
 			try{
-				if(jokalariKop > 7 || jokalariKop < 2){
-					throw(new JokalariException("Jokalari kopurua 2 eta 7 zenbakien artean egon behar da"));
+				if(jokalariKop > 7 || jokalariKop < this.jokalariMin()){
+					throw(new JokalariException("Jokalari kopurua" + this.jokalariMin() + " eta 7 zenbakien artean egon behar da"));
 				}
 				denaOngi = true;
 			}
@@ -228,5 +228,12 @@ public class ListaJokalariak {
 		}
 	}
 	
+	private int jokalariMin(){
+		int min = 2;
+		if (BlackJack.croupierrarekin){
+			min = 1;
+		}
+		return min;
+	}
 
 }
