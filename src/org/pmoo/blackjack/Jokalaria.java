@@ -133,18 +133,20 @@ public class Jokalaria {
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		boolean plantatuta = false;
 		String eman = null;
-		if (!erretiratua){
-			System.out.println(this.izena + ", Doblatu nahi al duzu? (B/E)");
-			eman = sc.next();
-			if(eman.equals("B") || eman.equals("b")){
-				this.kartaEskatu();
-				this.dirua = this.dirua - this.apostua;
-				mahaia.setBotea(mahaia.getBotea() + this.apostua);
-				this.apostua = this.apostua*2;
-				plantatuta = true;
-				System.out.println(this.izena + ", plantatu zara eta zure apostua doblatu duzu. \n");
+		if (!erretiratua && this.eskuaKalkulatu() < 21){
+			if (this.dirua >= this.apostua){
+				System.out.println(this.izena + ", Doblatu nahi al duzu? (B/E)");
+				eman = sc.next();
+				if(eman.equals("B") || eman.equals("b")){
+					this.kartaEskatu();
+					this.dirua = this.dirua - this.apostua;
+					mahaia.setBotea(mahaia.getBotea() + this.apostua);
+					this.apostua = this.apostua*2;
+					plantatuta = true;
+					System.out.println(this.izena + ", plantatu zara eta zure apostua doblatu duzu. \n");
+				}
 			}
-			while(this.eskuaKalkulatu() <= 21 && !plantatuta){
+			while(!plantatuta){
 				System.out.println(this.izena + ", karta bat nahi duzu?? (B/E)");
 				eman = sc.next();
 				if (eman.equals("B") || eman.equals("b")){
