@@ -1,12 +1,20 @@
 package org.pmoo.blackjack;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Arrays;
+import java.util.*;
+
 
 public class Ranking {
 
 	//Atributuak
 	private ArrayList<Jokalaria> ranking;
+	static final Comparator<Jokalaria> ESKUA = 
+         new Comparator<Jokalaria>() {
+		 public int compare(Jokalaria pJok1, Jokalaria pJok2) {
+		 return new Integer(pJok2.eskuaKalkulatu()).compareTo(new Integer(pJok1.eskuaKalkulatu()));
+		 }
+	 };
 	
 	//Eraikitzailea
 	public Ranking(){
@@ -38,7 +46,7 @@ public class Ranking {
 	}
 	
 	public void rankingaOrdenatu(){
-		//TODO: Rankinga eskuaren arabera ordenatzea
+		 Collections.sort(this.ranking, ESKUA);
 	}
 	
 	public Jokalaria posizioan(int pInt){
@@ -53,7 +61,12 @@ public class Ranking {
 			jokalariBat = itr.next();
 			System.out.println("  - " + i + ". postuan: " + jokalariBat.getIzena() + ", " + jokalariBat.eskuaKalkulatu() + " eskuarekin.");
 			i++;
-		}	
+		}
+	}
+	
+	
+	public int compare(Jokalaria pJok1, Jokalaria pJok2) {
+		return new Integer(pJok2.eskuaKalkulatu()).compareTo(new Integer(pJok1.eskuaKalkulatu()));
 	}
 		
 }
