@@ -129,6 +129,10 @@ public class Jokalaria {
 		this.dirua = this.dirua + mahaia.getBotea();
 	}
 	
+	public void boteaHartuCroupier(int pBotea){
+		this.dirua = this.dirua + pBotea;
+	}
+	
 	public void txanda() throws InterruptedException{
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		boolean plantatuta = false;
@@ -146,7 +150,7 @@ public class Jokalaria {
 					System.out.println(this.izena + ", plantatu zara eta zure apostua doblatu duzu. \n");
 				}
 			}
-			while(!plantatuta){
+			while(!plantatuta && this.eskuaKalkulatu() < 21){
 				System.out.println(this.izena + ", karta bat nahi duzu?? (B/E)");
 				eman = sc.next();
 				if (eman.equals("B") || eman.equals("b")){

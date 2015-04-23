@@ -192,9 +192,17 @@ public class ListaJokalariak {
 		return bai;
 	}
 	
-	public void croupierIrabazi(){
+	public Ranking croupierIrabazi(){
+		Ranking rankinga = new Ranking();
 		Iterator<Jokalaria> itr = this.getIteradorea();
-		//TODO
+		Jokalaria jokalariBat;
+		while(itr.hasNext()){
+			jokalariBat = itr.next();
+			if (jokalariBat.eskuaKalkulatu() > this.lista.get(this.tamaina()-1).eskuaKalkulatu()){
+				rankinga.rankingeanSartu(jokalariBat);
+			}
+		}
+		return rankinga;
 	}
 	
 	public void apostuakBueltatu(){

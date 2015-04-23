@@ -27,7 +27,7 @@ public class Croupier extends Jokalaria {
 	
 	public void apostuaEgin(){
 		BlackJack mahaia = BlackJack.getNireBlackJack();
-		this.apostua = mahaia.getApostuMax();
+		mahaia.setBotea(mahaia.getBotea() + (mahaia.getApostuMax() - this.apostua));
 	}
 	
 	public void apostuaIkusi(){

@@ -118,8 +118,8 @@ public class BlackJack {
 	
 	private void irabaziCroupierrarekin(){
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
-		jokalariak.croupierIrabazi();
-		//TODO
+		Ranking rankinga = jokalariak.croupierIrabazi();
+		rankinga.boteaBanatu();
 	}
 	
 	private void irabazleaKalkulatu(){
