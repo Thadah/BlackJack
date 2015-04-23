@@ -38,8 +38,6 @@ public class ListaPartidak {
 			System.out.println(i + ". Partida:");
 			rankingBat.partidakIdatzi();
 			i++;
-		}
-
-			
-		}
+		}		
+	}
 }

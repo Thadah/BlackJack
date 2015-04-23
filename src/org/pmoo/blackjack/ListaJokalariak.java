@@ -221,7 +221,7 @@ public class ListaJokalariak {
 			jokalariBat = itr.next();
 			rankinga.rankingeanSartu(jokalariBat);
 		}
-		//rankinga.rankingaOrdenatu();
+		rankinga.rankingaOrdenatu();
 		listaPartidak.partidaGorde(rankinga);
 		return rankinga;
 	}

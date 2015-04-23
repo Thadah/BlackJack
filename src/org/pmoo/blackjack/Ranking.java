@@ -1,7 +1,5 @@
 package org.pmoo.blackjack;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.*;
 
 
@@ -56,7 +54,7 @@ public class Ranking {
 	public void partidakIdatzi(){
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		Jokalaria jokalariBat;
-		int i = 4;
+		int i = 1;
 		while(itr.hasNext() && i < 4){
 			jokalariBat = itr.next();
 			System.out.println("  - " + i + ". postuan: " + jokalariBat.getIzena() + ", " + jokalariBat.eskuaKalkulatu() + " eskuarekin.");

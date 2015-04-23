@@ -26,8 +26,6 @@ public class BlackJack {
 	
 	//Beste Metodoak
 	public void partidaJolastu() throws InterruptedException{
-		//System.out.println("Saka");
-		//this.enterItxaron();
 		String jolastuNahi = "B";
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		System.out.println("Ongi etorri Atutxa kasinora, ondo pasa dezazuen espero dugu :)");
