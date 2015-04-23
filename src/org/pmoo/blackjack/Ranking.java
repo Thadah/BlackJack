@@ -63,11 +63,6 @@ public class Ranking {
 			i++;
 		}
 	}
-	
-	
-	public int compare(Jokalaria pJok1, Jokalaria pJok2) {
-		return new Integer(pJok2.eskuaKalkulatu()).compareTo(new Integer(pJok1.eskuaKalkulatu()));
-	}
 		
 }
 
