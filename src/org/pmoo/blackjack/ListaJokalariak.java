@@ -196,7 +196,8 @@ public class ListaJokalariak {
 		return bai;
 	}
 	
-	public Ranking croupierIrabazi(){
+	public Ranking rankingCroupier(){
+		ListaPartidak listaPartidak = ListaPartidak.getNireListaPartidak();
 		Ranking rankinga = new Ranking();
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		Jokalaria jokalariBat;
@@ -206,6 +207,22 @@ public class ListaJokalariak {
 				rankinga.rankingeanSartu(jokalariBat);
 			}
 		}
+		rankinga.rankingaOrdenatu();
+		listaPartidak.partidaGorde(rankinga);
+		return rankinga;
+	}
+	
+	public Ranking rankingEzCroupier(){
+		ListaPartidak listaPartidak = ListaPartidak.getNireListaPartidak();
+		Ranking rankinga = new Ranking();
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		Jokalaria jokalariBat = null;
+		while(itr.hasNext()){
+			jokalariBat = itr.next();
+			rankinga.rankingeanSartu(jokalariBat);
+		}
+		//rankinga.rankingaOrdenatu();
+		listaPartidak.partidaGorde(rankinga);
 		return rankinga;
 	}
 	

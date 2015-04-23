@@ -36,6 +36,25 @@ public class Ranking {
 			jokalariBat.boteaHartuCroupier(bakoitzari);
 		}
 	}
+	
+	public void rankingaOrdenatu(){
+		//TODO: Rankinga eskuaren arabera ordenatzea
+	}
+	
+	public Jokalaria posizioan(int pInt){
+		return this.ranking.get(pInt);
+	}
+	
+	public void partidakIdatzi(){
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		Jokalaria jokalariBat;
+		int i = 4;
+		while(itr.hasNext() && i < 4){
+			jokalariBat = itr.next();
+			System.out.println("  - " + i + ". postuan: " + jokalariBat.getIzena() + ", " + jokalariBat.eskuaKalkulatu() + " eskuarekin.");
+			i++;
+		}	
+	}
 		
 }
 

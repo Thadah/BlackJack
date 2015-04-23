@@ -63,27 +63,32 @@ public class BlackJack {
 					
 					partidaAmaitu();
 					jokalariak.guztienDiruaInprimatu();
-					System.out.println();
 					
 					//Galdetu ea norbai partidatik joan nahi den
 					jokalariak.galdetuJoan();
 					if(jokalariak.tamaina() < 2){
+						partidaZuzena = true;
 						throw(new JokalariException("Jokalarien kopurua ez da nahikoa partida jarraitzeko D:<"));
 					}
-					partidaZuzena = true;
+					
 				}
 				catch(JokalariException e){
 					System.out.println(e.getMessage());
-					System.out.println("Partida Bukatuta");
+					if(this.rankingakIkusiNahi()){
+						this.rankingakInprimatu();
+					}
 					JokoaAmaitu();
 					jolastuNahi = "E";
 				}
 			}
 			else{
+				if(this.rankingakIkusiNahi()){
+					this.rankingakInprimatu();
+				}
 				JokoaAmaitu();
 			}
 		}while(!partidaZuzena);
-		
+
 	}
 	
 	private boolean croupierrarekin(){
@@ -100,6 +105,7 @@ public class BlackJack {
 	
 	private void irabaziCroupierGabe(){
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
+		Ranking rankinga = jokalariak.rankingEzCroupier();
 		if(!jokalariak.batBainoGehiagoIrabazi()){
 			Jokalaria irabazlea = jokalariak.eskuHandienaKalkulatu();
 			if (irabazlea != null){
@@ -120,7 +126,7 @@ public class BlackJack {
 	
 	private void irabaziCroupierrarekin(){
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
-		Ranking rankinga = jokalariak.croupierIrabazi();
+		Ranking rankinga = jokalariak.rankingCroupier();
 		rankinga.boteaBanatu();
 	}
 	
@@ -175,4 +181,19 @@ public class BlackJack {
 		Thread.sleep(2000);
 	}
 	
+	private boolean rankingakIkusiNahi(){
+		System.out.println("Partida bukatu da, rankingak ikusi nahi dituzue? (B/E)");
+		String bai = sc.next();
+		if(bai.equals("B") || bai.equals("b")){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	public void rankingakInprimatu(){
+		ListaPartidak listaPartidak = ListaPartidak.getNireListaPartidak();
+		listaPartidak.partidakIdatzi();
+	}
 }
