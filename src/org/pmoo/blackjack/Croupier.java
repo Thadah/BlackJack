@@ -18,8 +18,8 @@ public class Croupier extends Jokalaria {
 	
 	private boolean sartu(double pProb){
 		boolean bai = false;
-		int probabilitatea = (int)Math.floor(Math.random()*(100)+1);
-		if(probabilitatea <= pProb*100){
+		double probabilitatea = Math.random();
+		if(probabilitatea <= pProb){
 			bai = true;
 		}
 		return bai;		
@@ -54,6 +54,8 @@ public class Croupier extends Jokalaria {
 						break;
 					case 20:
 						prob = 4/52;
+						break;
+					default:
 						break;
 				}
 				Iterator<Karta> itr = this.getIteradorea();

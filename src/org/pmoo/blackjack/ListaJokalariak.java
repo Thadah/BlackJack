@@ -29,10 +29,14 @@ public class ListaJokalariak {
 	public Jokalaria eskuHandienaKalkulatu(){
 		Jokalaria jok, eskuHandienaDuenJokalaria = null;
 		Iterator<Jokalaria> itr = this.getIteradorea();
+		boolean blackJack = false;
 		int eskua = 0;
-		while(itr.hasNext()){
+		while(itr.hasNext() && !blackJack){
 			jok = itr.next();
-			if(eskua < jok.eskuaKalkulatu() && jok.eskuaKalkulatu() <= 21){
+			if(jok.eskuaKalkulatu() >= eskua && jok.eskuaKalkulatu() <= 21){
+				if(jok.blackJackDu()){
+					blackJack = true;
+				}
 				eskua = jok.eskuaKalkulatu();
 				eskuHandienaDuenJokalaria = jok;
 			}
@@ -180,7 +184,7 @@ public class ListaJokalariak {
 		Jokalaria jokalariBat;
 		boolean bai = false;
 		Jokalaria irabazlea = this.eskuHandienaKalkulatu();
-		if (irabazlea != null){
+		if (irabazlea != null && !irabazlea.blackJackDu()){
 			int eskuIrabazlea = irabazlea.eskuaKalkulatu();
 			while(itr.hasNext() && !bai){
 				jokalariBat = itr.next();

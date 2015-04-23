@@ -48,7 +48,7 @@ public class Karta {
 	
 	public String kartaIdatzi(){
 		String karta = null;
-		switch(this.getKartaBalioa()){
+		switch(this.zenbakia){
 		case 1: 
 			karta = "Bateko " + this.idatziPalua();
 			break;
@@ -62,10 +62,17 @@ public class Karta {
 			karta = "Erregeko " + this.idatziPalua();
 			break;
 		default:
-			karta = this.getKartaBalioa() + "-ko " + this.idatziPalua();
+			karta = this.zenbakia + "-ko " + this.idatziPalua();
 			break;
 		}
 		return karta;
 	}
 	
+	public boolean figuraDa(){
+		boolean bada = false;
+		if (this.zenbakia>=11){
+			bada = true;
+		}
+		return bada;
+	}
 }

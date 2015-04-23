@@ -1,6 +1,6 @@
 package org.pmoo.blackjack;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Jokalaria {
 	
@@ -190,6 +190,26 @@ public class Jokalaria {
 			System.out.println("Sakatu enter txanda bukatzeko.");
 			BlackJack.getNireBlackJack().enterItxaron();
 		}
+	}
+	public boolean blackJackDu(){
+		boolean badu = false;
+		boolean figura = false;
+		boolean batekoa = false;
+		Karta kartaBat = null;
+		Iterator<Karta> itr = this.eskua.getIteradorea();
+		while(itr.hasNext()){
+			kartaBat = itr.next();
+			if(kartaBat.batekoa()){
+				batekoa = true;
+			}
+			else if(kartaBat.figuraDa()){
+				figura = true;
+			}
+		}
+		if(figura && batekoa){
+			badu = true;
+		}
+		return badu;
 	}
 	
 }
