@@ -64,7 +64,7 @@ public class BlackJack {
 					jokalariak.guztienDiruaInprimatu();
 					
 					//Galdetu ea norbai partidatik joan nahi den
-					jokalariak.galdetuJoan();
+					jokalariak.galdetuDenakJoan();
 					if(jokalariak.tamaina() < 2){
 						partidaZuzena = true;
 						throw(new JokalariException("Jokalarien kopurua ez da nahikoa partida jarraitzeko D:<"));
@@ -126,6 +126,7 @@ public class BlackJack {
 	private void irabaziCroupierrarekin(){
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		Ranking rankinga = jokalariak.rankingCroupier();
+		//TODO: Hemen ez ditu irabazleen izenak inprimatzen.
 		rankinga.boteaBanatu();
 	}
 	

@@ -36,7 +36,7 @@ public class Ranking {
 	
 	public void boteaBanatu(){
 		BlackJack mahaia = BlackJack.getNireBlackJack();
-		int bakoitzari = mahaia.getBotea()/this.irabazleKop();
+		int bakoitzari = (mahaia.getBotea())/(this.irabazleKop());
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		Jokalaria jokalariBat;
 		while(itr.hasNext()){
@@ -59,10 +59,13 @@ public class Ranking {
 		int i = 1;
 		while(itr.hasNext() && i < 4){
 			jokalariBat = itr.next();
-			if(!(jokalariBat instanceof Croupier)){
+			if(jokalariBat.eskuaKalkulatu() <= 21){
 				System.out.println("  - " + i + ". postuan: " + jokalariBat.getIzena() + ", " + jokalariBat.eskuaKalkulatu() + " eskuarekin.");
 				i++;
 			}
+		}while(i < 4){
+			System.out.println("  - " + i + ". postuan: Error 404, hemen ez dago inor.");
+			i++;
 		}
 	}
 		

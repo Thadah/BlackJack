@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 public class Croupier extends Jokalaria {
 
+	//Eraikitzailea
 	public Croupier(String pIzena) {
 		super(pIzena);
 		this.izena = "Croupier";
@@ -12,6 +13,7 @@ public class Croupier extends Jokalaria {
 		this.erretiratua = false;
 	}
 	
+	//Beste Metodoak
 	private Iterator<Karta> getIteradorea(){
 		return this.eskua.getIteradorea();
 	}
@@ -32,6 +34,10 @@ public class Croupier extends Jokalaria {
 	
 	public void apostuaIkusi(){
 		this.apostuaEgin();
+	}
+	
+	public boolean galdetuJoan(){
+		return false;
 	}
 	
 	public void txanda() throws InterruptedException{

@@ -215,4 +215,24 @@ public class Jokalaria {
 		return badu;
 	}
 	
+	public boolean galdetuJoan(){
+		boolean joanDa = false;
+		ListaJokalariak lista = ListaJokalariak.getNireListaJokalariak();
+		if(this.getDirua() == 0){
+			System.out.println("Sentitzen dugu " + this.getIzena() + ", baina Kasinotik joan behar zara ez duzulako dirurik. >:(");
+			lista.erretiratu(this);
+			joanDa = true;
+		}
+		else{		
+			System.out.println(this.getIzena() + ", partida utzi nahi duzu? (B/E)");
+			String bai = sc.next();
+			if(bai.equals("B") || bai.equals("b")){
+				System.out.println(this.getIzena() + " mahaia utzi du ;_;");
+				lista.erretiratu(this);
+				joanDa = true;
+			}
+		}
+		return joanDa;
+	}
+	
 }

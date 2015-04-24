@@ -236,25 +236,21 @@ public class ListaJokalariak {
 		
 	}
 	
-	public void galdetuJoan(){
+	public void galdetuDenakJoan(){
+		boolean joanDa;
+		Jokalaria jokalariBat;
 		int kont = 0;
 		while(kont <= this.tamaina()-1){
-			Jokalaria jokalariBat = this.lista.get(kont);
-			if(jokalariBat.getDirua() == 0){
-				System.out.println("Sentitzen dugu " + jokalariBat.getIzena() + ", baina Kasinotik joan behar zara ez duzulako dirurik. >:(");
-				this.lista.remove(jokalariBat);
-				System.out.println(jokalariBat.getIzena() + " jokalaria jokotik atera da.");
-			}
-			else{		
-				System.out.println(jokalariBat.getIzena() + ", partida utzi nahi duzu? (B/E)");
-				String bai = sc.next();
-				if(bai.equals("B") || bai.equals("b")){
-					System.out.println(jokalariBat.getIzena() + " mahaia utzi du ;_;");
-					this.lista.remove(jokalariBat);
-				}
-				else{kont++;}
+			jokalariBat = this.lista.get(kont);
+			joanDa = jokalariBat.galdetuJoan();
+			if(!joanDa){
+				kont++;
 			}
 		}
+	}
+	
+	public void erretiratu(Jokalaria pJok){
+		this.lista.remove(pJok);
 	}
 	
 	private int jokalariMin(){
