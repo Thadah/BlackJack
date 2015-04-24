@@ -37,47 +37,65 @@ public class Croupier extends Jokalaria {
 	public void txanda() throws InterruptedException{
 		boolean plantatuta = false;
 		boolean pasatuta = false;
+		double prob;
 		while(!plantatuta && !pasatuta){
-			if (this.eskuaKalkulatu() < 17){
-				this.kartaEskatu();
-			}
-			
-			else if(this.eskuaKalkulatu() == 17){
-				plantatuta = true;
-			}
-			
-			else if(this.eskuaKalkulatu() > 17 && this.eskuaKalkulatu() < 21){
-				double prob = 12/52;
-				switch (this.eskuaKalkulatu()){
+			if(this.eskuaKalkulatu() < 21){
+				switch(this.eskuaKalkulatu()){
+					case 17:
+						plantatuta = true;
+						break;
+					case 18:
+						prob = this.probKalkulatu(18);
+						if(sartu(prob)){
+							this.kartaEskatu();
+						}
+						else{
+							plantatuta = true;
+						}
+						break;
 					case 19:
-						prob = 8/52;
+						prob = this.probKalkulatu(19);
+						if(sartu(prob)){
+							this.kartaEskatu();
+						}
+						else{
+							plantatuta = true;
+						}
 						break;
 					case 20:
-						prob = 4/52;
+						prob = this.probKalkulatu(20);
+						if(sartu(prob)){
+							this.kartaEskatu();
+						}
+						else{
+							plantatuta = true;
+						}
 						break;
 					default:
+						this.kartaEskatu();
 						break;
 				}
-				Iterator<Karta> itr = this.getIteradorea();
-				Karta nireKarta = null;
-				while(itr.hasNext()){
-					nireKarta = itr.next();
-					if(this.eskuaKalkulatu() + nireKarta.getKartaBalioa() <= 21){
-						prob = prob - 1/52;
-					}
-				}
-				if(sartu(prob)){
-					this.kartaEskatu();
-				}
-			}
-			else if (this.eskuaKalkulatu() == 21){
-				plantatuta = true;
 			}
 			else{
+				System.out.println("Croupierra pasatu egin da \n");
 				pasatuta = true;
 				this.erretiratua = true;
 			}
+					
 		}
+	}
+	
+	private double probKalkulatu(int pEskua) throws InterruptedException{
+		double prob = 12/52;
+		Iterator<Karta> itr = this.getIteradorea();
+		Karta nireKarta = null;
+		while(itr.hasNext()){
+			nireKarta = itr.next();
+			if(pEskua + nireKarta.getKartaBalioa() <= 21){
+				prob = prob - 1/52;
+			}
+		}
+		return prob;
 	}
 
 }

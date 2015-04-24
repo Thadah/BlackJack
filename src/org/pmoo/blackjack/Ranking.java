@@ -59,8 +59,10 @@ public class Ranking {
 		int i = 1;
 		while(itr.hasNext() && i < 4){
 			jokalariBat = itr.next();
-			System.out.println("  - " + i + ". postuan: " + jokalariBat.getIzena() + ", " + jokalariBat.eskuaKalkulatu() + " eskuarekin.");
-			i++;
+			if(!(jokalariBat instanceof Croupier)){
+				System.out.println("  - " + i + ". postuan: " + jokalariBat.getIzena() + ", " + jokalariBat.eskuaKalkulatu() + " eskuarekin.");
+				i++;
+			}
 		}
 	}
 		

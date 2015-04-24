@@ -203,7 +203,7 @@ public class ListaJokalariak {
 		Jokalaria jokalariBat;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			if (jokalariBat.eskuaKalkulatu() > this.lista.get(this.tamaina()-1).eskuaKalkulatu()){
+			if (jokalariBat.eskuaKalkulatu() >= this.lista.get(this.tamaina()-1).eskuaKalkulatu()){
 				rankinga.rankingeanSartu(jokalariBat);
 			}
 		}
