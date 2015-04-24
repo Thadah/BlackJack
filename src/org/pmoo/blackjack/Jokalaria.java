@@ -88,23 +88,26 @@ public class Jokalaria {
 	public void apostuaIkusi(){
 		int totala = this.apostua + this.dirua;
 		BlackJack mahaia = BlackJack.getNireBlackJack();
-		if(!this.erretiratua && (this.apostua < mahaia.getApostuMax()) && (totala >= mahaia.getApostuMax())){
-			System.out.println(this.izena + ", apostua ikusi nahi duzu?   (B/E)");
-			String bai = sc.next();
-			if(bai.equals("B") || bai.equals("b")){
-				mahaia.setBotea(mahaia.getBotea() + (mahaia.getApostuMax() - this.apostua));
-				this.dirua = this.dirua - (mahaia.getApostuMax() - this.apostua);				
-				this.apostua = mahaia.getApostuMax();
+		if(!this.erretiratua){
+			if (this.apostua < mahaia.getApostuMax() && totala >= mahaia.getApostuMax()){
+		
+				System.out.println(this.izena + ", apostua ikusi nahi duzu?   (B/E)");
+				String bai = sc.next();
+				if(bai.equals("B") || bai.equals("b")){
+					mahaia.setBotea(mahaia.getBotea() + (mahaia.getApostuMax() - this.apostua));
+					this.dirua = this.dirua - (mahaia.getApostuMax() - this.apostua);				
+					this.apostua = mahaia.getApostuMax();
+				}
+				else if(!bai.equals("B") && !bai.equals("b")){
+					System.out.println(this.izena + ", ez duzu apostua ikusi, beraz, erretiratua izan zara.");
+					this.erretiratua = true;
+				}
 			}
-			else if(!bai.equals("B") && !bai.equals("b")){
-				System.out.println(this.izena + ", ez duzu apostua ikusi, beraz, erretiratua izan zara.");
+			else if(this.apostua < mahaia.getApostuMax()){
+				System.out.println(this.izena + " , ez dituzu apostua ikusteko baldintzak betetzen, erretiratua izan zara. T_T");
 				this.erretiratua = true;
-			}
+			}	
 		}
-		else if(this.apostua < mahaia.getApostuMax()){
-			System.out.println(this.izena + " , ez dituzu apostua ikusteko baldintzak betetzen, erretiratua izan zara. T_T");
-			this.erretiratua = true;
-		}	
 	}
 	
 	public int eskuaKalkulatu(){

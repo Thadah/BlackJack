@@ -25,7 +25,9 @@ public class Ranking {
 	}
 	
 	public void rankingeanSartu (Jokalaria pJokalaria){
-		this.ranking.add(pJokalaria);
+		Jokalaria jokalariBat = new Jokalaria(pJokalaria.izena);
+		jokalariBat.eskua = pJokalaria.eskua;
+		this.ranking.add(jokalariBat);
 	}
 	
 	public int irabazleKop(){

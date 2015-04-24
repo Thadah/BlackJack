@@ -5,6 +5,7 @@ import java.util.*;
 public class BlackJack {
 	
 	//Atributuak
+	Scanner sk = new Scanner(System.in);
 	Scanner sc = new Scanner(System.in);
 	private static BlackJack helbidea = null;
 	private int apostuMax;
@@ -139,6 +140,7 @@ public class BlackJack {
 	}
 	
 	private void JokoaAmaitu(){
+		sk.close();
 		Baraja.getBaraja().erreseteatu();
 		ListaJokalariak.getNireListaJokalariak().erreseteatu();
 		BlackJack.helbidea = null;
@@ -174,7 +176,7 @@ public class BlackJack {
 	}
 	
 	public void enterItxaron() throws InterruptedException{
-		sc.nextLine();
+		sk.nextLine();
 		this.kontsolaGarbitu();
 		Thread.sleep(2000);
 	}
