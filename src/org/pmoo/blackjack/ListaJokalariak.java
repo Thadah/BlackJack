@@ -166,7 +166,7 @@ public class ListaJokalariak {
 		Jokalaria jokalariBat = null;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			jokalariBat.kartakItzuli();
+			jokalariBat.eskuBerria();
 		}
 	}
 		

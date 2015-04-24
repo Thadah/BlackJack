@@ -183,8 +183,8 @@ public class Jokalaria {
 		return this.dirua;
 	}
 	
-	public void kartakItzuli(){
-		this.eskua.erreseteatu();
+	public void eskuBerria(){
+		this.eskua = new ListaKartak();
 	}
 	
 	public void eskuaIdatzi() throws InterruptedException{
