@@ -2,7 +2,7 @@ package org.pmoo.blackjack;
 
 import java.util.*;
 
-public class BlackJack{
+public class BlackJack {
 	
 	//Atributuak
 	Scanner sk = new Scanner(System.in);
@@ -25,7 +25,7 @@ public class BlackJack{
 		return helbidea;
 	}
 	
-	//Beste Metodoak
+	//Beste metodoak
 	public void partidaJolastu() throws InterruptedException{
 		String jolastuNahi = "B";
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();

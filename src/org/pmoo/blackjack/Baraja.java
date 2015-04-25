@@ -2,7 +2,7 @@ package org.pmoo.blackjack;
 
 import java.util.*;
 
-public class Baraja{
+public class Baraja {
 	
 	//Atributuak
 	private static Baraja helbidea;
@@ -31,7 +31,7 @@ public class Baraja{
 		return Baraja.helbidea;
 	}
 	
-	//Beste Metodoak
+	//Beste metodoak
 	private Iterator<Karta> getIteradorea(){
 		return this.listaKartak.iterator();
 	}

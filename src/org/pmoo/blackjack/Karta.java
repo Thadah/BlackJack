@@ -1,6 +1,6 @@
 package org.pmoo.blackjack;
 
-public class Karta{
+public class Karta {
 	
 	//Atributuak
 	private int zenbakia;
@@ -12,7 +12,7 @@ public class Karta{
 		this.zenbakia = pZenbakia;	
 	}
 	
-	//Beste Metodoak
+	//Beste metodoak
 	public String idatziPalua(){
 		String paluIzena = null;
 		switch(this.palua){

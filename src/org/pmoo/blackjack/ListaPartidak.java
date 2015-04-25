@@ -2,7 +2,7 @@ package org.pmoo.blackjack;
 
 import java.util.*;
 
-public class ListaPartidak{
+public class ListaPartidak {
 	
 	//Atributuak
 	private static ListaPartidak helbidea;
@@ -20,7 +20,7 @@ public class ListaPartidak{
 		return ListaPartidak.helbidea;
 	}
 	
-	//Beste Metodoak
+	//Beste metodoak
 	private Iterator<Ranking> getIteradorea(){
 		return this.listaPartidak.iterator();
 	}

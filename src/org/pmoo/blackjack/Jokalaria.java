@@ -2,7 +2,7 @@ package org.pmoo.blackjack;
 
 import java.util.*;
 
-public class Jokalaria{
+public class Jokalaria {
 	
 	//Atributuak
 	Scanner sc = new Scanner(System.in);
@@ -20,7 +20,7 @@ public class Jokalaria{
 		this.erretiratua = false;
 	}
 	
-	//Beste Metodoak
+	//Beste metodoak
 	public void apostuaEgin() throws ApostuException{
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		boolean denaOndo = false;

@@ -2,7 +2,7 @@ package org.pmoo.blackjack;
 
 import java.util.*;
 
-public class ListaKartak{
+public class ListaKartak {
 	
 	//Atributuak
 	private ArrayList<Karta> kartak;
@@ -12,7 +12,7 @@ public class ListaKartak{
 		this.kartak = new ArrayList<Karta>();
 	}
 	
-	//Beste Metodoak
+	//Beste metodoak
 	public void gehituKarta(Karta pKarta){
 		this.kartak.add(pKarta);
 	}

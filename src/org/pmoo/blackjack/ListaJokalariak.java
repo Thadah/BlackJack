@@ -2,7 +2,7 @@ package org.pmoo.blackjack;
 
 import java.util.*;
 
-public class ListaJokalariak{
+public class ListaJokalariak {
 	
 	//Atributuak
 	Scanner sc = new Scanner(System.in);
@@ -21,7 +21,7 @@ public class ListaJokalariak{
 		return ListaJokalariak.helbidea;
 	}
 	
-	//Beste Medotoak
+	//Beste medotoak
 	private Iterator<Jokalaria> getIteradorea(){
 		return this.lista.iterator();
 	}

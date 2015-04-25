@@ -1,12 +1,9 @@
 package org.pmoo.blackjack;
 
-import java.util.ArrayList;
+import java.util.*;
 
-<<<<<<< HEAD
-public class Logroak{
-=======
 public class Logroak {
->>>>>>> 6cab49a15b37bc6fedcafb4b9e2618e971699e75
+
 	//Atributuak
 	private static Logroak helbidea = null;
 	//private ArrayList<Boolean> lista;
@@ -22,6 +19,7 @@ public class Logroak {
 	private boolean emotikonoak ; 		//Emotikono guztiak desblokeatzea
 	private boolean pistarenErregea ;	//Ranking-ean jokalari bera behin baino gehiagotan lehenengo postuan agertzea
 	private boolean logroenErregea ; 	//Logro guztiak desblokeatzea
+	
 	//Eraikitzailea
 	private Logroak(){
 		//this.lista = new ArrayList<Boolean>();
@@ -47,6 +45,7 @@ public class Logroak {
 		return Logroak.helbidea;
 	}
 	
+	//Beste metodoak
 	public void blackJackLogroa(){
 		if(!this.blackJack){
 			System.out.println("BlackJack Logroa Desblokeatuta");
@@ -79,6 +78,4 @@ public class Logroak {
 		}
 		this.logroenErregea = true;
 	}
-
-	//Beste Metodoak
 }

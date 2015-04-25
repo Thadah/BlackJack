@@ -3,7 +3,7 @@ package org.pmoo.blackjack;
 import java.util.*;
 
 
-public class Ranking{
+public class Ranking {
 
 	//Atributuak
 	private ArrayList<Jokalaria> ranking;
@@ -19,7 +19,7 @@ public class Ranking{
 		this.ranking = new ArrayList<Jokalaria>();
 	}
 	
-	//Beste Metodoak
+	//Beste metodoak
 	private Iterator<Jokalaria> getIteradorea(){
 		return this.ranking.iterator();
 	}
