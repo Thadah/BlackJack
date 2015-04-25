@@ -5,6 +5,7 @@ import java.util.*;
 public class BlackJack {
 	
 	//Atributuak
+	Scanner sk = new Scanner(System.in);
 	Scanner sc = new Scanner(System.in);
 	private static BlackJack helbidea = null;
 	private int apostuMax;
@@ -26,8 +27,6 @@ public class BlackJack {
 	
 	//Beste Metodoak
 	public void partidaJolastu() throws InterruptedException{
-		//System.out.println("Saka");
-		//this.enterItxaron();
 		String jolastuNahi = "B";
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		System.out.println("Ongi etorri Atutxa kasinora, ondo pasa dezazuen espero dugu :)");
@@ -63,27 +62,32 @@ public class BlackJack {
 					
 					partidaAmaitu();
 					jokalariak.guztienDiruaInprimatu();
-					System.out.println();
 					
 					//Galdetu ea norbai partidatik joan nahi den
-					jokalariak.galdetuJoan();
+					jokalariak.galdetuDenakJoan();
 					if(jokalariak.tamaina() < 2){
+						partidaZuzena = true;
 						throw(new JokalariException("Jokalarien kopurua ez da nahikoa partida jarraitzeko D:<"));
 					}
-					partidaZuzena = true;
+					
 				}
 				catch(JokalariException e){
 					System.out.println(e.getMessage());
-					System.out.println("Partida Bukatuta");
+					if(this.rankingakIkusiNahi()){
+						this.rankingakInprimatu();
+					}
 					JokoaAmaitu();
 					jolastuNahi = "E";
 				}
 			}
 			else{
+				if(this.rankingakIkusiNahi()){
+					this.rankingakInprimatu();
+				}
 				JokoaAmaitu();
 			}
 		}while(!partidaZuzena);
-		
+
 	}
 	
 	private boolean croupierrarekin(){
@@ -100,6 +104,7 @@ public class BlackJack {
 	
 	private void irabaziCroupierGabe(){
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
+		Ranking rankinga = jokalariak.rankingEzCroupier();
 		if(!jokalariak.batBainoGehiagoIrabazi()){
 			Jokalaria irabazlea = jokalariak.eskuHandienaKalkulatu();
 			if (irabazlea != null){
@@ -120,8 +125,15 @@ public class BlackJack {
 	
 	private void irabaziCroupierrarekin(){
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
-		Ranking rankinga = jokalariak.croupierIrabazi();
+		Ranking rankinga = jokalariak.rankingCroupier();
+		try{
+		rankinga.irabazleakInprimatu();
 		rankinga.boteaBanatu();
+		}
+		catch(RankingException e){
+			System.out.println(e.getMessage());
+			jokalariak.apostuakBueltatu();
+		}
 	}
 	
 	private void irabazleaKalkulatu(){
@@ -135,6 +147,7 @@ public class BlackJack {
 	}
 	
 	private void JokoaAmaitu(){
+		sk.close();
 		Baraja.getBaraja().erreseteatu();
 		ListaJokalariak.getNireListaJokalariak().erreseteatu();
 		BlackJack.helbidea = null;
@@ -170,9 +183,24 @@ public class BlackJack {
 	}
 	
 	public void enterItxaron() throws InterruptedException{
-		sc.nextLine();
+		sk.nextLine();
 		this.kontsolaGarbitu();
 		Thread.sleep(2000);
 	}
 	
+	private boolean rankingakIkusiNahi(){
+		System.out.println("Partida bukatu da, rankingak ikusi nahi dituzue? (B/E)");
+		String bai = sc.next();
+		if(bai.equals("B") || bai.equals("b")){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	public void rankingakInprimatu(){
+		ListaPartidak listaPartidak = ListaPartidak.getNireListaPartidak();
+		listaPartidak.partidakIdatzi();
+	}
 }
