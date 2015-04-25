@@ -21,7 +21,7 @@ public class ListaJokalariak {
 		return ListaJokalariak.helbidea;
 	}
 	
-	//Beste medotoak
+	//Beste metodoak
 	private Iterator<Jokalaria> getIteradorea(){
 		return this.lista.iterator();
 	}

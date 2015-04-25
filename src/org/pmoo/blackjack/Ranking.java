@@ -36,10 +36,9 @@ public class Ranking {
 	
 	public void boteaBanatu(){
 		BlackJack mahaia = BlackJack.getNireBlackJack();
-		int bakoitzari = 0;
-		bakoitzari = (int)(mahaia.getBotea())/(this.irabazleKop());
+		int bakoitzari = (int)(mahaia.getBotea())/(this.irabazleKop());
 		Iterator<Jokalaria> itr = this.getIteradorea();
-		Jokalaria jokalariBat;
+		Jokalaria jokalariBat = null;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
 			jokalariBat.boteaHartuCroupier(bakoitzari);
@@ -59,15 +58,18 @@ public class Ranking {
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		Jokalaria jokalariBat;
 		int i = 1;
-		while(itr.hasNext() && i < 4){
-			jokalariBat = itr.next();
-			if(jokalariBat.eskuaKalkulatu() <= 21){
-				System.out.println("  - " + i + ". postuan: " + jokalariBat.getIzena() + ", " + jokalariBat.eskuaKalkulatu() + " eskuarekin.");
+		while(i < 4){
+			if(itr.hasNext()){
+				jokalariBat = itr.next();
+				if(jokalariBat.eskuaKalkulatu() <= 21){
+					System.out.println("  - " + i + ". postuan: " + jokalariBat.getIzena() + ", " + jokalariBat.eskuaKalkulatu() + " eskuarekin.");
+					i++;
+				}
+			}
+			else{
+				System.out.println("  - " + i + ". postuan: ---");
 				i++;
 			}
-		}while(i < 4){
-			System.out.println("  - " + i + ". postuan: ---");
-			i++;
 		}
 	}
 	
