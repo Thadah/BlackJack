@@ -2,7 +2,11 @@ package org.pmoo.blackjack;
 
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 public class Logroak{
+=======
+public class Logroak {
+>>>>>>> 6cab49a15b37bc6fedcafb4b9e2618e971699e75
 	//Atributuak
 	private static Logroak helbidea = null;
 	//private ArrayList<Boolean> lista;

@@ -82,7 +82,7 @@ public class Ranking{
 				jokalariBat = itr.next();
 				System.out.print(jokalariBat.getIzena() + " ");
 			}
-			System.out.print((int)(mahaia.getBotea())/(this.irabazleKop()) + "€-ko botea irabazi duzu(e) ;)\n\n");
+			System.out.print((int)(mahaia.getBotea())/(this.irabazleKop()) + "â‚¬-ko botea irabazi duzu(e) ;)\n\n");
 		
 	}
 		
