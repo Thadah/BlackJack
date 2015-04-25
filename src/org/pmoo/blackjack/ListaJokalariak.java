@@ -166,7 +166,7 @@ public class ListaJokalariak {
 		Jokalaria jokalariBat = null;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			jokalariBat.kartakItzuli();
+			jokalariBat.eskuBerria();
 		}
 	}
 		
@@ -196,16 +196,33 @@ public class ListaJokalariak {
 		return bai;
 	}
 	
-	public Ranking croupierIrabazi(){
+	public Ranking rankingCroupier(){
+		ListaPartidak listaPartidak = ListaPartidak.getNireListaPartidak();
 		Ranking rankinga = new Ranking();
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		Jokalaria jokalariBat;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			if (jokalariBat.eskuaKalkulatu() > this.lista.get(this.tamaina()-1).eskuaKalkulatu()){
+			if (jokalariBat.eskuaKalkulatu() <= 21 && jokalariBat.eskuaKalkulatu() > this.lista.get(this.tamaina()-1).eskuaKalkulatu()){
 				rankinga.rankingeanSartu(jokalariBat);
 			}
 		}
+		rankinga.rankingaOrdenatu();
+		listaPartidak.partidaGorde(rankinga);
+		return rankinga;
+	}
+	
+	public Ranking rankingEzCroupier(){
+		ListaPartidak listaPartidak = ListaPartidak.getNireListaPartidak();
+		Ranking rankinga = new Ranking();
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		Jokalaria jokalariBat = null;
+		while(itr.hasNext()){
+			jokalariBat = itr.next();
+			rankinga.rankingeanSartu(jokalariBat);
+		}
+		rankinga.rankingaOrdenatu();
+		listaPartidak.partidaGorde(rankinga);
 		return rankinga;
 	}
 	
@@ -219,25 +236,21 @@ public class ListaJokalariak {
 		
 	}
 	
-	public void galdetuJoan(){
+	public void galdetuDenakJoan(){
+		boolean joanDa;
+		Jokalaria jokalariBat;
 		int kont = 0;
 		while(kont <= this.tamaina()-1){
-			Jokalaria jokalariBat = this.lista.get(kont);
-			if(jokalariBat.getDirua() == 0){
-				System.out.println("Sentitzen dugu " + jokalariBat.getIzena() + ", baina Kasinotik joan behar zara ez duzulako dirurik. >:(");
-				this.lista.remove(jokalariBat);
-				System.out.println(jokalariBat.getIzena() + " jokalaria jokotik atera da.");
-			}
-			else{		
-				System.out.println(jokalariBat.getIzena() + ", partida utzi nahi duzu? (B/E)");
-				String bai = sc.next();
-				if(bai.equals("B") || bai.equals("b")){
-					System.out.println(jokalariBat.getIzena() + " mahaia utzi du ;_;");
-					this.lista.remove(jokalariBat);
-				}
-				else{kont++;}
+			jokalariBat = this.lista.get(kont);
+			joanDa = jokalariBat.galdetuJoan();
+			if(!joanDa){
+				kont++;
 			}
 		}
+	}
+	
+	public void erretiratu(Jokalaria pJok){
+		this.lista.remove(pJok);
 	}
 	
 	private int jokalariMin(){
