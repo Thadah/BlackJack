@@ -2,7 +2,7 @@ package org.pmoo.blackjack;
 
 import java.util.*;
 
-public class Baraja {
+public class Baraja{
 	
 	//Atributuak
 	private static Baraja helbidea;

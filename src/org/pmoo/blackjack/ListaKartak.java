@@ -2,7 +2,7 @@ package org.pmoo.blackjack;
 
 import java.util.*;
 
-public class ListaKartak {
+public class ListaKartak{
 	
 	//Atributuak
 	private ArrayList<Karta> kartak;

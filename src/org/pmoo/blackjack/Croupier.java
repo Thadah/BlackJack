@@ -2,7 +2,7 @@ package org.pmoo.blackjack;
 
 import java.util.Iterator;
 
-public class Croupier extends Jokalaria {
+public class Croupier extends Jokalaria{
 
 	//Eraikitzailea
 	public Croupier(String pIzena) {

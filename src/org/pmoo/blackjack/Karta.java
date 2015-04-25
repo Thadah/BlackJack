@@ -1,6 +1,6 @@
 package org.pmoo.blackjack;
 
-public class Karta {
+public class Karta{
 	
 	//Atributuak
 	private int zenbakia;

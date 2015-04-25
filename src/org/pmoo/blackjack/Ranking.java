@@ -3,7 +3,7 @@ package org.pmoo.blackjack;
 import java.util.*;
 
 
-public class Ranking {
+public class Ranking{
 
 	//Atributuak
 	private ArrayList<Jokalaria> ranking;

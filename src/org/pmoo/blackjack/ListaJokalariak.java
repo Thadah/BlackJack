@@ -2,7 +2,7 @@ package org.pmoo.blackjack;
 
 import java.util.*;
 
-public class ListaJokalariak {
+public class ListaJokalariak{
 	
 	//Atributuak
 	Scanner sc = new Scanner(System.in);
