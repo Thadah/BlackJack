@@ -126,8 +126,14 @@ public class BlackJack {
 	private void irabaziCroupierrarekin(){
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		Ranking rankinga = jokalariak.rankingCroupier();
-		//TODO: Hemen ez ditu irabazleen izenak inprimatzen.
+		try{
+		rankinga.irabazleakInprimatu();
 		rankinga.boteaBanatu();
+		}
+		catch(RankingException e){
+			System.out.println(e.getMessage());
+			jokalariak.apostuakBueltatu();
+		}
 	}
 	
 	private void irabazleaKalkulatu(){

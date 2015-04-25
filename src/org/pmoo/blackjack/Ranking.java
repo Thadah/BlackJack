@@ -36,13 +36,15 @@ public class Ranking {
 	
 	public void boteaBanatu(){
 		BlackJack mahaia = BlackJack.getNireBlackJack();
-		int bakoitzari = (mahaia.getBotea())/(this.irabazleKop());
+		int bakoitzari = 0;
+		bakoitzari = (int)(mahaia.getBotea())/(this.irabazleKop());
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		Jokalaria jokalariBat;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
 			jokalariBat.boteaHartuCroupier(bakoitzari);
 		}
+
 	}
 	
 	public void rankingaOrdenatu(){
@@ -64,9 +66,24 @@ public class Ranking {
 				i++;
 			}
 		}while(i < 4){
-			System.out.println("  - " + i + ". postuan: Error 404, hemen ez dago inor.");
+			System.out.println("  - " + i + ". postuan: ---");
 			i++;
 		}
+	}
+	
+	public void irabazleakInprimatu() throws RankingException{
+		BlackJack mahaia = BlackJack.getNireBlackJack();
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		Jokalaria jokalariBat = null;	
+			if(this.irabazleKop() == 0){
+				{ throw(new RankingException("Ez duenez inork irabazi apostuak itzuliko dira")); }
+			}
+			while(itr.hasNext()){
+				jokalariBat = itr.next();
+				System.out.print(jokalariBat.getIzena() + " ");
+			}
+			System.out.print((int)(mahaia.getBotea())/(this.irabazleKop()) + "€-ko botea irabazi duzu(e) ;)\n\n");
+		
 	}
 		
 }

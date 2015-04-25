@@ -9,8 +9,10 @@ public class Croupier extends Jokalaria {
 		super(pIzena);
 		this.izena = "Croupier";
 		this.eskua = new ListaKartak();
-		this.dirua = Integer.MAX_VALUE;
+		//this.dirua = Integer.MAX_VALUE;
+		this.dirua = 10000;
 		this.erretiratua = false;
+		this.apostua = 0;
 	}
 	
 	//Beste Metodoak
@@ -29,7 +31,9 @@ public class Croupier extends Jokalaria {
 	
 	public void apostuaEgin(){
 		BlackJack mahaia = BlackJack.getNireBlackJack();
-		mahaia.setBotea(mahaia.getBotea() + (mahaia.getApostuMax() - this.apostua));
+		this.apostua = mahaia.getApostuMax()  - this.apostua;
+		mahaia.setBotea(mahaia.getBotea() + this.apostua);
+		this.dirua = this.dirua - this.apostua;
 	}
 	
 	public void apostuaIkusi(){
