@@ -112,17 +112,16 @@ public class BlackJack {
 		if(!jokalariak.batBainoGehiagoIrabazi()){
 			Jokalaria irabazlea = jokalariak.eskuHandienaKalkulatu();
 			if (irabazlea != null){
-				System.out.println(irabazlea.getIzena() + " ZORIONAK irabazi duzu !!! :3  ");
-				System.out.println(irabazlea.getIzena() + " " + this.botea + " �-ko botea irabazi duzu :D");
+				System.out.println("ZORIONAK " + irabazlea.getIzena() + ", "  + this.botea + " �-ko botea irabazi duzu!!! :3\n");
 				irabazlea.boteaHartu();
 			} 
 			else {
-				System.out.println("Jokalari guztiak pasatu dira, beraz, ez dago irabazlerik :|");
+				System.out.println("Jokalari guztiak pasatu dira, beraz, ez dago irabazlerik :|\n");
 				jokalariak.apostuakBueltatu();
 			}
 		}
 		else{
-			System.out.println("2 jokalarik edo gehiagok berdindu dutenez, apostuak itzuliko dira :/");
+			System.out.println("2 jokalarik edo gehiagok berdindu dutenez, apostuak itzuliko dira :/\n");
 			jokalariak.apostuakBueltatu();
 		}
 	}

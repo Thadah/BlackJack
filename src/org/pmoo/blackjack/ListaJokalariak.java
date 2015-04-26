@@ -111,10 +111,11 @@ public class ListaJokalariak {
 	}
 	
 	public void hasierakoBiKartak() throws InterruptedException{
-		Jokalaria jokalariBat;
+		Jokalaria jokalariBat = null;
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
+			System.out.println(jokalariBat.getIzena() + "-ren txanda da.\n");
 			jokalariBat.kartaEskatu();
 			jokalariBat.kartaEskatu();
 			jokalariBat.eskuaIdatzi();
@@ -177,6 +178,7 @@ public class ListaJokalariak {
 			jokalariBat = itr.next();
 			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "�");
 		}
+		System.out.println("\n");
 	}
 	
 	public boolean batBainoGehiagoIrabazi(){

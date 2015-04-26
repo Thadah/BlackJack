@@ -125,7 +125,7 @@ public class Jokalaria {
 		if(!this.erretiratua){
 			Karta kartaBat = nireBaraja.emanKarta();
 			this.eskua.gehituKarta(kartaBat);
-			System.out.println(this.izena + ", " + kartaBat.kartaIdatzi() + " bat hartu duzu");
+			System.out.println(kartaBat.kartaIdatzi() + " bat hartu duzu.");
 		}
 	}
 	
@@ -143,9 +143,10 @@ public class Jokalaria {
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		boolean plantatuta = false;
 		String eman = null;
+		System.out.println(this.izena + "-ren txanda da.\n");
 		if (!erretiratua && this.eskuaKalkulatu() < 21){
 			if (this.dirua >= this.apostua){
-				System.out.println(this.izena + ", Doblatu nahi al duzu? (B/E)");
+				System.out.println("Doblatu nahi al duzu? (B/E)");
 				eman = sc.next();
 				if(eman.equals("B") || eman.equals("b")){
 					this.kartaEskatu();
@@ -153,29 +154,29 @@ public class Jokalaria {
 					mahaia.setBotea(mahaia.getBotea() + this.apostua);
 					this.apostua = this.apostua*2;
 					plantatuta = true;
-					System.out.println(this.izena + ", plantatu zara eta zure apostua doblatu duzu. \n");
+					System.out.println("Plantatu zara eta zure apostua doblatu duzu. \n");
 					logroak.bikoitzaLogroa();
 					logroak.logroenErregeaLogroa();
 				}
 			}
 			while(!plantatuta && this.eskuaKalkulatu() < 21){
-				System.out.println(this.izena + ", karta bat nahi duzu?? (B/E)");
+				System.out.println("Karta bat nahi duzu?? (B/E)");
 				eman = sc.next();
 				if (eman.equals("B") || eman.equals("b")){
 					this.kartaEskatu();
-					System.out.println(this.izena + ", zure karten totala " + this.eskuaKalkulatu() + " da." );
+					System.out.println("Zure karten totala " + this.eskuaKalkulatu() + " da.");
 				}
 				else if(!eman.equals("B") && !eman.equals("b")){
-					System.out.println(this.izena + ", plantatu zara.");
+					System.out.println("Plantatu zara.");
 					plantatuta=true;
 				}
 			}
 			if (this.eskuaKalkulatu() > 21){
-				System.out.println(this.izena + ", pasatu egin zara :( \n");
+				System.out.println("Pasatu egin zara :( \n");
 			}
 			if(this.eskuaKalkulatu() == 21){
 				Thread.sleep(1000);
-				System.out.println(this.izena + ", 21-era iritsi zara :P \n");
+				System.out.println("21-era iritsi zara :P \n");
 			}
 		}
 	}
@@ -194,7 +195,12 @@ public class Jokalaria {
 	
 	public void eskuaIdatzi() throws InterruptedException{
 		if (!this.erretiratua){
-			System.out.println("Zure karten totala " + this.eskuaKalkulatu() + " da.\n");
+			if (this.eskuaKalkulatu() <= 21){
+				System.out.println("Zure karten totala " + this.eskuaKalkulatu() + " da.\n");
+				if(this.blackJackDu()){
+					System.out.println("ZORIONAK BlackJack duzu !!! :3\n");
+				}
+			}
 			System.out.println("Sakatu enter txanda bukatzeko.");
 			BlackJack.getNireBlackJack().enterItxaron();
 		}

@@ -48,6 +48,7 @@ public class Croupier extends Jokalaria {
 		boolean plantatuta = false;
 		boolean pasatuta = false;
 		double prob;
+		System.out.println(this.izena + "-ren txanda da.\n");
 		while(!plantatuta && !pasatuta){
 			if(this.eskuaKalkulatu() < 21){
 				switch(this.eskuaKalkulatu()){
@@ -88,9 +89,6 @@ public class Croupier extends Jokalaria {
 			}
 			else if(this.eskuaKalkulatu() == 21){
 				plantatuta = true;
-				if(this.blackJackDu()){
-					System.out.println("Croupierrak BlackJack du O.O");
-				}
 			}
 			else{
 				System.out.println("Croupierra pasatu egin da \n");
