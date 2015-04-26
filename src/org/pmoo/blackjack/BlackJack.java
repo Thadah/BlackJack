@@ -48,6 +48,9 @@ public class BlackJack {
 					//Apostuak ikusi
 					jokalariak.apostuGuztiakIkusi();
 					if (jokalariak.tamaina() >= 2){
+						Logroak.getNireLogroak().helloWorldLogroa();
+						Logroak.getNireLogroak().ludopataLogroa();
+						Logroak.getNireLogroak().logroenErregeaLogroa();
 						//Itxaron
 						System.out.println("\nSakatu enter jokoa hasteko.");
 						this.enterItxaron();

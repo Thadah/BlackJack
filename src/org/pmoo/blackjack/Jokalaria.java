@@ -101,6 +101,7 @@ public class Jokalaria {
 				else if(!bai.equals("B") && !bai.equals("b")){
 					System.out.println(this.izena + ", ez duzu apostua ikusi, beraz, erretiratua izan zara.");
 					this.erretiratua = true;
+					Logroak.getNireLogroak().erretiratuLogroa();
 				}
 			}
 			else if(this.apostua < mahaia.getApostuMax()){
@@ -151,6 +152,8 @@ public class Jokalaria {
 					this.apostua = this.apostua*2;
 					plantatuta = true;
 					System.out.println(this.izena + ", plantatu zara eta zure apostua doblatu duzu. \n");
+					Logroak.getNireLogroak().bikoitzaLogroa();
+					Logroak.getNireLogroak().logroenErregeaLogroa();
 				}
 			}
 			while(!plantatuta && this.eskuaKalkulatu() < 21){
@@ -211,6 +214,8 @@ public class Jokalaria {
 		}
 		if(figura && batekoa){
 			badu = true;
+			Logroak.getNireLogroak().blackJackLogroa();
+			Logroak.getNireLogroak().logroenErregeaLogroa();
 		}
 		return badu;
 	}
