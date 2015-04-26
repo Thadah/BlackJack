@@ -29,6 +29,7 @@ public class BlackJack {
 	public void partidaJolastu() throws InterruptedException{
 		String jolastuNahi = "B";
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
+		Logroak logroak = Logroak.getNireLogroak();
 		System.out.println("Ongi etorri Atutxa kasinora, ondo pasa dezazuen espero dugu :)");
 		Thread.sleep(1000);
 		//Jokalariak inskribatu
@@ -48,9 +49,9 @@ public class BlackJack {
 					//Apostuak ikusi
 					jokalariak.apostuGuztiakIkusi();
 					if (jokalariak.tamaina() >= 2){
-						Logroak.getNireLogroak().helloWorldLogroa();
-						Logroak.getNireLogroak().ludopataLogroa();
-						Logroak.getNireLogroak().logroenErregeaLogroa();
+						logroak.ludopataLogroa();
+						logroak.helloWorldLogroa();
+						logroak.logroenErregeaLogroa();
 						//Itxaron
 						System.out.println("\nSakatu enter jokoa hasteko.");
 						this.enterItxaron();

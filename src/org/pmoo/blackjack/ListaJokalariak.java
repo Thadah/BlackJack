@@ -199,13 +199,17 @@ public class ListaJokalariak {
 	public Ranking rankingCroupier(){
 		ListaPartidak listaPartidak = ListaPartidak.getNireListaPartidak();
 		Ranking rankinga = new Ranking();
+		int croupierEskua = this.lista.get(this.tamaina()-1).eskuaKalkulatu();
 		Iterator<Jokalaria> itr = this.getIteradorea();
-		Jokalaria jokalariBat;
+		Jokalaria jokalariBat = null;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			if (jokalariBat.eskuaKalkulatu() <= 21 && jokalariBat.eskuaKalkulatu() > this.lista.get(this.tamaina()-1).eskuaKalkulatu()){
+			if ((jokalariBat.eskuaKalkulatu() <= 21) && (jokalariBat.eskuaKalkulatu() > croupierEskua)){
 				rankinga.rankingeanSartu(jokalariBat);
 			}
+		}
+		if (rankinga.irabazleKop() == 0){
+			rankinga.rankingeanSartu(jokalariBat);
 		}
 		rankinga.rankingaOrdenatu();
 		listaPartidak.partidaGorde(rankinga);

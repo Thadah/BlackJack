@@ -86,6 +86,12 @@ public class Croupier extends Jokalaria {
 						break;
 				}
 			}
+			else if(this.eskuaKalkulatu() == 21){
+				plantatuta = true;
+				if(this.blackJackDu()){
+					System.out.println("Croupierrak BlackJack du O.O");
+				}
+			}
 			else{
 				System.out.println("Croupierra pasatu egin da \n");
 				pasatuta = true;

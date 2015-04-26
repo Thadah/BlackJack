@@ -86,6 +86,7 @@ public class Jokalaria {
 	}
 	
 	public void apostuaIkusi(){
+		Logroak logroak = Logroak.getNireLogroak();
 		int totala = this.apostua + this.dirua;
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		if(!this.erretiratua){
@@ -101,7 +102,7 @@ public class Jokalaria {
 				else if(!bai.equals("B") && !bai.equals("b")){
 					System.out.println(this.izena + ", ez duzu apostua ikusi, beraz, erretiratua izan zara.");
 					this.erretiratua = true;
-					Logroak.getNireLogroak().erretiratuLogroa();
+					logroak.erretiratuLogroa();
 				}
 			}
 			else if(this.apostua < mahaia.getApostuMax()){
@@ -138,6 +139,7 @@ public class Jokalaria {
 	}
 	
 	public void txanda() throws InterruptedException{
+		Logroak logroak = Logroak.getNireLogroak();
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		boolean plantatuta = false;
 		String eman = null;
@@ -152,8 +154,8 @@ public class Jokalaria {
 					this.apostua = this.apostua*2;
 					plantatuta = true;
 					System.out.println(this.izena + ", plantatu zara eta zure apostua doblatu duzu. \n");
-					Logroak.getNireLogroak().bikoitzaLogroa();
-					Logroak.getNireLogroak().logroenErregeaLogroa();
+					logroak.bikoitzaLogroa();
+					logroak.logroenErregeaLogroa();
 				}
 			}
 			while(!plantatuta && this.eskuaKalkulatu() < 21){
@@ -198,6 +200,7 @@ public class Jokalaria {
 		}
 	}
 	public boolean blackJackDu(){
+		Logroak logroak = Logroak.getNireLogroak();
 		boolean badu = false;
 		boolean figura = false;
 		boolean batekoa = false;
@@ -214,8 +217,8 @@ public class Jokalaria {
 		}
 		if(figura && batekoa){
 			badu = true;
-			Logroak.getNireLogroak().blackJackLogroa();
-			Logroak.getNireLogroak().logroenErregeaLogroa();
+			logroak.blackJackLogroa();
+			logroak.logroenErregeaLogroa();
 		}
 		return badu;
 	}

@@ -1,12 +1,9 @@
 package org.pmoo.blackjack;
 
-import java.util.ArrayList;
-
 public class Logroak {
 	
 	//Atributuak
 	private static Logroak helbidea = null;
-	//private ArrayList<Boolean> lista;
 	private boolean blackJack ; 		//Norbaitek BlackJack egitea
 	private boolean bankarrota ;		//Dirua 0 izatea
 	private boolean erretiratu ;		//Aposturenbat ez ikustea
@@ -19,22 +16,22 @@ public class Logroak {
 	private boolean emotikonoak ; 		//Emotikono guztiak desblokeatzea
 	private boolean pistarenErregea ;	//Ranking-ean jokalari bera behin baino gehiagotan lehenengo postuan agertzea
 	private boolean logroenErregea ; 	//Logro guztiak desblokeatzea
+	
 	//Eraikitzailea
 	private Logroak(){
-		//this.lista = new ArrayList<Boolean>();
-			this.blackJack = false; 		
-			this.bankarrota = false;		
-			this.erretiratu = false;		
-			this.lagunikGabe = false; 	
-			this.lagunAsko = false;		
-			this.mahaikoErregea = false;	
-			this.bikoitza = false;		
-			this.helloWorld = false;	
-			this.ludopata = false;		
-			this.emotikonoak = false; 	
-			this.pistarenErregea = false;
-			this.logroenErregea = false; 
-			//Logro gehiago...
+		this.blackJack = false; 		
+		this.bankarrota = false;		
+		this.erretiratu = false;		
+		this.lagunikGabe = false; 	
+		this.lagunAsko = false;		
+		this.mahaikoErregea = false;	
+		this.bikoitza = false;		
+		this.helloWorld = false;	
+		this.ludopata = false;		
+		this.emotikonoak = false; 	
+		this.pistarenErregea = false;
+		this.logroenErregea = false; 
+		//Logro gehiago...
 	}
 	
 	public static synchronized Logroak getNireLogroak(){
@@ -44,6 +41,7 @@ public class Logroak {
 		return Logroak.helbidea;
 	}
 	
+	//Beste Metodoak
 	public void blackJackLogroa(){
 		if(!this.blackJack){
 			System.out.println("BlackJack Logroa Desblokeatuta");
@@ -51,7 +49,6 @@ public class Logroak {
 		}
 		this.blackJack = true;
 	}
-	
 	
 	public void erretiratuLogroa(){
 		if(!this.erretiratu){
@@ -68,7 +65,6 @@ public class Logroak {
 		this.bikoitza = true;
 	}
 	
-	
 	public void logroenErregeaLogroa(){
 		if (this.blackJack && this.bankarrota && this.bikoitza && this.emotikonoak && this.erretiratu && this.helloWorld && this.lagunAsko && this.lagunikGabe && this.logroenErregea && this.ludopata && this.mahaikoErregea && this.pistarenErregea){
 			System.out.println("\n LogroenErregea Logroa Desblokeatuta");
@@ -83,7 +79,6 @@ public class Logroak {
 		}
 		this.helloWorld = true;
 	}
-
 	
 	public void ludopataLogroa(){
 		if(!this.ludopata && this.helloWorld){
@@ -92,6 +87,4 @@ public class Logroak {
 		this.ludopata = true;
 	}
 
-}	
-
-	//Beste Metodoak
+}
