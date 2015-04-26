@@ -37,6 +37,8 @@ public class BlackJack {
 		jokalariak.jokalariakInskribatu();
 		if(BlackJack.croupierrarekin){
 			jokalariak.croupierInskribatu();
+			Logroak.getNireLogroak().lagunikGabeLogroa();
+			Logroak.getNireLogroak().logroenErregeaLogroa();
 		}
 		System.out.println("(Jokalari bakoitzak predeterminatuki 500� ditu)\n");
 		boolean partidaZuzena = false;
@@ -49,9 +51,9 @@ public class BlackJack {
 					//Apostuak ikusi
 					jokalariak.apostuGuztiakIkusi();
 					if (jokalariak.tamaina() >= 2){
-						logroak.ludopataLogroa();
-						logroak.helloWorldLogroa();
-						logroak.logroenErregeaLogroa();
+						Logroak.getNireLogroak().ludopataLogroa();
+						Logroak.getNireLogroak().helloWorldLogroa();
+						Logroak.getNireLogroak().logroenErregeaLogroa();
 						//Itxaron
 						System.out.println("\nSakatu enter jokoa hasteko.");
 						this.enterItxaron();
@@ -59,6 +61,9 @@ public class BlackJack {
 						jokalariak.hasierakoBiKartak();
 						//Kartak eskatu
 						jokalariak.kartakBanatu();
+						Logroak.getNireLogroak().mahaikoErregeaLogroa();
+						Logroak.getNireLogroak().logroenErregeaLogroa();
+						
 					}
 					
 					//Irabazlea kalkulatu

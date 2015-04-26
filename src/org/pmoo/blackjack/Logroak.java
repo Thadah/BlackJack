@@ -46,45 +46,74 @@ public class Logroak {
 		if(!this.blackJack){
 			System.out.println("BlackJack Logroa Desblokeatuta");
 			
+		
+			this.blackJack = true;
 		}
-		this.blackJack = true;
 	}
 	
 	public void erretiratuLogroa(){
 		if(!this.erretiratu){
 			System.out.println("Erretiratua Logroa Desblokeatuta");
 			
+		
+			this.erretiratu = true;
 		}
-		this.erretiratu = true;
 	}
 		
 	public void bikoitzaLogroa(){
 		if(!this.bikoitza){
 			System.out.println("Apostu Bikoitzaren Logroa Desblokeatuta");
+		
+			this.bikoitza = true;
 		}
-		this.bikoitza = true;
 	}
 	
 	public void logroenErregeaLogroa(){
-		if (this.blackJack && this.bankarrota && this.bikoitza && this.emotikonoak && this.erretiratu && this.helloWorld && this.lagunAsko && this.lagunikGabe && this.logroenErregea && this.ludopata && this.mahaikoErregea && this.pistarenErregea){
+		if (this.blackJack && this.bankarrota && this.bikoitza && this.emotikonoak && this.erretiratu && this.helloWorld && (this.lagunAsko || this.lagunikGabe) && this.logroenErregea && this.ludopata && this.mahaikoErregea && this.pistarenErregea){
 			System.out.println("\n LogroenErregea Logroa Desblokeatuta");
 			System.out.println("\n Logro Guztiak Desblokeatuta");
+		
+			this.logroenErregea = true;
 		}
-		this.logroenErregea = true;
 	}
 
 	public void helloWorldLogroa(){
 		if(!this.helloWorld){
 			System.out.println("\n HellowWorld Logroa Desblokeatuta");
+		
+			this.helloWorld = true;
 		}
-		this.helloWorld = true;
 	}
 	
 	public void ludopataLogroa(){
 		if(!this.ludopata && this.helloWorld){
 			System.out.println("\n Ludopata Logroa Desblokeatuta");
+		
+			this.ludopata = true;
 		}
-		this.ludopata = true;
 	}
-
+	
+	
+	public void bankarrotaLogroa(){
+		if(!this.bankarrota ){
+			System.out.println("\n Bankarrota Logroa Desblokeatuta");
+		
+			this.bankarrota=true;
+		}
+	}
+	
+	public void mahaikoErregeaLogroa(){
+		if(!this.mahaikoErregea){
+			System.out.println("\n Mahaiko Erregearen Logroa Desblokeatuta");
+			this.mahaikoErregea = true;
+		}
+	}
+	
+	public void lagunikGabeLogroa(){
+		if(!this.lagunikGabe && ListaJokalariak.getNireListaJokalariak().tamaina()==2){
+			System.out.println("\n Lagunik Gabe Logroa Desblokeatuta");
+			this.lagunikGabe = true;
+			
+		}
+	}
 }

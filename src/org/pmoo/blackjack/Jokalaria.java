@@ -47,6 +47,8 @@ public class Jokalaria {
 				}
 				else if(this.apostua == 0){
 					this.erretiratua = true;
+					Logroak.getNireLogroak().erretiratuLogroa();
+					Logroak.getNireLogroak().logroenErregeaLogroa();
 					System.out.println(this.izena + " jokalaria erretiratu da.");
 				}
 				else if(this.apostua == this.dirua){
@@ -234,6 +236,7 @@ public class Jokalaria {
 		ListaJokalariak lista = ListaJokalariak.getNireListaJokalariak();
 		if(this.getDirua() == 0){
 			System.out.println("Sentitzen dugu " + this.getIzena() + ", baina Kasinotik joan behar zara ez duzulako dirurik. >:(");
+			Logroak.getNireLogroak().bankarrotaLogroa();
 			lista.erretiratu(this);
 			joanDa = true;
 		}

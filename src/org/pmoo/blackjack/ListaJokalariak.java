@@ -266,5 +266,8 @@ public class ListaJokalariak {
 		}
 		return min;
 	}
+	
+
+	
 
 }
