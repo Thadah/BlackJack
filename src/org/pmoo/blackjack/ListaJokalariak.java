@@ -136,7 +136,7 @@ public class ListaJokalariak {
 				}
 				catch(ApostuException e){
 					System.out.println(e.getMessage());
-					System.out.println(jokalariBat.getIzena() + ", Apostatu Berriro");
+					System.out.println(jokalariBat.getIzena() + ", apostatu berriro");
 					apostuaEginda = false;
 				}
 			}while(!apostuaEginda);
@@ -176,9 +176,8 @@ public class ListaJokalariak {
 		Jokalaria jokalariBat;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			System.out.println(jokalariBat.getIzena() + "-(r)en dirua: " + jokalariBat.getDirua() + "�");
+			jokalariBat.diruaInprimatu();
 		}
-		System.out.println("\n");
 	}
 	
 	public boolean batBainoGehiagoIrabazi(){
@@ -266,8 +265,5 @@ public class ListaJokalariak {
 		}
 		return min;
 	}
-	
-
-	
 
 }

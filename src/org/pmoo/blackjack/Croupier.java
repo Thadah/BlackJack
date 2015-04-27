@@ -9,8 +9,7 @@ public class Croupier extends Jokalaria {
 		super(pIzena);
 		this.izena = "Croupier";
 		this.eskua = new ListaKartak();
-		//this.dirua = Integer.MAX_VALUE;
-		this.dirua = 10000;
+		this.dirua = (Integer.MAX_VALUE)-10000;
 		this.erretiratua = false;
 		this.apostua = 0;
 	}
@@ -94,8 +93,7 @@ public class Croupier extends Jokalaria {
 				System.out.println("Croupierra pasatu egin da \n");
 				pasatuta = true;
 				this.erretiratua = true;
-			}
-					
+			}			
 		}
 	}
 	
@@ -111,5 +109,10 @@ public class Croupier extends Jokalaria {
 		}
 		return prob;
 	}
+	
+	public void diruaInprimatu(){
+		System.out.print("\n");
+	}
+
 
 }

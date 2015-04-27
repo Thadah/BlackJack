@@ -252,4 +252,8 @@ public class Jokalaria {
 		return joanDa;
 	}
 	
+	public void diruaInprimatu(){
+		System.out.println(this.izena + "-(r)en dirua: " + this.dirua + "�");
+	}
+	
 }
