@@ -37,8 +37,8 @@ public class BlackJack {
 		jokalariak.jokalariakInskribatu();
 		if(BlackJack.croupierrarekin){
 			jokalariak.croupierInskribatu();
-			Logroak.getNireLogroak().lagunikGabeLogroa();
-			Logroak.getNireLogroak().logroenErregeaLogroa();
+			logroak.lagunikGabeLogroa();
+			logroak.logroenErregeaLogroa();
 		}
 		System.out.println("(Jokalari bakoitzak predeterminatuki 500� ditu)\n");
 		boolean partidaZuzena = false;
@@ -51,9 +51,9 @@ public class BlackJack {
 					//Apostuak ikusi
 					jokalariak.apostuGuztiakIkusi();
 					if (jokalariak.tamaina() >= 2){
-						Logroak.getNireLogroak().ludopataLogroa();
-						Logroak.getNireLogroak().helloWorldLogroa();
-						Logroak.getNireLogroak().logroenErregeaLogroa();
+						logroak.ludopataLogroa();
+						logroak.helloWorldLogroa();
+						logroak.logroenErregeaLogroa();
 						//Itxaron
 						System.out.println("\nSakatu enter jokoa hasteko.");
 						this.enterItxaron();
@@ -61,8 +61,8 @@ public class BlackJack {
 						jokalariak.hasierakoBiKartak();
 						//Kartak eskatu
 						jokalariak.kartakBanatu();
-						Logroak.getNireLogroak().mahaikoErregeaLogroa();
-						Logroak.getNireLogroak().logroenErregeaLogroa();
+						logroak.mahaikoErregeaLogroa();
+						logroak.logroenErregeaLogroa();
 						
 					}
 					
@@ -113,7 +113,7 @@ public class BlackJack {
 	
 	private void irabaziCroupierGabe(){
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
-		Ranking rankinga = jokalariak.rankingEzCroupier();
+		//Ranking rankinga = jokalariak.rankingEzCroupier();
 		if(!jokalariak.batBainoGehiagoIrabazi()){
 			Jokalaria irabazlea = jokalariak.eskuHandienaKalkulatu();
 			if (irabazlea != null){
@@ -135,13 +135,19 @@ public class BlackJack {
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		Ranking rankinga = jokalariak.rankingCroupier();
 		try{
-		rankinga.irabazleakInprimatu();
-		rankinga.boteaBanatu();
+			rankinga.irabazleakInprimatu();
+			this.boteaBanatu(rankinga);
 		}
 		catch(RankingException e){
 			System.out.println(e.getMessage());
 			jokalariak.apostuakBueltatu();
 		}
+	}
+	
+	private void boteaBanatu(Ranking pRankingna){
+		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
+		int bakoitzari = (int)(this.getBotea())/(pRankingna.irabazleKop());
+		jokalariak.boteaBanatu(bakoitzari);
 	}
 	
 	private void irabazleaKalkulatu(){
@@ -170,7 +176,7 @@ public class BlackJack {
 	}
 
 	public int getBotea() {
-		return botea;
+		return this.botea;
 	}
 
 	public void setBotea(int pBotea) {

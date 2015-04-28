@@ -22,7 +22,7 @@ public class ListaJokalariak {
 	}
 	
 	//Beste metodoak
-	private Iterator<Jokalaria> getIteradorea(){
+	public Iterator<Jokalaria> getIteradorea(){
 		return this.lista.iterator();
 	}
 	
@@ -65,6 +65,16 @@ public class ListaJokalariak {
 	public void guztiakErreseteatu(){
 		Baraja.getBaraja().erreseteatu();
 		ListaJokalariak.getNireListaJokalariak().erreseteatu();
+	}
+	
+	public void boteaBanatu(int pBotea){
+		//TODO Jokalarien listatik irabazleak ez direnak botea banatzen dieten listatik kendu
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		Jokalaria jokalariBat = null;
+		while(itr.hasNext()){
+			jokalariBat = itr.next();
+			jokalariBat.boteaHartuCroupier(pBotea);
+		}
 	}
 	
 	public void jokalariakInskribatu(){

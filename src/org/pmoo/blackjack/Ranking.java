@@ -34,17 +34,6 @@ public class Ranking {
 		return this.ranking.size();
 	}
 	
-	public void boteaBanatu(){
-		BlackJack mahaia = BlackJack.getNireBlackJack();
-		int bakoitzari = (int)(mahaia.getBotea())/(this.irabazleKop());
-		Iterator<Jokalaria> itr = this.getIteradorea();
-		Jokalaria jokalariBat = null;
-		while(itr.hasNext()){
-			jokalariBat = itr.next();
-			jokalariBat.boteaHartuCroupier(bakoitzari);
-		}
-
-	}
 	
 	public void rankingaOrdenatu(){
 		 Collections.sort(this.ranking, ESKUA);
