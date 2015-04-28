@@ -31,6 +31,7 @@ public class BlackJack {
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		Logroak logroak = Logroak.getNireLogroak();
 		System.out.println("Ongi etorri Atutxa kasinora, ondo pasa dezazuen espero dugu :)");
+		ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":)");
 		Thread.sleep(1000);
 		//Jokalariak inskribatu
 		BlackJack.croupierrarekin = this.croupierrarekin();
@@ -40,6 +41,8 @@ public class BlackJack {
 			logroak.lagunikGabeLogroa();
 			logroak.logroenErregeaLogroa();
 		}
+		logroak.lagunAskoLogroa();
+		logroak.logroenErregeaLogroa();
 		System.out.println("(Jokalari bakoitzak predeterminatuki 500� ditu)\n");
 		boolean partidaZuzena = false;
 		do{		
@@ -70,6 +73,8 @@ public class BlackJack {
 					this.irabazleaKalkulatu();
 					
 					partidaAmaitu();
+					logroak.emotikonoakLogroa();
+					logroak.logroenErregeaLogroa();
 					jokalariak.guztienDiruaInprimatu();
 					
 					//Galdetu ea norbai partidatik joan nahi den
@@ -82,6 +87,7 @@ public class BlackJack {
 				}
 				catch(JokalariException e){
 					System.out.println(e.getMessage());
+					ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa("D:<");
 					if(this.rankingakIkusiNahi()){
 						this.rankingakInprimatu();
 					}
@@ -118,15 +124,18 @@ public class BlackJack {
 			Jokalaria irabazlea = jokalariak.eskuHandienaKalkulatu();
 			if (irabazlea != null){
 				System.out.println("ZORIONAK " + irabazlea.getIzena() + ", "  + this.botea + " �-ko botea irabazi duzu!!! :3\n");
+				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":3");
 				irabazlea.boteaHartu();
 			} 
 			else {
 				System.out.println("Jokalari guztiak pasatu dira, beraz, ez dago irabazlerik :|\n");
+				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":|");
 				jokalariak.apostuakBueltatu();
 			}
 		}
 		else{
 			System.out.println("2 jokalarik edo gehiagok berdindu dutenez, apostuak itzuliko dira :/\n");
+			ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":/");
 			jokalariak.apostuakBueltatu();
 		}
 	}

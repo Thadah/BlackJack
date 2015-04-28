@@ -109,6 +109,7 @@ public class Jokalaria {
 			}
 			else if(this.apostua < mahaia.getApostuMax()){
 				System.out.println(this.izena + " , ez dituzu apostua ikusteko baldintzak betetzen, erretiratua izan zara. T_T");
+				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa("T_T");
 				this.erretiratua = true;
 			}	
 		}
@@ -175,10 +176,12 @@ public class Jokalaria {
 			}
 			if (this.eskuaKalkulatu() > 21){
 				System.out.println("Pasatu egin zara :( \n");
+				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":(");
 			}
 			if(this.eskuaKalkulatu() == 21){
 				Thread.sleep(1000);
 				System.out.println("21-era iritsi zara :P \n");
+				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":P");
 			}
 		}
 	}
@@ -201,6 +204,7 @@ public class Jokalaria {
 				System.out.println("Zure karten totala " + this.eskuaKalkulatu() + " da.\n");
 				if(this.blackJackDu()){
 					System.out.println("ZORIONAK BlackJack duzu !!! :3\n");
+					ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":3");
 				}
 			}
 			System.out.println("Sakatu enter txanda bukatzeko.");
@@ -236,6 +240,7 @@ public class Jokalaria {
 		ListaJokalariak lista = ListaJokalariak.getNireListaJokalariak();
 		if(this.getDirua() == 0){
 			System.out.println("Sentitzen dugu " + this.getIzena() + ", baina Kasinotik joan behar zara ez duzulako dirurik. >:(");
+			ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(">:(");
 			Logroak.getNireLogroak().bankarrotaLogroa();
 			lista.erretiratu(this);
 			joanDa = true;
@@ -245,6 +250,7 @@ public class Jokalaria {
 			String bai = sc.next();
 			if(bai.equals("B") || bai.equals("b")){
 				System.out.println(this.getIzena() + " mahaia utzi du ;_;");
+				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(";_;");
 				lista.erretiratu(this);
 				joanDa = true;
 			}

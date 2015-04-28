@@ -79,7 +79,7 @@ public class Logroak {
 
 	public void helloWorldLogroa(){
 		if(!this.helloWorld){
-			System.out.println("\n HellowWorld Logroa Desblokeatuta");
+			System.out.println("\n HelloWorld Logroa Desblokeatuta");
 		
 			this.helloWorld = true;
 		}
@@ -113,6 +113,21 @@ public class Logroak {
 		if(!this.lagunikGabe && ListaJokalariak.getNireListaJokalariak().tamaina()==2){
 			System.out.println("\n Lagunik Gabe Logroa Desblokeatuta");
 			this.lagunikGabe = true;
+			
+		}
+	}
+	
+	public void lagunAskoLogroa(){
+		if(!this.lagunAsko && ListaJokalariak.getNireListaJokalariak().tamaina()>=7){
+			System.out.println("\n Lagun Asko Logroa Desblokeatuta");
+			this.lagunAsko = true;
+		}
+	}
+	
+	public void emotikonoakLogroa(){
+		if(!this.emotikonoak && ListaEmotikonoak.getNireListaEmotikonoak().listarenTamaina()==10){
+			System.out.println("\n Emotikonoen Metodoa Desblokeatuta");
+			this.emotikonoak = true;
 			
 		}
 	}
