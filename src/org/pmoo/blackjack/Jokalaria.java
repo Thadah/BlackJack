@@ -146,8 +146,10 @@ public class Jokalaria {
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		boolean plantatuta = false;
 		String eman = null;
-		System.out.println(this.izena + "-ren txanda da.\n");
+		
 		if (!erretiratua && this.eskuaKalkulatu() < 21){
+
+			System.out.println(this.izena + "-ren txanda da.\n");
 			if (this.dirua >= this.apostua){
 				System.out.println("Doblatu nahi al duzu? (B/E)");
 				eman = sc.next();

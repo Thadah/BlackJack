@@ -7,10 +7,9 @@ public class Ranking {
 
 	//Atributuak
 	private ArrayList<Jokalaria> ranking;
-	static final Comparator<Jokalaria> ESKUA = 
-         new Comparator<Jokalaria>() {
-		 public int compare(Jokalaria pJok1, Jokalaria pJok2) {
-		 return new Integer(pJok2.eskuaKalkulatu()).compareTo(new Integer(pJok1.eskuaKalkulatu()));
+	static final Comparator<Jokalaria> ESKUA = new Comparator<Jokalaria>() {
+	public int compare(Jokalaria pJok1, Jokalaria pJok2) {
+	return new Integer(pJok2.eskuaKalkulatu()).compareTo(new Integer(pJok1.eskuaKalkulatu()));
 		 }
 	 };
 	
