@@ -134,20 +134,16 @@ public class BlackJack {
 	private void irabaziCroupierrarekin(){
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		Ranking rankinga = jokalariak.rankingCroupier();
+		int bakoitzari = (int)(this.getBotea())/(rankinga.irabazleKop());
+		int azkenEskua = rankinga.azkenarenEskua();
 		try{
 			rankinga.irabazleakInprimatu();
-			this.boteaBanatu(rankinga);
+			jokalariak.boteaBanatu(bakoitzari, azkenEskua);
 		}
 		catch(RankingException e){
 			System.out.println(e.getMessage());
 			jokalariak.apostuakBueltatu();
 		}
-	}
-	
-	private void boteaBanatu(Ranking pRankingna){
-		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
-		int bakoitzari = (int)(this.getBotea())/(pRankingna.irabazleKop());
-		jokalariak.boteaBanatu(bakoitzari);
 	}
 	
 	private void irabazleaKalkulatu(){

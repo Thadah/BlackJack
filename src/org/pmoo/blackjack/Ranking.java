@@ -74,7 +74,10 @@ public class Ranking {
 				System.out.print(jokalariBat.getIzena() + " ");
 			}
 			System.out.print((int)(mahaia.getBotea())/(this.irabazleKop()) + "€-ko botea irabazi duzu(e) ;)\n\n");
-		
+	}
+	
+	public int azkenarenEskua(){
+		return this.ranking.get(irabazleKop()-1).eskuaKalkulatu();
 	}
 		
 }

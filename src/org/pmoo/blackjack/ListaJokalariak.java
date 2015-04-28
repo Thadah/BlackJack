@@ -67,13 +67,14 @@ public class ListaJokalariak {
 		ListaJokalariak.getNireListaJokalariak().erreseteatu();
 	}
 	
-	public void boteaBanatu(int pBotea){
-		//TODO Jokalarien listatik irabazleak ez direnak botea banatzen dieten listatik kendu
+	public void boteaBanatu(int pBotea, int pEskua){
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		Jokalaria jokalariBat = null;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			jokalariBat.boteaHartuCroupier(pBotea);
+			if (jokalariBat.eskuaKalkulatu() >= pEskua && jokalariBat.eskuaKalkulatu() <= 21){
+				jokalariBat.boteaHartuCroupier(pBotea);
+			}
 		}
 	}
 	
