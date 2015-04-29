@@ -1,6 +1,7 @@
 package org.pmoo.blackjack;
 
 import org.pmoo.audio.*;
+
 import java.util.Scanner;
 
 public class BlackJack {
@@ -125,13 +126,15 @@ public class BlackJack {
 	private boolean croupierrarekin(){
 		System.out.println("Croupier-arekin jolastu nahi al duzu(e)? (B/E)");
 		String bai = sc.next();
-		if(bai.equals("B") || bai.equals("b")){
-			return true;
+		boolean emaitza = false;
+		try{
+			emaitza = this.baiEdoEz(bai);
 		}
-		else{
-			return false;
+		catch(baiEdoEzException e){
+			System.out.println(e.getMessage());
+			this.croupierrarekin();
 		}
-		
+		return emaitza;
 	}
 	
 	private void irabaziCroupierGabe(){
@@ -226,17 +229,32 @@ public class BlackJack {
 	
 	private boolean rankingakIkusiNahi(){
 		System.out.println("Partida bukatu da, rankingak ikusi nahi dituzue? (B/E)");
+		boolean emaitza = false;
 		String bai = sc.next();
-		if(bai.equals("B") || bai.equals("b")){
-			return true;
+		try{
+			emaitza = this.baiEdoEz(bai);
 		}
-		else{
-			return false;
+		catch(baiEdoEzException e){
+			System.out.println(e.getMessage());
+			this.rankingakIkusiNahi();
 		}
+		return emaitza;
 	}
 	
 	public void rankingakInprimatu(){
 		ListaPartidak listaPartidak = ListaPartidak.getNireListaPartidak();
 		listaPartidak.partidakIdatzi();
+	}
+	
+	public boolean baiEdoEz(String pTeklatua) throws baiEdoEzException{
+		if (pTeklatua.equals("B") || pTeklatua.equals("b")){
+			return true;
+		}
+		else if(pTeklatua.equals("E") || pTeklatua.equals("e")){
+			return false;
+		}
+		else{
+			throw(new baiEdoEzException("Mesedez, sartu B (bai) edo E (ez).\n"));
+		}
 	}
 }

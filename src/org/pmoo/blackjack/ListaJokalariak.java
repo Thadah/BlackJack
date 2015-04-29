@@ -95,7 +95,7 @@ public class ListaJokalariak {
 		if(intOngi){
 			try{
 				if(jokalariKop > 7 || jokalariKop < this.jokalariMin()){
-					throw(new JokalariException("Jokalari kopurua" + this.jokalariMin() + " eta 7 zenbakien artean egon behar da"));
+					throw(new JokalariException("Jokalari kopurua " + this.jokalariMin() + " eta 7 zenbakien artean egon behar da"));
 				}
 				denaOngi = true;
 			}
