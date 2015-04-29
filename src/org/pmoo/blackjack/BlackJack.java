@@ -11,6 +11,11 @@ public class BlackJack {
 	private int apostuMax;
 	private int botea;
 	public static boolean croupierrarekin = false;
+	
+	//Main Metodoa
+	public static void main(String[] args) throws InterruptedException{
+		BlackJack.getNireBlackJack().partidaJolastu();
+	}
 
 	//Eraikitzailea
 	private BlackJack(){
