@@ -71,4 +71,8 @@ public class ListaKartak {
 		return batekoKop;
 	}
 	
+	public int tamaina(){
+		return this.kartak.size();
+	}
+	
 }

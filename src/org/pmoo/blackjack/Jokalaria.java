@@ -236,6 +236,7 @@ public class Jokalaria {
 		boolean badu = false;
 		boolean figura = false;
 		boolean batekoa = false;
+		int kartaKop = this.eskua.tamaina();
 		Karta kartaBat = null;
 		Iterator<Karta> itr = this.eskua.getIteradorea();
 		while(itr.hasNext()){
@@ -247,7 +248,7 @@ public class Jokalaria {
 				figura = true;
 			}
 		}
-		if(figura && batekoa){
+		if(figura && batekoa && kartaKop == 2){
 			badu = true;
 			logroak.blackJackLogroa();
 			logroak.logroenErregeaLogroa();
