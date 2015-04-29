@@ -31,6 +31,9 @@ public class Jokalaria {
 			System.out.println("Zenbat diru apostatu nahi duzu, " + this.izena + "?");
 			try{
 				this.apostua = Integer.parseInt(sc.next());
+				Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
+				chips.PlayAudio();
+				chips.StopAudio(chips);				
 				denaOndo = true;
 			}
 			catch(NumberFormatException e){
@@ -58,6 +61,9 @@ public class Jokalaria {
 					System.out.println("Ziur zaude All-in egin nahi duzula? (B/E)");
 					konfirm = sc.next();
 					if(konfirm.equals("B") || konfirm.equals("b")){
+						Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
+						chips.PlayAudio();
+						chips.StopAudio(chips);	
 						System.out.println("All-in egin duzu.");
 					}
 					else{
@@ -99,6 +105,9 @@ public class Jokalaria {
 				System.out.println(this.izena + ", apostua ikusi nahi duzu?   (B/E)");
 				String bai = sc.next();
 				if(bai.equals("B") || bai.equals("b")){
+					Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
+					chips.PlayAudio();
+					chips.StopAudio(chips);	
 					mahaia.setBotea(mahaia.getBotea() + (mahaia.getApostuMax() - this.apostua));
 					this.dirua = this.dirua - (mahaia.getApostuMax() - this.apostua);				
 					this.apostua = mahaia.getApostuMax();
@@ -130,7 +139,8 @@ public class Jokalaria {
 		if(!this.erretiratua){
 			Audio slide = new Audio("Slide" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
 			slide.PlayAudio();
-			slide = null;
+			Thread.sleep(300);
+			slide.StopAudio(slide);
 			Karta kartaBat = nireBaraja.emanKarta();
 			this.eskua.gehituKarta(kartaBat);
 			System.out.println(kartaBat.kartaIdatzi() + " bat hartu duzu.");
@@ -160,6 +170,9 @@ public class Jokalaria {
 				eman = sc.next();
 				if(eman.equals("B") || eman.equals("b")){
 					this.kartaEskatu();
+					Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
+					chips.PlayAudio();
+					chips.StopAudio(chips);	
 					this.dirua = this.dirua - this.apostua;
 					mahaia.setBotea(mahaia.getBotea() + this.apostua);
 					this.apostua = this.apostua*2;

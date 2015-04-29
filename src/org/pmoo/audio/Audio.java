@@ -17,5 +17,9 @@ public class Audio {
 		MediaPlayer player = new MediaPlayer(this.media);
 		player.play();
 	}
+	
+	public void StopAudio(Audio pAudio){
+		pAudio = null;
+	}
 
 }
