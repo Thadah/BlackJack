@@ -222,10 +222,6 @@ public class Jokalaria {
 		if (!this.erretiratua){
 			if (this.eskuaKalkulatu() <= 21){
 				System.out.println("Zure karten totala " + this.eskuaKalkulatu() + " da.\n");
-				if(this.blackJackDu()){
-					System.out.println("ZORIONAK BlackJack duzu !!! :3\n");
-					ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":3");
-				}
 			}
 			System.out.println("Sakatu enter txanda bukatzeko.");
 			BlackJack.getNireBlackJack().enterItxaron();

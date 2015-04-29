@@ -130,6 +130,10 @@ public class ListaJokalariak {
 			jokalariBat.kartaEskatu();
 			jokalariBat.kartaEskatu();
 			jokalariBat.eskuaIdatzi();
+			if(jokalariBat.blackJackDu()){
+				System.out.println("ZORIONAK BlackJack duzu!!! :3\n");
+				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":3");
+			}
 		}
 	}
 
