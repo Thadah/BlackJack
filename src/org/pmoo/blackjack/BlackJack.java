@@ -132,7 +132,7 @@ public class BlackJack {
 	
 	private void irabaziCroupierGabe(){
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
-		//Ranking rankinga = jokalariak.rankingEzCroupier();
+		Ranking rankinga = jokalariak.rankingEzCroupier();
 		if(!jokalariak.batBainoGehiagoIrabazi()){
 			Jokalaria irabazlea = jokalariak.eskuHandienaKalkulatu();
 			if (irabazlea != null){
