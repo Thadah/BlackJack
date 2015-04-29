@@ -1,6 +1,7 @@
 package org.pmoo.blackjack;
 
-import java.util.*;
+import org.pmoo.audio.*;
+import java.util.Scanner;
 
 public class BlackJack {
 	
@@ -32,6 +33,8 @@ public class BlackJack {
 	
 	//Beste metodoak
 	public void partidaJolastu() throws InterruptedException{
+		Audio main = new Audio("Theme.mp3");
+		main.PlayAudio();
 		String jolastuNahi = "B";
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		Logroak logroak = Logroak.getNireLogroak();
@@ -53,7 +56,12 @@ public class BlackJack {
 		do{		
 			if(jolastuNahi.equals("B")){
 				try{
+					
 					Baraja.getBaraja().erreseteatu();
+					System.out.println("Barajatzen...");
+					Audio shuffle = new Audio("Shuffling.mp3");
+					shuffle.PlayAudio();
+					Thread.sleep(3000);
 					//Apostatu
 					jokalariak.apostuak();
 					//Apostuak ikusi

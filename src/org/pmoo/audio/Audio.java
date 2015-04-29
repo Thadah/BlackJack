@@ -1,17 +1,21 @@
 package org.pmoo.audio;
 
-import java.io.*;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+import java.net.URL;
+
+import javafx.scene.media.*;
 
 public class Audio {
+	public Media media;
 
-	public static void main(String[] args) throws Exception{
+	public Audio(String pSong){
 		new javafx.embed.swing.JFXPanel();
-		String bip = new File("/home/thadah/Descargas/scatman.mp3").toURI().toString();
-		MediaPlayer player = new MediaPlayer(new Media(bip));
+		URL bip = getClass().getResource(pSong);
+		this.media = new Media(bip.toString());
+	}
+	
+	public void PlayAudio(){
+		MediaPlayer player = new MediaPlayer(this.media);
 		player.play();
-
 	}
 
 }

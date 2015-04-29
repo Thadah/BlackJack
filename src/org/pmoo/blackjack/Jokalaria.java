@@ -2,6 +2,8 @@ package org.pmoo.blackjack;
 
 import java.util.*;
 
+import org.pmoo.audio.*;
+
 public class Jokalaria {
 	
 	//Atributuak
@@ -126,6 +128,9 @@ public class Jokalaria {
 	public void kartaEskatu() throws InterruptedException{
 		Baraja nireBaraja = Baraja.getBaraja();
 		if(!this.erretiratua){
+			Audio slide = new Audio("Slide" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
+			slide.PlayAudio();
+			slide = null;
 			Karta kartaBat = nireBaraja.emanKarta();
 			this.eskua.gehituKarta(kartaBat);
 			System.out.println(kartaBat.kartaIdatzi() + " bat hartu duzu.");
