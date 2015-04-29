@@ -7,11 +7,12 @@ public class ListaPartidak {
 	//Atributuak
 	private static ListaPartidak helbidea;
 	private ArrayList<Ranking> listaPartidak;
-	
+	private ArrayList<Jokalaria> hallOfFame;      //lehenen lista;
 	//Eraikitzailea
 	private ListaPartidak(){
 		this.listaPartidak = new ArrayList<Ranking>();
-	}
+		this.hallOfFame = new ArrayList<Jokalaria>();
+		}
 	
 	public static final synchronized ListaPartidak getNireListaPartidak(){
 		if(ListaPartidak.helbidea == null){
@@ -23,6 +24,10 @@ public class ListaPartidak {
 	//Beste metodoak
 	private Iterator<Ranking> getIteradorea(){
 		return this.listaPartidak.iterator();
+	}
+	
+	private Iterator<Jokalaria> getIteradorea2(){
+		return this.hallOfFame.iterator();
 	}
 	
 	public void partidaGorde(Ranking pRanking){
@@ -40,4 +45,37 @@ public class ListaPartidak {
 			i++;
 		}		
 	}
+	public boolean badagoHallOfFamean(Jokalaria pJok){
+		Iterator<Jokalaria> itr2=this.getIteradorea2();
+		boolean bai = false;
+		Jokalaria jok=null;
+		while(itr2.hasNext()&&!bai){
+			jok=itr2.next();
+			if(pJok==jok){
+				bai=true;
+			}
+		}
+		return bai;
+	}
+	
+	public boolean hallOfFameBete(){ 		//boolearra pertsona errepikatzen bada true itzuliko du;
+		Iterator<Ranking> itr=this.getIteradorea();
+		boolean bai=false;
+		Ranking rank = null;
+		Jokalaria jok = null;
+		while(itr.hasNext()){
+			rank=itr.next();
+			jok=rank.norDaLehenengoa();
+			if(this.badagoHallOfFamean(jok)){
+				bai=true;
+			}
+			else{
+				this.hallOfFame.add(jok);
+			}
+
+		}
+		return bai;
+	}
+	
+
 }

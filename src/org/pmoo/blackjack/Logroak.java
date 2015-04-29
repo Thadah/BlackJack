@@ -126,9 +126,15 @@ public class Logroak {
 	
 	public void emotikonoakLogroa(){
 		if(!this.emotikonoak && ListaEmotikonoak.getNireListaEmotikonoak().listarenTamaina()==10){
-			System.out.println("\n Emotikonoen Metodoa Desblokeatuta");
+			System.out.println("\n Emotikonoen Logroa Desblokeatuta");
 			this.emotikonoak = true;
 			
+		}
+	}
+	public void pistarenErregeaLogroa(){
+		if(!this.pistarenErregea && ListaPartidak.getNireListaPartidak().hallOfFameBete()){	
+			System.out.println("\n Pistaren Erregea Logroa Desblokeatuta");
+			this.pistarenErregea = true;
 		}
 	}
 }

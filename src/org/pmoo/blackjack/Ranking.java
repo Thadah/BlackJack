@@ -1,7 +1,7 @@
 package org.pmoo.blackjack;
 
 import java.util.*;
-
+import java.*;
 
 public class Ranking {
 
@@ -72,11 +72,18 @@ public class Ranking {
 				jokalariBat = itr.next();
 				System.out.print(jokalariBat.getIzena() + " ");
 			}
-			System.out.print((int)(mahaia.getBotea())/(this.irabazleKop()) + "â‚¬-ko botea irabazi duzu(e) ;)\n\n");
+			System.out.print((int)(mahaia.getBotea())/(this.irabazleKop()) + "€-ko botea irabazi duzu(e) ;)\n\n");
 	}
 	
 	public int azkenarenEskua(){
 		return this.ranking.get(irabazleKop()-1).eskuaKalkulatu();
+	}
+	
+	public Jokalaria norDaLehenengoa(){
+		Jokalaria lehena=null;
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		lehena=itr.next();
+		return lehena;
 	}
 		
 }

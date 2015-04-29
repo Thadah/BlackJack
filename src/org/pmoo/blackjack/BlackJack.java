@@ -103,6 +103,8 @@ public class BlackJack {
 					ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa("D:<");
 					if(this.rankingakIkusiNahi()){
 						this.rankingakInprimatu();
+						logroak.pistarenErregeaLogroa();
+						logroak.logroenErregeaLogroa();
 					}
 					JokoaAmaitu();
 					jolastuNahi = "E";
@@ -111,6 +113,8 @@ public class BlackJack {
 			else{
 				if(this.rankingakIkusiNahi()){
 					this.rankingakInprimatu();
+					logroak.pistarenErregeaLogroa();
+					logroak.logroenErregeaLogroa();
 				}
 				JokoaAmaitu();
 			}
