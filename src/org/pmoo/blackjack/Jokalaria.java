@@ -24,16 +24,15 @@ public class Jokalaria {
 	
 	//Beste metodoak
 	public void apostuaEgin() throws ApostuException{
+		Audio aww = new Audio("Aww.mp3");
+		aww.StopAudio(aww);
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		boolean denaOndo = false;
 		this.apostua = 0;
 		if(this.dirua >= mahaia.getApostuMax()){
 			System.out.println("Zenbat diru apostatu nahi duzu, " + this.izena + "?");
 			try{
-				this.apostua = Integer.parseInt(sc.next());
-				Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
-				chips.PlayAudio();
-				chips.StopAudio(chips);				
+				this.apostua = Integer.parseInt(sc.next());		
 				denaOndo = true;
 			}
 			catch(NumberFormatException e){
@@ -52,6 +51,7 @@ public class Jokalaria {
 				}
 				else if(this.apostua == 0){
 					this.erretiratua = true;
+					aww.PlayAudio();
 					Logroak.getNireLogroak().erretiratuLogroa();
 					Logroak.getNireLogroak().logroenErregeaLogroa();
 					System.out.println(this.izena + " jokalaria erretiratu da.");
@@ -61,9 +61,9 @@ public class Jokalaria {
 					System.out.println("Ziur zaude All-in egin nahi duzula? (B/E)");
 					konfirm = sc.next();
 					if(konfirm.equals("B") || konfirm.equals("b")){
-						Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
-						chips.PlayAudio();
-						chips.StopAudio(chips);	
+						Audio mahmonei = new Audio("TakeMahMoney.mp3");
+						mahmonei.StopAudio(mahmonei);
+						mahmonei.PlayAudio();
 						System.out.println("All-in egin duzu.");
 					}
 					else{
@@ -73,6 +73,9 @@ public class Jokalaria {
 				}
 				if(this.apostua > mahaia.getApostuMax()){
 					mahaia.setApostuMax(this.apostua);
+					Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
+					chips.StopAudio(chips);
+					chips.PlayAudio();	
 				}
 				mahaia.setBotea(mahaia.getBotea() + this.apostua);
 				this.dirua = this.dirua - this.apostua;
@@ -81,6 +84,7 @@ public class Jokalaria {
 		else{
 			System.out.println(this.izena + "Ez duzu dirurik apostua ikusteko, beraz, erretiratua izan zara");
 			this.erretiratua = true;
+			aww.PlayAudio();
 		}
 	}
 	
@@ -96,6 +100,8 @@ public class Jokalaria {
 	}
 	
 	public void apostuaIkusi(){
+		Audio aww = new Audio("Aww.mp3");
+		aww.StopAudio(aww);
 		Logroak logroak = Logroak.getNireLogroak();
 		int totala = this.apostua + this.dirua;
 		BlackJack mahaia = BlackJack.getNireBlackJack();
@@ -115,6 +121,7 @@ public class Jokalaria {
 				else if(!bai.equals("B") && !bai.equals("b")){
 					System.out.println(this.izena + ", ez duzu apostua ikusi, beraz, erretiratua izan zara.");
 					this.erretiratua = true;
+					aww.PlayAudio();
 					logroak.erretiratuLogroa();
 				}
 			}
@@ -122,6 +129,7 @@ public class Jokalaria {
 				System.out.println(this.izena + " , ez dituzu apostua ikusteko baldintzak betetzen, erretiratua izan zara. T_T");
 				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa("T_T");
 				this.erretiratua = true;
+				aww.PlayAudio();
 			}	
 		}
 	}
@@ -271,6 +279,11 @@ public class Jokalaria {
 				lista.erretiratu(this);
 				joanDa = true;
 			}
+		}
+		if(joanDa){
+			Audio aww = new Audio("Aww.mp3");
+			aww.StopAudio(aww);
+			aww.PlayAudio();
 		}
 		return joanDa;
 	}

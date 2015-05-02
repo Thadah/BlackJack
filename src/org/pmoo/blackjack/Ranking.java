@@ -3,6 +3,8 @@ package org.pmoo.blackjack;
 import java.util.*;
 import java.*;
 
+import org.pmoo.audio.Audio;
+
 public class Ranking {
 
 	//Atributuak
@@ -64,6 +66,7 @@ public class Ranking {
 	public void irabazleakInprimatu() throws RankingException{
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		Iterator<Jokalaria> itr = this.getIteradorea();
+		boolean eginda = false;
 		Jokalaria jokalariBat = null;	
 			if(this.irabazleKop() == 0){
 				{ throw(new RankingException("Ez duenez inork irabazi apostuak itzuliko dira")); }
@@ -71,8 +74,14 @@ public class Ranking {
 			while(itr.hasNext()){
 				jokalariBat = itr.next();
 				System.out.print(jokalariBat.getIzena() + " ");
+				if(jokalariBat.getIzena() != "Croupier" && !eginda){
+					Audio woohoo = new Audio("WooHoo.mp3");
+					woohoo.StopAudio(woohoo);
+					woohoo.PlayAudio();
+					eginda = true;
+				}
 			}
-			System.out.print((int)(mahaia.getBotea())/(this.irabazleKop()) + "€-ko botea irabazi duzu(e) ;)\n\n");
+			System.out.print((int)(mahaia.getBotea())/(this.irabazleKop()) + "ï¿½-ko botea irabazi duzu(e) ;)\n\n");
 	}
 	
 	public int azkenarenEskua(){
