@@ -9,7 +9,7 @@ public class Logroak {
 	private boolean erretiratu ;		//Aposturenbat ez ikustea
 	private boolean lagunikGabe; 		//Jokalari bakarra (Croupierarekin)
 	private boolean lagunAsko ;			//7 jokalari
-	private boolean mahaikoErregea ;	//Jokalari bakarra (Besteak erretiratuak)
+	private boolean mahaikoErregea ;	//Jokalari bakarra
 	private boolean bikoitza ;			//Jokalari batek bikoitza apostatzea partidaren batean
 	private boolean helloWorld ;		//Partida bat jolastea
 	private boolean ludopata ;			//Partida bat baino gehiago jolastea
@@ -95,7 +95,7 @@ public class Logroak {
 	
 	
 	public void bankarrotaLogroa(){
-		if(!this.bankarrota ){
+		if(!this.bankarrota){
 			System.out.println("\n Bankarrota Logroa Desblokeatuta");
 		
 			this.bankarrota=true;
@@ -103,7 +103,7 @@ public class Logroak {
 	}
 	
 	public void mahaikoErregeaLogroa(){
-		if(!this.mahaikoErregea){
+		if(!this.mahaikoErregea && ListaJokalariak.getNireListaJokalariak().tamaina() == 1){
 			System.out.println("\n Mahaiko Erregearen Logroa Desblokeatuta");
 			this.mahaikoErregea = true;
 		}

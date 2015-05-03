@@ -67,12 +67,12 @@ public class ListaJokalariak {
 		ListaJokalariak.getNireListaJokalariak().erreseteatu();
 	}
 	
-	public void boteaBanatu(int pBotea, int pEskua){
+	public void boteaBanatu(int pBotea, Ranking pRanking){
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		Jokalaria jokalariBat = null;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			if (jokalariBat.eskuaKalkulatu() >= pEskua && jokalariBat.eskuaKalkulatu() <= 21){
+			if (pRanking.rankingeanDago(jokalariBat)){
 				jokalariBat.boteaHartuCroupier(pBotea);
 			}
 		}
@@ -129,11 +129,11 @@ public class ListaJokalariak {
 			System.out.println(jokalariBat.getIzena() + "-ren txanda da.\n");
 			jokalariBat.kartaEskatu();
 			jokalariBat.kartaEskatu();
-			jokalariBat.eskuaIdatzi();
 			if(jokalariBat.blackJackDu()){
 				System.out.println("ZORIONAK BlackJack duzu!!! :3\n");
 				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":3");
 			}
+			jokalariBat.eskuaIdatzi();
 		}
 	}
 

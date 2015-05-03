@@ -1,7 +1,6 @@
 package org.pmoo.blackjack;
 
 import java.util.*;
-import java.*;
 
 import org.pmoo.audio.Audio;
 
@@ -84,15 +83,19 @@ public class Ranking {
 			System.out.print((int)(mahaia.getBotea())/(this.irabazleKop()) + "�-ko botea irabazi duzu(e) ;)\n\n");
 	}
 	
-	public int azkenarenEskua(){
-		return this.ranking.get(irabazleKop()-1).eskuaKalkulatu();
-	}
-	
 	public Jokalaria norDaLehenengoa(){
 		Jokalaria lehena=null;
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		lehena=itr.next();
 		return lehena;
+	}
+	
+	public boolean rankingeanDago(Jokalaria pJok){
+		boolean badago = false;
+		if(this.ranking.contains(pJok)){
+			badago = true;
+		}
+		return badago;
 	}
 		
 }
