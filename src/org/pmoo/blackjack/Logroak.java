@@ -44,7 +44,7 @@ public class Logroak {
 	//Beste Metodoak
 	public void blackJackLogroa(){
 		if(!this.blackJack){
-			System.out.println("BlackJack Logroa Desblokeatuta");
+			System.out.println("\n-=BlackJack Logroa Desblokeatuta=-\n");
 			
 		
 			this.blackJack = true;
@@ -53,7 +53,7 @@ public class Logroak {
 	
 	public void erretiratuLogroa(){
 		if(!this.erretiratu){
-			System.out.println("Erretiratua Logroa Desblokeatuta");
+			System.out.println("\n-=Erretiratua Logroa Desblokeatuta=-\n");
 			
 		
 			this.erretiratu = true;
@@ -62,7 +62,7 @@ public class Logroak {
 		
 	public void bikoitzaLogroa(){
 		if(!this.bikoitza){
-			System.out.println("Apostu Bikoitzaren Logroa Desblokeatuta");
+			System.out.println("\n-=Apostu Bikoitzaren Logroa Desblokeatuta=-\n");
 		
 			this.bikoitza = true;
 		}
@@ -70,8 +70,8 @@ public class Logroak {
 	
 	public void logroenErregeaLogroa(){
 		if (this.blackJack && this.bankarrota && this.bikoitza && this.emotikonoak && this.erretiratu && this.helloWorld && (this.lagunAsko || this.lagunikGabe) && this.logroenErregea && this.ludopata && this.mahaikoErregea && this.pistarenErregea){
-			System.out.println("\n LogroenErregea Logroa Desblokeatuta");
-			System.out.println("\n Logro Guztiak Desblokeatuta");
+			System.out.println("\n-=LogroenErregea Logroa Desblokeatuta=-\n");
+			System.out.println("\n-=Logro Guztiak Desblokeatuta=-\n");
 		
 			this.logroenErregea = true;
 		}
@@ -79,7 +79,7 @@ public class Logroak {
 
 	public void helloWorldLogroa(){
 		if(!this.helloWorld){
-			System.out.println("\n HelloWorld Logroa Desblokeatuta");
+			System.out.println("\n-=HelloWorld Logroa Desblokeatuta=-\n");
 		
 			this.helloWorld = true;
 		}
@@ -87,7 +87,7 @@ public class Logroak {
 	
 	public void ludopataLogroa(){
 		if(!this.ludopata && this.helloWorld){
-			System.out.println("\n Ludopata Logroa Desblokeatuta");
+			System.out.println("\n-=Ludopata Logroa Desblokeatuta=-\n");
 		
 			this.ludopata = true;
 		}
@@ -96,7 +96,7 @@ public class Logroak {
 	
 	public void bankarrotaLogroa(){
 		if(!this.bankarrota){
-			System.out.println("\n Bankarrota Logroa Desblokeatuta");
+			System.out.println("\n-=Bankarrota Logroa Desblokeatuta=-\n");
 		
 			this.bankarrota=true;
 		}
@@ -104,14 +104,14 @@ public class Logroak {
 	
 	public void mahaikoErregeaLogroa(){
 		if(!this.mahaikoErregea && ListaJokalariak.getNireListaJokalariak().tamaina() == 1){
-			System.out.println("\n Mahaiko Erregearen Logroa Desblokeatuta");
+			System.out.println("\n-=Mahaiko Erregearen Logroa Desblokeatuta=-\n");
 			this.mahaikoErregea = true;
 		}
 	}
 	
 	public void lagunikGabeLogroa(){
 		if(!this.lagunikGabe && ListaJokalariak.getNireListaJokalariak().tamaina()==2){
-			System.out.println("\n Lagunik Gabe Logroa Desblokeatuta");
+			System.out.println("\n-=Lagunik Gabe Logroa Desblokeatuta=-\n");
 			this.lagunikGabe = true;
 			
 		}
@@ -119,21 +119,21 @@ public class Logroak {
 	
 	public void lagunAskoLogroa(){
 		if(!this.lagunAsko && ListaJokalariak.getNireListaJokalariak().tamaina()>=7){
-			System.out.println("\n Lagun Asko Logroa Desblokeatuta");
+			System.out.println("\n-=Lagun Asko Logroa Desblokeatuta=-\n");
 			this.lagunAsko = true;
 		}
 	}
 	
 	public void emotikonoakLogroa(){
 		if(!this.emotikonoak && ListaEmotikonoak.getNireListaEmotikonoak().listarenTamaina()==10){
-			System.out.println("\n Emotikonoen Logroa Desblokeatuta");
+			System.out.println("\n-=Emotikonoen Logroa Desblokeatuta=-\n");
 			this.emotikonoak = true;
 			
 		}
 	}
 	public void pistarenErregeaLogroa(){
 		if(!this.pistarenErregea && ListaPartidak.getNireListaPartidak().hallOfFameBete()){	
-			System.out.println("\n Pistaren Erregea Logroa Desblokeatuta");
+			System.out.println("\n-=Pistaren Erregea Logroa Desblokeatuta=-\n");
 			this.pistarenErregea = true;
 		}
 	}
