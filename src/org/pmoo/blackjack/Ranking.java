@@ -80,7 +80,7 @@ public class Ranking {
 					eginda = true;
 				}
 			}
-			System.out.print((int)(mahaia.getBotea())/(this.irabazleKop()) + "�-ko botea irabazi duzu(e) ;)\n\n");
+			System.out.print((int)(mahaia.getBotea())/(this.irabazleKop()) + "\u20AC-ko botea irabazi duzu(e) ;)\n\n");
 	}
 	
 	public Jokalaria norDaLehenengoa(){

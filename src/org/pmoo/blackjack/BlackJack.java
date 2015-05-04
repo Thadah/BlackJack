@@ -52,7 +52,7 @@ public class BlackJack {
 		}
 		logroak.lagunAskoLogroa();
 		logroak.logroenErregeaLogroa();
-		System.out.println("(Jokalari bakoitzak predeterminatuki 500� ditu)\n");
+		System.out.println("(Jokalari bakoitzak predeterminatuki 500\u20AC ditu)\n");
 		boolean partidaZuzena = false;
 		do{		
 			if(jolastuNahi.equals("B")){
@@ -127,7 +127,7 @@ public class BlackJack {
 	}
 	
 	private boolean croupierrarekin(){
-		System.out.println("Croupier-arekin jolastu nahi al duzu(e)? (B/E)");
+		System.out.println("Croupier-arekin jolastu nahi al duzu(e)? (B/E)"); //TODO: Eginda
 		String bai = sc.next();
 		boolean emaitza = false;
 		try{
@@ -146,7 +146,7 @@ public class BlackJack {
 		if(!jokalariak.batBainoGehiagoIrabazi()){
 			Jokalaria irabazlea = jokalariak.eskuHandienaKalkulatu();
 			if (irabazlea != null){
-				System.out.println("ZORIONAK " + irabazlea.getIzena() + ", "  + this.botea + " �-ko botea irabazi duzu!!! :3\n");
+				System.out.println("ZORIONAK " + irabazlea.getIzena() + ", "  + this.botea + "\u20AC-ko botea irabazi duzu!!! :3\n");
 				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":3");
 				irabazlea.boteaHartu();
 			} 
@@ -230,7 +230,7 @@ public class BlackJack {
 	}
 	
 	private boolean rankingakIkusiNahi(){
-		System.out.println("Partida bukatu da, rankingak ikusi nahi dituzue? (B/E)");
+		System.out.println("Partida bukatu da, rankingak ikusi nahi dituzue? (B/E)"); //TODO: Eginda
 		boolean emaitza = false;
 		String bai = sc.next();
 		try{

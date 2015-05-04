@@ -58,7 +58,7 @@ public class Jokalaria {
 				}
 				else if(this.apostua == this.dirua){
 					String konfirm = null;
-					System.out.println("Ziur zaude All-in egin nahi duzula? (B/E)");
+					System.out.println("Ziur zaude All-in egin nahi duzula? (B/E)"); //TODO
 					konfirm = sc.next();
 					if(konfirm.equals("B") || konfirm.equals("b")){
 						Audio mahmonei = new Audio("TakeMahMoney.mp3");
@@ -103,27 +103,36 @@ public class Jokalaria {
 		Audio aww = new Audio("Aww.mp3");
 		aww.StopAudio(aww);
 		Logroak logroak = Logroak.getNireLogroak();
+		boolean emaitza = false;
 		int totala = this.apostua + this.dirua;
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		if(!this.erretiratua){
 			if (this.apostua < mahaia.getApostuMax() && totala >= mahaia.getApostuMax()){
 		
-				System.out.println(this.izena + ", apostua ikusi nahi duzu?   (B/E)");
+				System.out.println(this.izena + ", apostua ikusi nahi duzu? (B/E)"); //TODO: Eginda
 				String bai = sc.next();
-				if(bai.equals("B") || bai.equals("b")){
-					Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
-					chips.PlayAudio();
-					chips.StopAudio(chips);	
-					mahaia.setBotea(mahaia.getBotea() + (mahaia.getApostuMax() - this.apostua));
-					this.dirua = this.dirua - (mahaia.getApostuMax() - this.apostua);				
-					this.apostua = mahaia.getApostuMax();
+				try{
+					emaitza = mahaia.baiEdoEz(bai);
 				}
-				else if(!bai.equals("B") && !bai.equals("b")){
-					System.out.println(this.izena + ", ez duzu apostua ikusi, beraz, erretiratua izan zara.");
-					this.erretiratua = true;
-					aww.PlayAudio();
-					logroak.erretiratuLogroa();
+				catch(baiEdoEzException e){
+					System.out.println(e.getMessage());
+					this.apostuaIkusi();
 				}
+					if(emaitza){
+						Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
+						chips.PlayAudio();
+						chips.StopAudio(chips);	
+						mahaia.setBotea(mahaia.getBotea() + (mahaia.getApostuMax() - this.apostua));
+						this.dirua = this.dirua - (mahaia.getApostuMax() - this.apostua);				
+						this.apostua = mahaia.getApostuMax();
+					}
+					else{
+						System.out.println(this.izena + ", ez duzu apostua ikusi, beraz, erretiratua izan zara.");
+						this.erretiratua = true;
+						aww.PlayAudio();
+						logroak.erretiratuLogroa();
+					}
+
 			}
 			else if(this.apostua < mahaia.getApostuMax()){
 				System.out.println(this.izena + " , ez dituzu apostua ikusteko baldintzak betetzen, erretiratua izan zara. T_T");
@@ -170,10 +179,9 @@ public class Jokalaria {
 		String eman = null;
 		
 		if ( this.eskuaKalkulatu() < 21){
-
 			System.out.println(this.izena + "-ren txanda da.\n");
 			if (this.dirua >= this.apostua){
-				System.out.println("Doblatu nahi al duzu? (B/E)");
+				System.out.println("Doblatu nahi al duzu? (B/E)"); //TODO
 				eman = sc.next();
 				if(eman.equals("B") || eman.equals("b")){
 					this.kartaEskatu();
@@ -190,7 +198,7 @@ public class Jokalaria {
 				}
 			}
 			while(!plantatuta && this.eskuaKalkulatu() < 21){
-				System.out.println("Karta bat nahi duzu?? (B/E)");
+				System.out.println("Karta bat nahi duzu?? (B/E)"); //TODO
 				eman = sc.next();
 				if (eman.equals("B") || eman.equals("b")){
 					this.kartaEskatu();
@@ -263,17 +271,17 @@ public class Jokalaria {
 		boolean joanDa = false;
 		ListaJokalariak lista = ListaJokalariak.getNireListaJokalariak();
 		if(this.getDirua() == 0){
-			System.out.println("Sentitzen dugu " + this.getIzena() + ", baina Kasinotik joan behar zara ez duzulako dirurik. >:(");
+			System.out.println("Sentitzen dugu " + this.getIzena() + ", baina kasinotik joan behar zara ez duzulako dirurik. >:(");
 			ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(">:(");
 			Logroak.getNireLogroak().bankarrotaLogroa();
 			lista.erretiratu(this);
 			joanDa = true;
 		}
 		else{		
-			System.out.println(this.getIzena() + ", partida utzi nahi duzu? (B/E)");
+			System.out.println(this.getIzena() + ", partida utzi nahi duzu? (B/E)"); //TODO
 			String bai = sc.next();
 			if(bai.equals("B") || bai.equals("b")){
-				System.out.println(this.getIzena() + " mahaia utzi du ;_;");
+				System.out.println(this.getIzena() + "-(e)k mahaia utzi du ;_;");
 				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(";_;");
 				lista.erretiratu(this);
 				joanDa = true;
@@ -288,7 +296,7 @@ public class Jokalaria {
 	}
 	
 	public void diruaInprimatu(){
-		System.out.println(this.izena + "-(r)en dirua: " + this.dirua + "�");
+		System.out.println(this.izena + "-(r)en dirua: " + this.dirua + "\u20AC");
 	}
 	
 }
