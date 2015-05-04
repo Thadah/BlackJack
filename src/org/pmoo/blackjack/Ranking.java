@@ -91,11 +91,16 @@ public class Ranking {
 	}
 	
 	public boolean rankingeanDago(Jokalaria pJok){
-		boolean badago = false;
-		if(this.ranking.contains(pJok)){
-			badago = true;
+		boolean aurkitua = false;
+		Iterator<Jokalaria> itr = this.getIteradorea();
+		Jokalaria jokalariBat = null;
+		while(itr.hasNext() && !aurkitua){
+			jokalariBat = itr.next();
+			if(pJok.getIzena() == jokalariBat.getIzena() && pJok.eskuaKalkulatu() == jokalariBat.eskuaKalkulatu()){
+				aurkitua = true;
+			}
 		}
-		return badago;
+		return aurkitua;
 	}
 		
 }

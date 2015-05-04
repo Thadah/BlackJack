@@ -72,7 +72,7 @@ public class ListaJokalariak {
 		Jokalaria jokalariBat = null;
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			if (pRanking.rankingeanDago(jokalariBat)){
+			if(pRanking.rankingeanDago(jokalariBat)){
 				jokalariBat.boteaHartuCroupier(pBotea);
 			}
 		}
