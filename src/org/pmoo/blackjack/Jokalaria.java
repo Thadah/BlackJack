@@ -144,15 +144,14 @@ public class Jokalaria {
 	
 	public void kartaEskatu() throws InterruptedException{
 		Baraja nireBaraja = Baraja.getBaraja();
-		if(!this.erretiratua){
-			Audio slide = new Audio("Slide" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
-			slide.PlayAudio();
-			Thread.sleep(300);
-			slide.StopAudio(slide);
-			Karta kartaBat = nireBaraja.emanKarta();
-			this.eskua.gehituKarta(kartaBat);
-			System.out.println(kartaBat.kartaIdatzi() + " bat hartu duzu.");
-		}
+		Audio slide = new Audio("Slide" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
+		slide.PlayAudio();
+		Thread.sleep(300);
+		slide.StopAudio(slide);
+		Karta kartaBat = nireBaraja.emanKarta();
+		this.eskua.gehituKarta(kartaBat);
+		System.out.println(kartaBat.kartaIdatzi() + " bat hartu duzu.");
+		
 	}
 	
 	public void boteaHartu(){
@@ -170,7 +169,7 @@ public class Jokalaria {
 		boolean plantatuta = false;
 		String eman = null;
 		
-		if (!erretiratua && this.eskuaKalkulatu() < 21){
+		if ( this.eskuaKalkulatu() < 21){
 
 			System.out.println(this.izena + "-ren txanda da.\n");
 			if (this.dirua >= this.apostua){

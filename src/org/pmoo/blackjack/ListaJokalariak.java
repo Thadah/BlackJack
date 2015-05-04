@@ -126,14 +126,19 @@ public class ListaJokalariak {
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		while(itr.hasNext()){
 			jokalariBat = itr.next();
-			System.out.println(jokalariBat.getIzena() + "-ren txanda da.\n");
-			jokalariBat.kartaEskatu();
-			jokalariBat.kartaEskatu();
-			if(jokalariBat.blackJackDu()){
-				System.out.println("ZORIONAK BlackJack duzu!!! :3\n");
-				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":3");
-			}
-			jokalariBat.eskuaIdatzi();
+			if(!jokalariBat.erretiratua){
+				System.out.println(jokalariBat.getIzena() + "-ren txanda da.\n");
+				
+				jokalariBat.kartaEskatu();
+				jokalariBat.kartaEskatu();
+				
+				if(jokalariBat.blackJackDu()){
+					System.out.println("ZORIONAK BlackJack duzu!!! :3\n");
+					ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":3");
+				}
+				
+				jokalariBat.eskuaIdatzi();
+			}		
 		}
 	}
 
@@ -172,8 +177,10 @@ public class ListaJokalariak {
 		Jokalaria jokalariBat = null;
 		while(itr.hasNext()){
 			jokalariBat=itr.next();
-			jokalariBat.txanda();
-			jokalariBat.eskuaIdatzi();
+			if(!jokalariBat.erretiratua){
+				jokalariBat.txanda();
+				jokalariBat.eskuaIdatzi();
+			}
 		}
 	}
 	

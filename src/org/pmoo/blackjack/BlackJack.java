@@ -106,9 +106,11 @@ public class BlackJack {
 						this.rankingakInprimatu();
 						logroak.pistarenErregeaLogroa();
 						logroak.logroenErregeaLogroa();
+						
 					}
 					JokoaAmaitu();
 					jolastuNahi = "E";
+					partidaZuzena = true;
 				}
 			}
 			else{
@@ -116,6 +118,7 @@ public class BlackJack {
 					this.rankingakInprimatu();
 					logroak.pistarenErregeaLogroa();
 					logroak.logroenErregeaLogroa();
+					partidaZuzena = true;
 				}
 				JokoaAmaitu();
 			}
