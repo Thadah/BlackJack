@@ -26,7 +26,7 @@ public class ListaJokalariak {
 		return this.lista.iterator();
 	}
 	
-	public Jokalaria eskuHandienaKalkulatu(){
+	public Jokalaria eskuHandienaKalkulatu() throws InterruptedException{
 		Jokalaria jok, eskuHandienaDuenJokalaria = null;
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		boolean blackJack = false;
@@ -143,7 +143,7 @@ public class ListaJokalariak {
 	}
 
 	
-	public void apostuak(){
+	public void apostuak() throws InterruptedException{
 		Jokalaria jokalariBat = null;
 		boolean apostuaEginda = false;
 		Iterator<Jokalaria> itr = this.getIteradorea();
@@ -163,7 +163,7 @@ public class ListaJokalariak {
 		}
 	}
 	
-	public void apostuGuztiakIkusi(){
+	public void apostuGuztiakIkusi() throws InterruptedException{
 		Jokalaria jokalariBat;
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		while(itr.hasNext()){
@@ -202,7 +202,7 @@ public class ListaJokalariak {
 		}
 	}
 	
-	public boolean batBainoGehiagoIrabazi(){
+	public boolean batBainoGehiagoIrabazi() throws InterruptedException{
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		Jokalaria jokalariBat;
 		boolean bai = false;
@@ -263,7 +263,7 @@ public class ListaJokalariak {
 		
 	}
 	
-	public void galdetuDenakJoan(){
+	public void galdetuDenakJoan() throws InterruptedException{
 		boolean joanDa;
 		Jokalaria jokalariBat;
 		int kont = 0;

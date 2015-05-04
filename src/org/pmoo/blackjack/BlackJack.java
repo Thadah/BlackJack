@@ -140,7 +140,7 @@ public class BlackJack {
 		return emaitza;
 	}
 	
-	private void irabaziCroupierGabe(){
+	private void irabaziCroupierGabe() throws InterruptedException{
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		jokalariak.rankingEzCroupier();
 		if(!jokalariak.batBainoGehiagoIrabazi()){
@@ -177,7 +177,7 @@ public class BlackJack {
 		}
 	}
 	
-	private void irabazleaKalkulatu(){
+	private void irabazleaKalkulatu() throws InterruptedException{
 		if(!BlackJack.croupierrarekin){
 			this.irabaziCroupierGabe();
 		}

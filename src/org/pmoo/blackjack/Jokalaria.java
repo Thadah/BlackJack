@@ -23,7 +23,7 @@ public class Jokalaria {
 	}
 	
 	//Beste metodoak
-	public void apostuaEgin() throws ApostuException{
+	public void apostuaEgin() throws ApostuException, InterruptedException{
 		Audio aww = new Audio("Aww.mp3");
 		aww.StopAudio(aww);
 		BlackJack mahaia = BlackJack.getNireBlackJack();
@@ -99,7 +99,7 @@ public class Jokalaria {
 		this.apostua = 0;
 	}
 	
-	public void apostuaIkusi(){
+	public void apostuaIkusi() throws InterruptedException{
 		Audio aww = new Audio("Aww.mp3");
 		aww.StopAudio(aww);
 		Logroak logroak = Logroak.getNireLogroak();
@@ -242,7 +242,7 @@ public class Jokalaria {
 			BlackJack.getNireBlackJack().enterItxaron();
 		}
 	}
-	public boolean blackJackDu(){
+	public boolean blackJackDu() throws InterruptedException{
 		Logroak logroak = Logroak.getNireLogroak();
 		boolean badu = false;
 		boolean figura = false;
@@ -267,7 +267,7 @@ public class Jokalaria {
 		return badu;
 	}
 	
-	public boolean galdetuJoan(){
+	public boolean galdetuJoan() throws InterruptedException{
 		boolean joanDa = false;
 		ListaJokalariak lista = ListaJokalariak.getNireListaJokalariak();
 		if(this.getDirua() == 0){
