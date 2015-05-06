@@ -65,7 +65,6 @@ public class Ranking {
 	public void irabazleakInprimatu() throws RankingException{
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		Iterator<Jokalaria> itr = this.getIteradorea();
-		boolean eginda = false;
 		Jokalaria jokalariBat = null;	
 			if(this.irabazleKop() == 0){
 				{ throw(new RankingException("Ez duenez inork irabazi apostuak itzuliko dira")); }
