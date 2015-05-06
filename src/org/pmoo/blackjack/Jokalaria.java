@@ -25,7 +25,6 @@ public class Jokalaria {
 	//Beste metodoak
 	public void apostuaEgin() throws ApostuException, InterruptedException{
 		Audio aww = new Audio("Aww.mp3");
-		aww.StopAudio(aww);
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		boolean denaOndo = false;
 		this.apostua = 0;
@@ -62,7 +61,6 @@ public class Jokalaria {
 					konfirm = sc.next();
 					if(konfirm.equals("B") || konfirm.equals("b")){
 						Audio mahmonei = new Audio("TakeMahMoney.mp3");
-						mahmonei.StopAudio(mahmonei);
 						mahmonei.PlayAudio();
 						System.out.println("All-in egin duzu.");
 					}
@@ -74,7 +72,6 @@ public class Jokalaria {
 				if(this.apostua > mahaia.getApostuMax()){
 					mahaia.setApostuMax(this.apostua);
 					Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
-					chips.StopAudio(chips);
 					chips.PlayAudio();	
 				}
 				mahaia.setBotea(mahaia.getBotea() + this.apostua);
@@ -101,7 +98,6 @@ public class Jokalaria {
 	
 	public void apostuaIkusi() throws InterruptedException{
 		Audio aww = new Audio("Aww.mp3");
-		aww.StopAudio(aww);
 		Logroak logroak = Logroak.getNireLogroak();
 		boolean emaitza = false;
 		int totala = this.apostua + this.dirua;
@@ -121,7 +117,6 @@ public class Jokalaria {
 					if(emaitza){
 						Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
 						chips.PlayAudio();
-						chips.StopAudio(chips);	
 						mahaia.setBotea(mahaia.getBotea() + (mahaia.getApostuMax() - this.apostua));
 						this.dirua = this.dirua - (mahaia.getApostuMax() - this.apostua);				
 						this.apostua = mahaia.getApostuMax();
@@ -156,7 +151,6 @@ public class Jokalaria {
 		Audio slide = new Audio("Slide" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
 		slide.PlayAudio();
 		Thread.sleep(300);
-		slide.StopAudio(slide);
 		Karta kartaBat = nireBaraja.emanKarta();
 		this.eskua.gehituKarta(kartaBat);
 		System.out.println(kartaBat.kartaIdatzi() + " bat hartu duzu.");
@@ -187,7 +181,6 @@ public class Jokalaria {
 					this.kartaEskatu();
 					Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
 					chips.PlayAudio();
-					chips.StopAudio(chips);	
 					this.dirua = this.dirua - this.apostua;
 					mahaia.setBotea(mahaia.getBotea() + this.apostua);
 					this.apostua = this.apostua*2;
@@ -289,7 +282,6 @@ public class Jokalaria {
 		}
 		if(joanDa){
 			Audio aww = new Audio("Aww.mp3");
-			aww.StopAudio(aww);
 			aww.PlayAudio();
 		}
 		return joanDa;

@@ -73,14 +73,10 @@ public class Ranking {
 			while(itr.hasNext()){
 				jokalariBat = itr.next();
 				System.out.print(jokalariBat.getIzena() + " ");
-				if(jokalariBat.getIzena() != "Croupier" && !eginda){
-					Audio woohoo = new Audio("WooHoo.mp3");
-					woohoo.StopAudio(woohoo);
-					woohoo.PlayAudio();
-					eginda = true;
-				}
 			}
 			System.out.print((int)(mahaia.getBotea())/(this.irabazleKop()) + "\u20AC-ko botea irabazi duzu(e) ;)\n\n");
+			Audio woohoo = new Audio("WooHoo.mp3");
+			woohoo.PlayAudio();
 	}
 	
 	public Jokalaria norDaLehenengoa(){

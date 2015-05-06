@@ -148,6 +148,8 @@ public class BlackJack {
 			if (irabazlea != null){
 				System.out.println("ZORIONAK " + irabazlea.getIzena() + ", "  + this.botea + "\u20AC-ko botea irabazi duzu!!! :3\n");
 				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":3");
+				Audio woohoo = new Audio("WooHoo.mp3");
+				woohoo.PlayAudio();
 				irabazlea.boteaHartu();
 			} 
 			else {

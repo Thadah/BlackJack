@@ -51,7 +51,6 @@ public class Logroak {
 			Audio logro = new Audio("Logro.mp3");
 			logro.PlayAudio();
 			Thread.sleep(3000);
-			logro.StopAudio(logro);
 		}
 	}
 	
@@ -62,7 +61,6 @@ public class Logroak {
 			Audio logro = new Audio("Logro.mp3");
 			logro.PlayAudio();
 			Thread.sleep(3000);
-			logro.StopAudio(logro);
 		}
 	}
 		
@@ -73,7 +71,6 @@ public class Logroak {
 			Audio logro = new Audio("Logro.mp3");
 			logro.PlayAudio();
 			Thread.sleep(3000);
-			logro.StopAudio(logro);
 		}
 	}
 	
@@ -85,7 +82,6 @@ public class Logroak {
 			Audio logro = new Audio("Logro.mp3");
 			logro.PlayAudio();
 			Thread.sleep(3000);
-			logro.StopAudio(logro);
 		}
 	}
 
@@ -96,7 +92,6 @@ public class Logroak {
 			Audio logro = new Audio("Logro.mp3");
 			logro.PlayAudio();
 			Thread.sleep(3000);
-			logro.StopAudio(logro);
 		}
 	}
 	
@@ -107,7 +102,6 @@ public class Logroak {
 			Audio logro = new Audio("Logro.mp3");
 			logro.PlayAudio();
 			Thread.sleep(3000);
-			logro.StopAudio(logro);
 		}
 	}
 	
@@ -119,7 +113,6 @@ public class Logroak {
 			Audio logro = new Audio("Logro.mp3");
 			logro.PlayAudio();
 			Thread.sleep(3000);
-			logro.StopAudio(logro);
 		}
 	}
 	
@@ -130,7 +123,6 @@ public class Logroak {
 			Audio logro = new Audio("Logro.mp3");
 			logro.PlayAudio();
 			Thread.sleep(3000);
-			logro.StopAudio(logro);
 		}
 	}
 	
@@ -141,7 +133,6 @@ public class Logroak {
 			Audio logro = new Audio("Logro.mp3");
 			logro.PlayAudio();
 			Thread.sleep(3000);
-			logro.StopAudio(logro);
 		}
 	}
 	
@@ -152,9 +143,6 @@ public class Logroak {
 			Audio logro = new Audio("Logro.mp3");
 			logro.PlayAudio();
 			Thread.sleep(3000);
-			logro.StopAudio(logro);
-			Thread.sleep(3000);
-			logro.StopAudio(logro);
 		}
 	}
 	
@@ -165,7 +153,6 @@ public class Logroak {
 			Audio logro = new Audio("Logro.mp3");
 			logro.PlayAudio();
 			Thread.sleep(3000);
-			logro.StopAudio(logro);
 		}
 	}
 	public void pistarenErregeaLogroa() throws InterruptedException{
@@ -175,7 +162,6 @@ public class Logroak {
 			Audio logro = new Audio("Logro.mp3");
 			logro.PlayAudio();
 			Thread.sleep(3000);
-			logro.StopAudio(logro);
 		}
 	}
 }
