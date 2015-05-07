@@ -51,6 +51,7 @@ public class Jokalaria {
 				else if(this.apostua == 0){
 					this.erretiratua = true;
 					aww.PlayAudio();
+					Thread.sleep(1500);
 					Logroak.getNireLogroak().erretiratuLogroa();
 					Logroak.getNireLogroak().logroenErregeaLogroa();
 					System.out.println(this.izena + " jokalaria erretiratu da.");
@@ -114,19 +115,19 @@ public class Jokalaria {
 					System.out.println(e.getMessage());
 					this.apostuaIkusi();
 				}
-					if(emaitza){
-						Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
-						chips.PlayAudio();
-						mahaia.setBotea(mahaia.getBotea() + (mahaia.getApostuMax() - this.apostua));
-						this.dirua = this.dirua - (mahaia.getApostuMax() - this.apostua);				
-						this.apostua = mahaia.getApostuMax();
-					}
-					else{
-						System.out.println(this.izena + ", ez duzu apostua ikusi, beraz, erretiratua izan zara.");
-						this.erretiratua = true;
-						aww.PlayAudio();
-						logroak.erretiratuLogroa();
-					}
+				if(emaitza){
+					Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
+					chips.PlayAudio();
+					mahaia.setBotea(mahaia.getBotea() + (mahaia.getApostuMax() - this.apostua));
+					this.dirua = this.dirua - (mahaia.getApostuMax() - this.apostua);				
+					this.apostua = mahaia.getApostuMax();
+				}
+				else{
+					System.out.println(this.izena + ", ez duzu apostua ikusi, beraz, erretiratua izan zara.");
+					this.erretiratua = true;
+					aww.PlayAudio();
+					logroak.erretiratuLogroa();
+				}
 
 			}
 			else if(this.apostua < mahaia.getApostuMax()){
@@ -174,7 +175,7 @@ public class Jokalaria {
 		
 		if ( this.eskuaKalkulatu() < 21){
 			System.out.println(this.izena + "-ren txanda da.\n");
-			if (this.dirua >= this.apostua){
+			if (this.dirua >= this.apostua && BlackJack.croupierrarekin){
 				System.out.println("Doblatu nahi al duzu? (B/E)"); //TODO
 				eman = sc.next();
 				if(eman.equals("B") || eman.equals("b")){
@@ -289,6 +290,10 @@ public class Jokalaria {
 	
 	public void diruaInprimatu(){
 		System.out.println(this.izena + "-(r)en dirua: " + this.dirua + "\u20AC");
+	}
+	
+	public int kartaKop(){ //JUnit-etan erabilia
+		return this.eskua.tamaina();
 	}
 	
 }
