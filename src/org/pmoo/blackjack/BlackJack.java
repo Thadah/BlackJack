@@ -127,17 +127,8 @@ public class BlackJack {
 	}
 	
 	private boolean croupierrarekin(){
-		System.out.println("Croupier-arekin jolastu nahi al duzu(e)? (B/E)"); //TODO: Eginda
-		String bai = sc.next();
-		boolean emaitza = false;
-		try{
-			emaitza = this.baiEdoEz(bai);
-		}
-		catch(baiEdoEzException e){
-			System.out.println(e.getMessage());
-			this.croupierrarekin();
-		}
-		return emaitza;
+		System.out.println("Croupier-arekin jolastu nahi al duzu(e)? (B/E)");
+		return this.baiEdoEz();
 	}
 	
 	private void irabaziCroupierGabe() throws InterruptedException{
@@ -232,17 +223,8 @@ public class BlackJack {
 	}
 	
 	private boolean rankingakIkusiNahi(){
-		System.out.println("Partida bukatu da, rankingak ikusi nahi dituzue? (B/E)"); //TODO: Eginda
-		boolean emaitza = false;
-		String bai = sc.next();
-		try{
-			emaitza = this.baiEdoEz(bai);
-		}
-		catch(baiEdoEzException e){
-			System.out.println(e.getMessage());
-			this.rankingakIkusiNahi();
-		}
-		return emaitza;
+		System.out.println("Partida bukatu da, rankingak ikusi nahi dituzue? (B/E)");
+		return this.baiEdoEz();
 	}
 	
 	public void rankingakInprimatu(){
@@ -250,15 +232,29 @@ public class BlackJack {
 		listaPartidak.partidakIdatzi();
 	}
 	
-	public boolean baiEdoEz(String pTeklatua) throws baiEdoEzException{
-		if (pTeklatua.equals("B") || pTeklatua.equals("b")){
-			return true;
-		}
-		else if(pTeklatua.equals("E") || pTeklatua.equals("e")){
-			return false;
-		}
-		else{
-			throw(new baiEdoEzException("Mesedez, sartu B (bai) edo E (ez).\n"));
-		}
+	public boolean baiEdoEz(){
+		boolean emaitza = false;
+		boolean ondo = false;
+		do{
+			try{
+				String baiEdoEz = sc.next();
+				if (baiEdoEz.equals("B") || baiEdoEz.equals("b")){
+					emaitza = true;
+					ondo = true;
+				}
+				else if(baiEdoEz.equals("E") || baiEdoEz.equals("e")){
+					emaitza = false;
+					ondo = true;
+				}		
+				else{
+					throw(new baiEdoEzException("Mesedez, sartu B (bai) edo E (ez).\n"));
+				}		
+			}
+			catch(baiEdoEzException e){
+				System.out.println(e.getMessage());
+			}
+		}while(!ondo);
+		return emaitza;
 	}
+	
 }
