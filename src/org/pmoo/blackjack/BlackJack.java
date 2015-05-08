@@ -123,7 +123,9 @@ public class BlackJack {
 				JokoaAmaitu();
 			}
 		}while(!partidaZuzena);
-
+		System.out.println("\nSakatu enter programa ixteko");
+		this.enterItxaron();
+		System.exit(0); 
 	}
 	
 	private boolean croupierrarekin(){
@@ -181,7 +183,7 @@ public class BlackJack {
 	}
 	
 	private void JokoaAmaitu(){
-		sk.close();
+		//sk.close();
 		Baraja.getBaraja().erreseteatu();
 		ListaJokalariak.getNireListaJokalariak().erreseteatu();
 		BlackJack.helbidea = null;
