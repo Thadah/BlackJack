@@ -239,7 +239,7 @@ public class ListaJokalariak {
 		return rankinga;
 	}
 	
-	public Ranking rankingEzCroupier(){
+	public void rankingEzCroupier(){
 		ListaPartidak listaPartidak = ListaPartidak.getNireListaPartidak();
 		Ranking rankinga = new Ranking();
 		Iterator<Jokalaria> itr = this.getIteradorea();
@@ -250,7 +250,6 @@ public class ListaJokalariak {
 		}
 		rankinga.rankingaOrdenatu();
 		listaPartidak.partidaGorde(rankinga);
-		return rankinga;
 	}
 	
 	public void apostuakBueltatu(){
