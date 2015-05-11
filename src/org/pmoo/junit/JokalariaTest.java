@@ -1,10 +1,13 @@
-package org.pmoo.blackjack;
+package org.pmoo.junit;
 
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.pmoo.blackjack.ApostuException;
+import org.pmoo.blackjack.BlackJack;
+import org.pmoo.blackjack.Jokalaria;
 
 public class JokalariaTest {
 	

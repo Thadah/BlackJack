@@ -1,10 +1,12 @@
-package org.pmoo.blackjack;
+package org.pmoo.junit;
 
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.pmoo.blackjack.Jokalaria;
+import org.pmoo.blackjack.Ranking;
 
 public class RankingTest {
 	private Ranking r1;

@@ -1,10 +1,12 @@
-package org.pmoo.blackjack;
+package org.pmoo.junit;
 
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.pmoo.blackjack.Baraja;
+import org.pmoo.blackjack.Karta;
 
 public class BarajaTest {
 	Baraja b1;
