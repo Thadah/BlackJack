@@ -3,19 +3,23 @@ package org.pmoo.audio;
 import java.net.URL;
 
 import javafx.scene.media.*;
+import javafx.util.Duration;
 
 public class Audio {
+	public String nireAudio;
 	public Media media;
 
 	public Audio(String pSong){
 		new javafx.embed.swing.JFXPanel();
-		URL bip = getClass().getResource(pSong);
-		this.media = new Media(bip.toString());
+		nireAudio = pSong;
 	}
 	
-	public void PlayAudio(){
+	public void playAudio(){
+		URL url = getClass().getResource(nireAudio);
+		this.media = new Media(url.toString());
 		MediaPlayer player = new MediaPlayer(this.media);
 		player.play();
+		Duration duration = player.getTotalDuration();
+		player.setStopTime(duration);
 	}
-
 }

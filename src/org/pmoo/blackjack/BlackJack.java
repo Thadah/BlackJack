@@ -35,7 +35,7 @@ public class BlackJack {
 	//Beste metodoak
 	public void partidaJolastu() throws InterruptedException{
 		Audio main = new Audio("Theme.mp3");
-		main.PlayAudio();
+		main.playAudio();
 		String jolastuNahi = "B";
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		Logroak logroak = Logroak.getNireLogroak();
@@ -61,7 +61,7 @@ public class BlackJack {
 					Baraja.getBaraja().erreseteatu();
 					System.out.println("Barajatzen...");
 					Audio shuffle = new Audio("Shuffling.mp3");
-					shuffle.PlayAudio();
+					shuffle.playAudio();
 					Thread.sleep(3000);
 					//Apostatu
 					jokalariak.apostuak();
@@ -142,7 +142,7 @@ public class BlackJack {
 				System.out.println("ZORIONAK " + irabazlea.getIzena() + ", "  + this.botea + "\u20AC-ko botea irabazi duzu!!! :3\n");
 				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":3");
 				Audio woohoo = new Audio("WooHoo.mp3");
-				woohoo.PlayAudio();
+				woohoo.playAudio();
 				irabazlea.boteaHartu();
 			} 
 			else {

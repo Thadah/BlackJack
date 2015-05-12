@@ -75,7 +75,7 @@ public class Ranking {
 			}
 			System.out.print((int)(mahaia.getBotea())/(this.irabazleKop()) + "\u20AC-ko botea irabazi duzu(e) ;)\n\n");
 			Audio woohoo = new Audio("WooHoo.mp3");
-			woohoo.PlayAudio();
+			woohoo.playAudio();
 	}
 	
 	public Jokalaria norDaLehenengoa(){

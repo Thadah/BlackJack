@@ -50,7 +50,7 @@ public class Jokalaria {
 				}
 				else if(this.apostua == 0){
 					this.erretiratua = true;
-					aww.PlayAudio();
+					aww.playAudio();
 					Thread.sleep(1500);
 					Logroak.getNireLogroak().erretiratuLogroa();
 					Logroak.getNireLogroak().logroenErregeaLogroa();
@@ -62,7 +62,7 @@ public class Jokalaria {
 					konfirm = mahaia.baiEdoEz();
 					if(konfirm){
 						Audio mahmonei = new Audio("TakeMahMoney.mp3");
-						mahmonei.PlayAudio();
+						mahmonei.playAudio();
 						System.out.println("All-in egin duzu.");
 					}
 					else{
@@ -73,7 +73,8 @@ public class Jokalaria {
 				if(this.apostua > mahaia.getApostuMax()){
 					mahaia.setApostuMax(this.apostua);
 					Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
-					chips.PlayAudio();	
+					chips.playAudio();	
+					Thread.sleep(300);
 				}
 				mahaia.setBotea(mahaia.getBotea() + this.apostua);
 				this.dirua = this.dirua - this.apostua;
@@ -82,7 +83,7 @@ public class Jokalaria {
 		else{
 			System.out.println(this.izena + "Ez duzu dirurik apostua ikusteko, beraz, erretiratua izan zara");
 			this.erretiratua = true;
-			aww.PlayAudio();
+			aww.playAudio();
 		}
 	}
 	
@@ -109,7 +110,8 @@ public class Jokalaria {
 				emaitza = mahaia.baiEdoEz();
 				if(emaitza){
 					Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
-					chips.PlayAudio();
+					chips.playAudio();
+					Thread.sleep(300);
 					mahaia.setBotea(mahaia.getBotea() + (mahaia.getApostuMax() - this.apostua));
 					this.dirua = this.dirua - (mahaia.getApostuMax() - this.apostua);				
 					this.apostua = mahaia.getApostuMax();
@@ -117,7 +119,7 @@ public class Jokalaria {
 				else{
 					System.out.println(this.izena + ", ez duzu apostua ikusi, beraz, erretiratua izan zara.");
 					this.erretiratua = true;
-					aww.PlayAudio();
+					aww.playAudio();
 					logroak.erretiratuLogroa();
 				}
 
@@ -126,7 +128,7 @@ public class Jokalaria {
 				System.out.println(this.izena + " , ez dituzu apostua ikusteko baldintzak betetzen, erretiratua izan zara. T_T");
 				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa("T_T");
 				this.erretiratua = true;
-				aww.PlayAudio();
+				aww.playAudio();
 			}	
 		}
 	}
@@ -142,7 +144,7 @@ public class Jokalaria {
 	public void kartaEskatu() throws InterruptedException{
 		Baraja nireBaraja = Baraja.getBaraja();
 		Audio slide = new Audio("Slide" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
-		slide.PlayAudio();
+		slide.playAudio();
 		Thread.sleep(300);
 		Karta kartaBat = nireBaraja.emanKarta();
 		this.eskua.gehituKarta(kartaBat);
@@ -173,7 +175,7 @@ public class Jokalaria {
 				if(eman){
 					this.kartaEskatu();
 					Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
-					chips.PlayAudio();
+					chips.playAudio();
 					this.dirua = this.dirua - this.apostua;
 					mahaia.setBotea(mahaia.getBotea() + this.apostua);
 					this.apostua = this.apostua*2;
@@ -196,6 +198,8 @@ public class Jokalaria {
 				}
 			}
 			if (this.eskuaKalkulatu() > 21){
+				Audio aww = new Audio("Aww.mp3");
+				aww.playAudio();
 				System.out.println("Pasatu egin zara :( \n");
 				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":(");
 			}
@@ -270,7 +274,7 @@ public class Jokalaria {
 			if(joanDa){
 				System.out.println(this.getIzena() + "-(e)k mahaia utzi du ;_;");
 				Audio aww = new Audio("Aww.mp3");
-				aww.PlayAudio();
+				aww.playAudio();
 				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(";_;");
 				lista.erretiratu(this);
 				joanDa = true;

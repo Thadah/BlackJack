@@ -49,7 +49,7 @@ public class Logroak {
 			System.out.println("\n-=BlackJack Logroa Desblokeatuta=-\n");		
 			this.blackJack = true;
 			Audio logro = new Audio("Logro.mp3");
-			logro.PlayAudio();
+			logro.playAudio();
 			Thread.sleep(3000);
 		}
 	}
@@ -59,7 +59,7 @@ public class Logroak {
 			System.out.println("\n-=Erretiratua Logroa Desblokeatuta=-\n");
 			this.erretiratu = true;
 			Audio logro = new Audio("Logro.mp3");
-			logro.PlayAudio();
+			logro.playAudio();
 			Thread.sleep(3000);
 		}
 	}
@@ -69,7 +69,7 @@ public class Logroak {
 			System.out.println("\n-=Apostu Bikoitzaren Logroa Desblokeatuta=-\n");		
 			this.bikoitza = true;
 			Audio logro = new Audio("Logro.mp3");
-			logro.PlayAudio();
+			logro.playAudio();
 			Thread.sleep(3000);
 		}
 	}
@@ -80,7 +80,7 @@ public class Logroak {
 			System.out.println("\n-=Logro Guztiak Desblokeatuta=-\n");
 			this.logroenErregea = true;
 			Audio logro = new Audio("Logro.mp3");
-			logro.PlayAudio();
+			logro.playAudio();
 			Thread.sleep(3000);
 		}
 	}
@@ -90,7 +90,7 @@ public class Logroak {
 			System.out.println("\n-=HelloWorld Logroa Desblokeatuta=-\n");
 			this.helloWorld = true;
 			Audio logro = new Audio("Logro.mp3");
-			logro.PlayAudio();
+			logro.playAudio();
 			Thread.sleep(3000);
 		}
 	}
@@ -100,7 +100,7 @@ public class Logroak {
 			System.out.println("\n-=Ludopata Logroa Desblokeatuta=-\n");
 			this.ludopata = true;
 			Audio logro = new Audio("Logro.mp3");
-			logro.PlayAudio();
+			logro.playAudio();
 			Thread.sleep(3000);
 		}
 	}
@@ -111,7 +111,7 @@ public class Logroak {
 			System.out.println("\n-=Bankarrota Logroa Desblokeatuta=-\n");
 			this.bankarrota=true;
 			Audio logro = new Audio("Logro.mp3");
-			logro.PlayAudio();
+			logro.playAudio();
 			Thread.sleep(3000);
 		}
 	}
@@ -121,7 +121,7 @@ public class Logroak {
 			System.out.println("\n-=Mahaiko Erregearen Logroa Desblokeatuta=-\n");
 			this.mahaikoErregea = true;
 			Audio logro = new Audio("Logro.mp3");
-			logro.PlayAudio();
+			logro.playAudio();
 			Thread.sleep(3000);
 		}
 	}
@@ -131,7 +131,7 @@ public class Logroak {
 			System.out.println("\n-=Lagunik Gabe Logroa Desblokeatuta=-\n");
 			this.lagunikGabe = true;
 			Audio logro = new Audio("Logro.mp3");
-			logro.PlayAudio();
+			logro.playAudio();
 			Thread.sleep(3000);
 		}
 	}
@@ -141,7 +141,7 @@ public class Logroak {
 			System.out.println("\n-=Lagun Asko Logroa Desblokeatuta=-\n");
 			this.lagunAsko = true;
 			Audio logro = new Audio("Logro.mp3");
-			logro.PlayAudio();
+			logro.playAudio();
 			Thread.sleep(3000);
 		}
 	}
@@ -151,7 +151,7 @@ public class Logroak {
 			System.out.println("\n-=Emotikonoen Logroa Desblokeatuta=-\n");
 			this.emotikonoak = true;
 			Audio logro = new Audio("Logro.mp3");
-			logro.PlayAudio();
+			logro.playAudio();
 			Thread.sleep(3000);
 		}
 	}
@@ -160,7 +160,7 @@ public class Logroak {
 			System.out.println("\n-=Pistaren Erregea Logroa Desblokeatuta=-\n");
 			this.pistarenErregea = true;
 			Audio logro = new Audio("Logro.mp3");
-			logro.PlayAudio();
+			logro.playAudio();
 			Thread.sleep(3000);
 		}
 	}
