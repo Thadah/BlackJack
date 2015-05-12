@@ -73,7 +73,7 @@ public class Ranking {
 				jokalariBat = itr.next();
 				System.out.print(jokalariBat.getIzena() + " ");
 			}
-			System.out.print((int)(mahaia.getBotea())/(this.irabazleKop()) + "\u20AC-ko botea irabazi duzu(e) ;)\n\n");
+			System.out.print((int)(mahaia.getBotea())/(this.irabazleKop()) + "Jauregi Points-ko botea irabazi duzu(e) ;)\n\n");
 			Audio woohoo = new Audio("WooHoo.mp3");
 			woohoo.playAudio();
 	}

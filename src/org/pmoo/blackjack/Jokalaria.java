@@ -284,7 +284,7 @@ public class Jokalaria {
 	}
 	
 	public void diruaInprimatu(){
-		System.out.println(this.izena + "-(r)en dirua: " + this.dirua + "\u20AC");
+		System.out.println(this.izena + "-(r)en dirua: " + this.dirua + " Jauregi Points");
 	}
 	
 	public int kartaKop(){ //JUnit-etan erabilia

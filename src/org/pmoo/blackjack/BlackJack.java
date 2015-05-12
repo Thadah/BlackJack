@@ -52,7 +52,7 @@ public class BlackJack {
 		}
 		logroak.lagunAskoLogroa();
 		logroak.logroenErregeaLogroa();
-		System.out.println("(Jokalari bakoitzak predeterminatuki 500\u20AC ditu)\n");
+		System.out.println("(Jokalari bakoitzak predeterminatuki 500 Jauregi Points ditu)\n");
 		boolean partidaZuzena = false;
 		do{		
 			if(jolastuNahi.equals("B")){
@@ -139,7 +139,7 @@ public class BlackJack {
 		if(!jokalariak.batBainoGehiagoIrabazi()){
 			Jokalaria irabazlea = jokalariak.eskuHandienaKalkulatu();
 			if (irabazlea != null){
-				System.out.println("ZORIONAK " + irabazlea.getIzena() + ", "  + this.botea + "\u20AC-ko botea irabazi duzu!!! :3\n");
+				System.out.println("ZORIONAK " + irabazlea.getIzena() + ", "  + this.botea + " Jauregi Points-ko botea irabazi duzu!!! :3\n");
 				ListaEmotikonoak.getNireListaEmotikonoak().gehituEmotikonoa(":3");
 				Audio woohoo = new Audio("WooHoo.mp3");
 				woohoo.playAudio();
