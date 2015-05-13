@@ -231,7 +231,7 @@ public class ListaJokalariak {
 				rankinga.rankingeanSartu(jokalariBat);
 			}
 		}
-		if (rankinga.irabazleKop() == 0){
+		if (rankinga.irabazleKop() == 0 && croupierEskua <= 21){
 			rankinga.rankingeanSartu(jokalariBat);
 		}
 		rankinga.rankingaOrdenatu();

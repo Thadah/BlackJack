@@ -161,16 +161,23 @@ public class BlackJack {
 	private void irabaziCroupierrarekin(){
 		ListaJokalariak jokalariak = ListaJokalariak.getNireListaJokalariak();
 		Ranking rankinga = jokalariak.rankingCroupier();
-		int bakoitzari = (int)(this.getBotea())/(rankinga.irabazleKop());
 		try{
-			rankinga.irabazleakInprimatu();
-			jokalariak.boteaBanatu(bakoitzari, rankinga);
+			int bakoitzari = (int)(this.getBotea())/(rankinga.irabazleKop());
+			try{
+				rankinga.irabazleakInprimatu();
+				jokalariak.boteaBanatu(bakoitzari, rankinga);
+			}
+			catch(RankingException e){
+				System.out.println(e.getMessage());
+				jokalariak.apostuakBueltatu();
+			}
 		}
-		catch(RankingException e){
-			System.out.println(e.getMessage());
+		catch(ArithmeticException e){
+			System.out.println("Ez dago irabazlerik, beraz apostuak bueltatuko dira");
 			jokalariak.apostuakBueltatu();
 		}
 	}
+
 	
 	private void irabazleaKalkulatu() throws InterruptedException{
 		if(!BlackJack.croupierrarekin){

@@ -92,7 +92,6 @@ public class Croupier extends Jokalaria {
 			else{
 				System.out.println("Croupierra pasatu egin da \n");
 				pasatuta = true;
-				this.erretiratua = true;
 			}			
 		}
 	}
