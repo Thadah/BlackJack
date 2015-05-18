@@ -1,5 +1,6 @@
 package org.pmoo.blackjack;
 import java.util.*;
+
 public class ListaEmotikonoak {
 		public static ListaEmotikonoak helbidea=null;
 		private ArrayList<String> lista=null;
@@ -26,7 +27,7 @@ public class ListaEmotikonoak {
 			
 		}
 		
-		public boolean emotikonoaBadago(String pEmo){
+		private boolean emotikonoaBadago(String pEmo){
 			boolean bai=false;
 			Iterator<String> itr=ListaEmotikonoak.getNireListaEmotikonoak().getIteradorea();
 			String emotikonoa="@";

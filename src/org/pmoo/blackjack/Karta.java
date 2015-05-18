@@ -36,7 +36,7 @@ public class Karta {
 		return this.zenbakia;
 	}
 	
-	public int getKartaPalua(){
+	private int getKartaPalua(){
 		return this.palua;
 	}
 	

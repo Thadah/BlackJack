@@ -215,10 +215,9 @@ public class Jokalaria {
 		return this.izena;
 	}
 	
-	public int getDirua() {
+	private int getDirua() {
 		return this.dirua;
 	}
-	
 	public void eskuBerria(){
 		this.eskua = new ListaKartak();
 	}
@@ -287,7 +286,7 @@ public class Jokalaria {
 		System.out.println(this.izena + "-(r)en dirua: " + this.dirua + " Jauregi Points");
 	}
 	
-	public int kartaKop(){ //JUnit-etan erabilia
+	private int kartaKop(){ //JUnit-etan erabilia
 		return this.eskua.tamaina();
 	}
 	

@@ -39,7 +39,7 @@ public class Ranking {
 		 Collections.sort(this.ranking, ESKUA);
 	}
 	
-	public Jokalaria posizioan(int pInt){
+	private Jokalaria posizioan(int pInt){
 		return this.ranking.get(pInt);
 	}
 	

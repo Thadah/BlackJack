@@ -35,7 +35,6 @@ public class Baraja {
 	private Iterator<Karta> getIteradorea(){
 		return this.listaKartak.iterator();
 	}
-	
 	public void erreseteatu(){
 		this.listaKartak.clear();
 		Baraja.helbidea = null;
@@ -53,11 +52,11 @@ public class Baraja {
 	}
 	
 	//JUnitentzako	
-	public int tamaina(){ 
+	private int tamaina(){ 
 		return this.listaKartak.size();
 	}
 	
-	public void barajaInprimatu(){
+	private void barajaInprimatu(){
 		Iterator<Karta> itr = this.getIteradorea();
 		while(itr.hasNext()){
 			Karta kartaBat = itr.next();

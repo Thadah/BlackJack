@@ -53,7 +53,6 @@ public class Logroak {
 			Thread.sleep(3000);
 		}
 	}
-	
 	public void erretiratuLogroa() throws InterruptedException{
 		if(!this.erretiratu){
 			System.out.println("\n-=Erretiratua Logroa Desblokeatuta=-\n");

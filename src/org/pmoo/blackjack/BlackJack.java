@@ -33,7 +33,7 @@ public class BlackJack {
 	}
 	
 	//Beste metodoak
-	public void partidaJolastu() throws InterruptedException{
+	private void partidaJolastu() throws InterruptedException{
 		Audio main = new Audio("Theme.mp3");
 		main.playAudio();
 		String jolastuNahi = "B";
@@ -218,7 +218,7 @@ public class BlackJack {
 		ListaJokalariak.getNireListaJokalariak().kenduKartak();
 	}
 	
-	public void kontsolaGarbitu(){
+	private void kontsolaGarbitu(){
 		int i;
 		for(i=1; i < 20; i++){
 			System.out.println("\n");
@@ -236,11 +236,10 @@ public class BlackJack {
 		return this.baiEdoEz();
 	}
 	
-	public void rankingakInprimatu(){
+	private void rankingakInprimatu(){
 		ListaPartidak listaPartidak = ListaPartidak.getNireListaPartidak();
 		listaPartidak.partidakIdatzi();
 	}
-	
 	public boolean baiEdoEz(){
 		boolean emaitza = false;
 		boolean ondo = false;

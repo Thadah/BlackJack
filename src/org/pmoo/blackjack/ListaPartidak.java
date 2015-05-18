@@ -45,7 +45,7 @@ public class ListaPartidak {
 			i++;
 		}		
 	}
-	public boolean badagoHallOfFamean(Jokalaria pJok){
+	private boolean badagoHallOfFamean(Jokalaria pJok){
 		Iterator<Jokalaria> itr2=this.getIteradorea2();
 		boolean bai = false;
 		Jokalaria jok=null;

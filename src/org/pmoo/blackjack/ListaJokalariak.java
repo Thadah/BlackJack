@@ -22,7 +22,7 @@ public class ListaJokalariak {
 	}
 	
 	//Beste metodoak
-	public Iterator<Jokalaria> getIteradorea(){
+	private Iterator<Jokalaria> getIteradorea(){
 		return this.lista.iterator();
 	}
 	
@@ -56,13 +56,12 @@ public class ListaJokalariak {
 	public int tamaina(){
 		return this.lista.size();
 	}
-
 	public void erreseteatu(){
 		this.lista.clear();
 		ListaJokalariak.helbidea = null;
 	}
 	
-	public void guztiakErreseteatu(){
+	private void guztiakErreseteatu(){
 		Baraja.getBaraja().erreseteatu();
 		ListaJokalariak.getNireListaJokalariak().erreseteatu();
 	}
