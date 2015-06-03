@@ -9,9 +9,9 @@ public class Ranking {
 	//Atributuak
 	private ArrayList<Jokalaria> ranking;
 	static final Comparator<Jokalaria> ESKUA = new Comparator<Jokalaria>() {
-	public int compare(Jokalaria pJok1, Jokalaria pJok2) {
-	return new Integer(pJok2.eskuaKalkulatu()).compareTo(new Integer(pJok1.eskuaKalkulatu()));
-		 }
+		public int compare(Jokalaria pJok1, Jokalaria pJok2) {
+			return new Integer(pJok2.eskuaKalkulatu()).compareTo(new Integer(pJok1.eskuaKalkulatu()));
+		}
 	 };
 	
 	//Eraikitzailea
@@ -24,7 +24,7 @@ public class Ranking {
 		return this.ranking.iterator();
 	}
 	
-	public void rankingeanSartu (Jokalaria pJokalaria){
+	public void rankingeanSartu(Jokalaria pJokalaria){
 		Jokalaria jokalariBat = new Jokalaria(pJokalaria.izena);
 		jokalariBat.eskua = pJokalaria.eskua;
 		this.ranking.add(jokalariBat);
@@ -34,13 +34,8 @@ public class Ranking {
 		return this.ranking.size();
 	}
 	
-	
 	public void rankingaOrdenatu(){
 		 Collections.sort(this.ranking, ESKUA);
-	}
-	
-	private Jokalaria posizioan(int pInt){
-		return this.ranking.get(pInt);
 	}
 	
 	public void partidakIdatzi(){

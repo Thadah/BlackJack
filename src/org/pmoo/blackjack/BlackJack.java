@@ -240,6 +240,7 @@ public class BlackJack {
 		ListaPartidak listaPartidak = ListaPartidak.getNireListaPartidak();
 		listaPartidak.partidakIdatzi();
 	}
+	
 	public boolean baiEdoEz(){
 		boolean emaitza = false;
 		boolean ondo = false;

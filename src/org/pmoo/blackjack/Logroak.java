@@ -43,7 +43,7 @@ public class Logroak {
 		return Logroak.helbidea;
 	}
 	
-	//Beste Metodoak
+	//Beste metodoak
 	public void blackJackLogroa() throws InterruptedException{
 		if(!this.blackJack){
 			System.out.println("\n-=BlackJack Logroa Desblokeatuta=-\n");		
@@ -53,6 +53,7 @@ public class Logroak {
 			Thread.sleep(3000);
 		}
 	}
+	
 	public void erretiratuLogroa() throws InterruptedException{
 		if(!this.erretiratu){
 			System.out.println("\n-=Erretiratua Logroa Desblokeatuta=-\n");
@@ -154,6 +155,7 @@ public class Logroak {
 			Thread.sleep(3000);
 		}
 	}
+	
 	public void pistarenErregeaLogroa() throws InterruptedException{
 		if(!this.pistarenErregea && ListaPartidak.getNireListaPartidak().hallOfFameBete()){	
 			System.out.println("\n-=Pistaren Erregea Logroa Desblokeatuta=-\n");

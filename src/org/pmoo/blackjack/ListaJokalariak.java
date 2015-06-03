@@ -61,11 +61,6 @@ public class ListaJokalariak {
 		ListaJokalariak.helbidea = null;
 	}
 	
-	private void guztiakErreseteatu(){
-		Baraja.getBaraja().erreseteatu();
-		ListaJokalariak.getNireListaJokalariak().erreseteatu();
-	}
-	
 	public void boteaBanatu(int pBotea, Ranking pRanking){
 		Iterator<Jokalaria> itr = this.getIteradorea();
 		Jokalaria jokalariBat = null;
