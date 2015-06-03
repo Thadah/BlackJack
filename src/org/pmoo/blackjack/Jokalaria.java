@@ -58,7 +58,7 @@ public class Jokalaria {
 				}
 				else if(this.apostua == this.dirua){
 					boolean konfirm = false;
-					System.out.println("Ziur zaude All-in egin nahi duzula? (B/E)"); //TODO
+					System.out.println("Ziur zaude All-in egin nahi duzula? (B/E)");
 					konfirm = mahaia.baiEdoEz();
 					if(konfirm){
 						Audio mahmonei = new Audio("TakeMahMoney.mp3");
@@ -106,7 +106,7 @@ public class Jokalaria {
 		BlackJack mahaia = BlackJack.getNireBlackJack();
 		if(!this.erretiratua){
 			if (this.apostua < mahaia.getApostuMax() && totala >= mahaia.getApostuMax()){
-				System.out.println(this.izena + ", apostua ikusi nahi duzu? (B/E)"); //TODO: Eginda
+				System.out.println(this.izena + ", apostua ikusi nahi duzu? (B/E)");
 				emaitza = mahaia.baiEdoEz();
 				if(emaitza){
 					Audio chips = new Audio("Chips" + (int)(Math.random() * ((3 - 1) + 1) + 1) + ".mp3");
@@ -170,7 +170,7 @@ public class Jokalaria {
 		if ( this.eskuaKalkulatu() < 21){
 			System.out.println(this.izena + "-ren txanda da.\n");
 			if (this.dirua >= this.apostua && BlackJack.croupierrarekin){
-				System.out.println("Doblatu nahi al duzu? (B/E)"); //TODO
+				System.out.println("Doblatu nahi al duzu? (B/E)");
 				eman = mahaia.baiEdoEz();
 				if(eman){
 					this.kartaEskatu();
@@ -186,7 +186,7 @@ public class Jokalaria {
 				}
 			}
 			while(!plantatuta && this.eskuaKalkulatu() < 21){
-				System.out.println("Karta bat nahi duzu?? (B/E)"); //TODO
+				System.out.println("Karta bat nahi duzu?? (B/E)");
 				eman = mahaia.baiEdoEz();
 				if(eman){
 					this.kartaEskatu();
@@ -268,7 +268,7 @@ public class Jokalaria {
 			joanDa = true;
 		}
 		else{		
-			System.out.println(this.getIzena() + ", partida utzi nahi duzu? (B/E)"); //TODO
+			System.out.println(this.getIzena() + ", partida utzi nahi duzu? (B/E)");
 			joanDa = mahaia.baiEdoEz();
 			if(joanDa){
 				System.out.println(this.getIzena() + "-(e)k mahaia utzi du ;_;");

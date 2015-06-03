@@ -136,7 +136,6 @@ public class ListaJokalariak {
 		}
 	}
 
-	
 	public void apostuak() throws InterruptedException{
 		Jokalaria jokalariBat = null;
 		boolean apostuaEginda = false;

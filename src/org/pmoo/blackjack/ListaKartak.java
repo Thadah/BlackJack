@@ -16,10 +16,6 @@ public class ListaKartak {
 	public void gehituKarta(Karta pKarta){
 		this.kartak.add(pKarta);
 	}
-	
-	private void erreseteatu(){
-		this.kartak.clear();
-	}
 		
 	public Iterator<Karta> getIteradorea(){
 		return this.kartak.iterator();

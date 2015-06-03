@@ -36,10 +36,6 @@ public class Karta {
 		return this.zenbakia;
 	}
 	
-	private int getKartaPalua(){
-		return this.palua;
-	}
-	
 	public boolean batekoa(){
 		if (this.zenbakia == 1){
 			return true;
